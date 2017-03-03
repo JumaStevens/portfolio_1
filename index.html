@@ -196,41 +196,43 @@
 			<div class="page-container">
 				<main class="page">
 					<!-- HOME -->
-					<section class="home">
-						<div class="home-intro padding">
-							<h1>He<br>llo</h1>
-							<span>
-								<circle class="dot" width="12" height="12" cx="403.17" cy="316.01" r="25.67" data-svg-origin="403.17000007629395 316.00999641418457" style="transform: matrix(1, 0, 0, 1, 0, 0);"></circle>
-							</span>
+					<section class="page__home">
+
+						<div class="page__home-color"><!-- fill color --></div>
+
+						<div class="intro-heading">
+							<h1 class="intro-heading__title">He<br>llo</h1>
 						</div>
 
-						<span class="scrolldown">
-							<span class="arrow">
+						<div class="intro-scrolldown">
+							<span class="intro-scrolldown__arrow bounce animated">
 								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 17 10">
 									<path class="cls-1" d="M6.22,8.75,3.37,5.89H17V4.12H3.37L6.22,1.25,5,0,0,5l5,5Z"></path>
 								</svg>
 							</span>
-							<span class="txt">Scroll</span>
-						</span>
+							<p class="intro-scrolldown__text">Scroll</p>
+						</div>
 
-						<div class="page-color"><!-- fill color --></div>
-
-						<article class="home-content padding">
-							<div>
-								<span class="line"></span>
-								<span class="txt">Hello</span>
+						<article class="intro-article">
+							<div class="intro-article__heading">
+								<div class="intro-article__heading-line"></div>
+								<p class="intro-article__heading-text">Hello</p>
 							</div>
-							<p>
-								<span class="txt">My name is Juma Stevens.</span>
-								<br>I am a freelance Front-End Web Developer based in Portland, Oregon.
+							<p class="intro-article__body">
+								<span class="intro-article__body-blocker"><!-- hides element --></span>
+								<span class="intro-article__body--color">My name is Juma Stevens.</span>
+								<br>I'm a Front-End Web Developer<br>based in Portland, Oregon.
 							</p>
 						</article>
 					</section>
 
+					<!-- SPACING -->
+					<div class="gap-space"></div>
+
 					<!-- TRANSITION -->
-					<div>
-						<img src="" alt="">
-					</div>
+					<section class="page__transition">
+						<img class="page__transition-image" src="http://lovepankycdn.confettimediapri.netdna-cdn.com/wp-content/uploads/images/2012/04/do-guys-like-shy-girls-1.jpg" alt="">
+					</section>
 
 					<!-- FEATURED WORKS -->
 					<section class="works">
@@ -307,11 +309,11 @@
 
 
 		<!-- BORDERS -->
-		<div class="borders">
-			<div class="top"></div>
-			<div class="bottom"></div>
-			<div class="left"></div>
-			<div class="right"></div>
+		<div class="border">
+			<div class="border__top"></div>
+			<div class="border__bottom"></div>
+			<div class="border__left"></div>
+			<div class="border__right"></div>
 		</div>
 
 
