@@ -97,7 +97,7 @@ article
 ===================*/
 .intro-article {
 	font-size: 1.4rem;
-	color: rgb(255, 255, 255);
+	color: rgb(34, 34, 34);
 }
 .intro-article__heading {
 	display: flex;
@@ -106,7 +106,7 @@ article
 }
 .intro-article__heading-line {
 	padding: 0;
-	background: rgb(255, 255, 255);
+	background: rgb(34, 34, 34);
 }
 .intro-article__heading-text {
 	opacity: 0;
@@ -121,7 +121,7 @@ article
 	background: rgb(255, 88, 81);
 }
 .intro-article__body--color {
-	color: rgb(34, 34, 34);
+	color: rgb(255, 255, 255);
 }
 /*===================
 scrolldown
@@ -131,6 +131,7 @@ scrolldown
 	left: 50%;
 	bottom: 0;
 	opacity: 1;
+	color: rgb(255, 255, 255);
 	display: flex;
 	align-items: center;
 	-webkit-transform-origin: left center;
@@ -138,6 +139,9 @@ scrolldown
     -ms-transform-origin: left center;
     -o-transform-origin: left center;
     transform-origin: left center;
+}
+.intro-scrolldown__arrow svg {
+	fill: rgb(255, 255, 255);
 }
 /*===================
 transform groupings
@@ -180,7 +184,7 @@ transition groupings
 .intro-article__body-blocker {
 	-webkit-transition: -webkit-transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 500ms;
     -moz-transition: -moz-transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 500ms;
-    transition: transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 500ms;
+    transition: transform 250ms cubic-bezier(0.7, 0, 0.3, 1) 500ms;
 }
 .intro-article__heading-line {
 	-webkit-transition: padding 500ms cubic-bezier(0.7, 0, 0.3, 1) 50ms;
@@ -197,9 +201,18 @@ transition groupings
     -moz-transition: -moz-transform, opacity 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
     transition: transform, opacity 100ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
 }
+/* temp */
+.page__home {
+	-webkit-transition: -webkit-transform, opacity 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    -moz-transition: -moz-transform, opacity 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    transition: transform 25ms ease-out 0ms;
+}
 
-
-
+.page__transition {
+	-webkit-transition: -webkit-transform, opacity 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    -moz-transition: -moz-transform, opacity 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    transition: transform 250ms ease-out 0ms;
+}
 
 
 
@@ -224,7 +237,10 @@ transition groupings
 
 .page__transition {
 	position: relative;
+	left:0;
+	top:0;
 	z-index: 10;
+
 }
 .page__transition-image {
 	width: 100vw;
