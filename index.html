@@ -232,66 +232,73 @@
 
 					<!-- TRANSITION -->
 					<section class="page__transition">
-						<img class="page__transition-image parallax" src="http://lovepankycdn.confettimediapri.netdna-cdn.com/wp-content/uploads/images/2012/04/do-guys-like-shy-girls-1.jpg" alt="">
+						<img class="page__transition-image" src="" alt="">
 					</section>
 
 					<!-- FEATURED WORKS -->
-					<section class="works">
-						<div class="title-container">
-							<span class="txt">
-								<h2>Featured Works</h2>
-								<span>All handcoded with love.</span>
+					<section class="page__works">
+						<div class="works-title-container">
+							<canvas id="canvas"></canvas> <!-- TEST TEST -->
+							<span class="works-title">
+								<h2 class="works-title__heading">Featured Works</h2>
+								<p class="works-title__body">All handcoded with love.</p>
 							</span>
 						</div>
 						
 						<div class="works-example">
-							<div class="works-example__image">
-								<img src="" alt="">
+							<h3 class="works-example__heading works-example__heading--show">Advent</h3>
+							<div class="works-example__image-container works-example__image-container--left">
+								<img class="works-example__image" src="https://designmodo.com/wp-content/uploads/2014/11/8.jpg" alt="">
 							</div>
-							<div class="works-example__content">
-								<h3>Advent</h3>
-								<p>Designed from the ground up with ease of use, and trustworthiness in mind. Advent demanded a approachable web presence where the user can turn to them and see them as web professionals. Built it for fun yo.</p>
-								<a class="button" href="#">Read more</a>
-							</div>
+							<article class="works-example__article works-example__article--left">
+								<h3 class="works-example__heading works-example__heading--hidden">Advent</h3>
+								<span class="works-example__type">e-commerce &centerdot; agency</span>
+								<p class="works-example__body">Designed from the ground up with ease of use, and trustworthiness in mind. Advent demanded a approachable web presence where the user can turn to them and see them as web professionals. Built it for fun yo.</p>
+								<a class="works-example__button button" href="#">Learn more</a>
+							</article>
 						</div>
 
 						<div class="works-example">
-							<div class="works-example__image">
-								<img src="" alt="">
+							<h3 class="works-example__heading works-example__heading--show">Photosite</h3>
+							<div class="works-example__image-container works-example__image-container--right">
+								<img class="works-example__image" src="http://imyourbiz.com/wp-content/uploads/2013/06/Home-computer1.png" alt="">
 							</div>
-							<div class="works-example__content">
-								<h3>Photosite</h3>
-								<p>Designed from the ground up with ease of use, and trustworthiness in mind. Advent demanded a approachable web presence where the user can turn to them and see them as web professionals. Built it for fun yo.</p>
-								<a class="button" href="#">Read more</a>
-							</div>
+							<article class="works-example__article works-example__article--right">
+								<h3 class="works-example__heading works-example__heading--hidden">Photosite</h3>
+								<span class="works-example__type">lifestyle &centerdot; portfolio</span>
+								<p class="works-example__body">Designed from the ground up with ease of use, and trustworthiness in mind. Advent demanded a approachable web presence where the user can turn to them and see them as web professionals. Built it for fun yo.</p>
+								<a class="works-example__button button" href="#">Learn more</a>
+							</article>
 						</div>
 					</section>
 
 					<!-- TESTIMONIALS -->
-					<section>
+					<section class="page__testimonials">
 						
 					</section>
 
 					<!-- CONTACT -->
-					<section class="contact">
-						<div class="title-container">
-							<p>I'd love to hear from you</p>
-							<p>Feel free to reach out anytime</p>
+					<section class="page__contact">
+						<div class="contact__title-container">
+							<p class="contact__title-heading">I'd love to hear from you</p>
+							<p class="contact__title-body">Feel free to reach out anytime</p>
 						</div>
 
-						<div class="contact-info">
-							<img src="" alt="">
-							<h4>Juma Stevens</h4>
-							<p>Front-End Web Developer</p>
-							<a class="button" href="#">Submit a Brief</a>
+						<div class="contact__info">
+							<div class="contact__avatar-container">
+								<img class="contact__avatar" src="/images/avatar.jpg" alt="">
+							</div>
+							<h4 class="contact__name">Juma Stevens</h4>
+							<p class="contact__descript">Front-End Web Developer</p>
+							<a class="conact__button button" href="#">Submit a Brief</a>
 						</div> 
 
-						<div class="contact-form">
-							<form>
-								<input type="" name="">
-								<input type="" name="">
-								<input type="" name="">
-								<input type="" name="">
+						<div class="contact__form-container">
+							<form class="contact__form" action="#" method="post">
+								<input class="contact__form-name" type="text" name="name" value="pp" placeholder="John Smith" autocomplete="name">
+								<input class="contact__form-email" type="email" name="email" value="jj" placeholder="YourName@Email.com" autocomplete="email">
+								<textarea class="contact__form-message" type="" name="message" placeholder="Hey Juma!" cols="30" rows="5"></textarea>
+								<input class="contact__form-button button" type="submit" value="Send">
 							</form>
 						</div>
 					</section>
