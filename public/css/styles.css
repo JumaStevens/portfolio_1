@@ -41,7 +41,7 @@ rgb(65, 74, 107)
 /*
 HIDE
 */
-header, .menu {
+.menu {
 	display: none;
 }
 /*
@@ -55,6 +55,7 @@ GLOBAL RULES
 ======================================*/
 h1,h2,h3,h4,h5,h6,p,span,a,li,div,input {
 	font-family: 'Montserrat', sans-serif;
+	list-style: none;
 }
 .button {
 	padding: 1em;
@@ -64,9 +65,204 @@ h1,h2,h3,h4,h5,h6,p,span,a,li,div,input {
 	border-color: inherit;
 	text-decoration: none;
 }
-* {
-	box-sizing: border-box;
+
+
+
+
+
+/*============================================================================
+HEADER
+============================================================================*/
+
+
+
+
+/*======================================
+HEADER
+======================================*/
+.header {
+	position: fixed;
+	z-index: 100;
+	left: 0;
+	top: 0;
 }
+/*===================
+brand name
+===================*/
+.navbar-brand-container {
+	position: inherit;
+	left: 0;
+	top: 0;
+	height: 40px;
+	margin: 0 0 0 40px;
+	display: flex;
+	align-items: center;
+}
+/*===================
+menu icon
+===================*/
+.navbar-toggle {
+	position: inherit;
+	left: 0;
+	top: 50%;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.navbar-toggle__line-container {
+	position: absolute;
+	width: 50%;
+	height: 25%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.navbar-toggle__line-0,
+.navbar-toggle__line-1,
+.navbar-toggle__line-2 {
+	background: rgb(34, 34, 34);
+	height: 2px;
+}
+.navbar-toggle__line-0 {
+	width: 16px;
+}
+.navbar-toggle__line-1 {
+	width: 19px;
+}
+.navbar-toggle__line-2 {
+	width: 12px;
+}
+.navbar-toggle__text-container {
+	position: absolute;
+	left: 25px;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+/*===================
+switch language
+===================*/
+.navbar-lang-container {
+	position: inherit;
+	right: 0;
+	top: 0;
+	height: 40px;
+	margin: 0 40px 0 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	-webkit-transform-origin: right top;
+    -moz-transform-origin: right top;
+    -ms-transform-origin: right top;
+    -o-transform-origin: right top;
+    transform-origin: right top;
+}
+/*===================
+social media icons
+===================*/
+.navbar-social-container {
+	position: inherit;
+	top: 50%;
+	right: 0;
+	width: 40px;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	-webkit-transform-origin: right top;
+    -moz-transform-origin: right top;
+    -ms-transform-origin: right top;
+    -o-transform-origin: right top;
+    transform-origin: right top;
+}
+/*===================
+scrolldown
+===================*/
+.navbar-scrolldown {
+	position: inherit;
+	left: 40px;
+	bottom: 0px;
+	height: 40px;
+	opacity: 1;
+	color: rgb(34, 34, 34);
+	line-height: 1;
+	display: flex;
+	align-items: center;
+	-webkit-transform-origin: left top;
+    -moz-transform-origin: left top;
+    -ms-transform-origin: left top;
+    -o-transform-origin: left top;
+    transform-origin: left top;
+}
+.navbar-scrolldown__arrow-svg {
+	fill: rgb(34, 34, 34);
+}
+/*===================
+scrolltop
+===================*/
+.navbar-scrolltop {
+	position: inherit;
+	right: 40px;
+	bottom: 40px;
+	height: 40px;
+	color: rgb(34, 34, 34);
+    line-height: 1;
+    display: flex;
+	align-items: center;
+}
+.navbar-scrolltop__arrow-svg {
+	fill: rgb(34, 34, 34);
+}
+/*===================
+transforms
+===================*/
+.navbar-toggle__text-container,
+.navbar-scrolldown {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+.navbar-scrolltop {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+.navbar-toggle {
+	-webkit-transform: translate(20px, -50%);
+	-moz-transform: translate(20px, -50%);
+	-ms-transform: translate(20px, -50%);
+	-o-transform: translate(20px, -50%);
+	transform: translate(20px, -50%);
+}
+.navbar-social-container {
+	-webkit-transform: translate(0, -50%);
+	-moz-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+/*===================
+transitions
+===================*/
+.navbar-scrolldown {
+    -webkit-transition: bottom 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 250ms linear 0ms;
+    -moz-transition: bottom 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 250ms linear 0ms;
+    transition: bottom 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 250ms linear 0ms;
+}
+
+
+
+
+
 
 /*============================================================================
 APPLICATION
@@ -148,9 +344,10 @@ scrolldown
 .intro-scrolldown {
 	position: fixed;
 	left: 50%;
-	bottom: 0;
+	bottom: 80px;
 	opacity: 1;
 	color: rgb(255, 255, 255);
+	line-height: 1;
 	display: flex;
 	align-items: center;
 	-webkit-transform-origin: left center;
@@ -159,7 +356,7 @@ scrolldown
     -o-transform-origin: left center;
     transform-origin: left center;
 }
-.intro-scrolldown__arrow svg {
+.intro-scrolldown__arrow-svg {
 	fill: rgb(255, 255, 255);
 }
 /*===================
@@ -168,8 +365,7 @@ transform groupings
 .page__home,
 .page__home-color,
 .intro-heading,
-.intro-article__body-blocker,
-.intro-scrolldown {
+.intro-article__body-blocker {
 	-webkit-transform: translate(0, 0) scale(1);
 	-moz-transform: translate(0, 0) scale(1);
 	-ms-transform: translate(0, 0) scale(1);
@@ -184,11 +380,11 @@ transform groupings
 	transform: translate(0, 50%) scale(1);
 }
 .intro-scrolldown {
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg);
-	-o-transform: rotate(-90deg);
-	transform: rotate(-90deg);
+	-webkit-transform: translate(-50%, 0) scale(1) rotate(-90deg);
+	-moz-transform: translate(-50%, 0) scale(1) rotate(-90deg);
+	-ms-transform: translate(-50%, 0) scale(1) rotate(-90deg);
+	-o-transform: translate(-50%, 0) scale(1) rotate(-90deg);
+	transform: translate(-50%, 0) scale(1) rotate(-90deg);
 }
 /*===================
 transition groupings
@@ -221,9 +417,9 @@ transition groupings
     transition: opacity 500ms cubic-bezier(0.7, 0, 0.3, 1) 100ms;
 }
 .intro-scrolldown {
-	-webkit-transition: -webkit-transform, opacity 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
-    -moz-transition: -moz-transform, opacity 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
-    transition: transform, opacity 100ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+	-webkit-transition: -webkit-transform 200ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 50ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    -moz-transition: -moz-transform 200ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 50ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    transition: transform 200ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 50ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
 }
 
 
@@ -240,6 +436,7 @@ GAP SPACE SECTION
 javacript object "scroll" */ 
 .gap-space {
 	height: 250vh;
+	visibility: hidden;
 }
 
 
@@ -298,22 +495,33 @@ WORKS SECTION
 title
 ===================*/
 .works-title-container {
+	position: relative;
 	width: 100%;
 	height: 15rem;
+	overflow: hidden;
 	background: rgb(255, 255, 255);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+.works-title-container__canvas {
+	position: absolute;
+	top:0;
+	left: 0;
+}
 .works-title {
-
+	position: inherit;
+	z-index: 21;
 	text-align: center;
 }
-.works-title_heading {
+.works-title__heading {
 
 }
-.works-title_body {
+.works-title__body {
 
+}
+.works-title__body--highlight {
+	color: rgb(255, 88, 81);
 }
 /*===================
 works example
@@ -380,19 +588,16 @@ CONTACT SECTION
 	position: relative;
 	z-index: 30;
 	background: rgb(248, 248, 248);
-	display: flex;
-	flex-direction: column;
 	font-size: 1rem;
 }
 /*===================
 title
 ===================*/
 .contact__title-container {
-	order: 1;
 	width: 100%;
 	height: 15rem;
 	background: rgb(255, 255, 255);
-	display: inherit;
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -400,26 +605,35 @@ title
 .contact__title-heading {
 
 }
+.contact__title-heading--highlight {
+	color: rgb(255, 88, 81);
+}
 .contact__title-body {
 
+}
+/*===================
+info/form container
+===================*/
+.contact-info-form-container {
+	display: flex;
+	flex-direction: column;
 }
 /*===================
 info
 ===================*/
 .contact__info {
 	flex: 1;
-	order: 3;
+	order: 2;
 	display: inherit;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: rgb(28, 27, 32);
-	color: white;
+	background: url("http://mikedekker.com/wp-content/themes/mike-dekker/images/pattern_1.png") rgb(248,248,248);
+	color: black;
 }
 .contact__avatar-container {
 	width: 75px;
 	height: 75px;
-
 }
 .contact__avatar {
 	width: 100%;
@@ -441,8 +655,8 @@ form
 ===================*/
 .contact__form-container {
 	flex: 2;
-	order: 2;
-	display: flex;
+	order: 1;
+	display: inherit;
 	justify-content: center;
 	align-items: center;
 }
@@ -489,19 +703,6 @@ form
 END OF APPLICATION
 ============================================================================*/
 
-/* TEST */
-.works-title-container {
-	position: relative;
-	overflow: hidden;
-}
-#canvas {
-	position: absolute;
-	top:0;
-	left: 0;
-}
-.works-title {
-	z-index: 20;
-}
 
 
 
@@ -604,6 +805,7 @@ BORDERS
 /*======================================
 ANIMATION KEYFRAMES
 ======================================*/
+.navbar-scrolldown__arrow,
 .intro-scrolldown__arrow {
 	-webkit-animation: bounce-down 800ms cubic-bezier(0.7, 0, 0.3, 1) infinite alternate;
     -moz-animation: bounce-down 800ms cubic-bezier(0.7, 0, 0.3, 1) infinite alternate;
@@ -683,14 +885,16 @@ works section
 contact section
 ===================*/
 .page__contact {
+}
+.contact-info-form-container {
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 .contact__info {
-	order: 2;
+	order: 1;
 }
 .contact__form-container {
-	order: 3;
+	order: 2;
 }
 /*===================
 borders

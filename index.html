@@ -17,32 +17,34 @@
 
 		<!-- HEADER -->
 		<header class="header">
-			<a class="navbar-brand txt" href="#">Juma</a>
+			<div class="navbar-brand-container">
+				<a class="navbar-brand" href="#">Juma</a>
+			</div>
 
 			<a class="navbar-toggle" href="#">
-				<span class="icon">
-					<span class="line"></span>
-					<span class="line"></span>
-					<span class="line"></span>
+				<span class="navbar-toggle__line-container">
+					<span class="navbar-toggle__line-0"></span>
+					<span class="navbar-toggle__line-1"></span>
+					<span class="navbar-toggle__line-2"></span>
 				</span>
-				<span class="txt">
-					<span>M</span>
-					<span>e</span>
-					<span>n</span>
-					<span>u</span>
+				<span class="navbar-toggle__text-container">
+					<span class="navbar-toggle__text-0">M</span>
+					<span class="navbar-toggle__text-1">e</span>
+					<span class="navbar-toggle__text-2">n</span>
+					<span class="navbar-toggle__text-3">u</span>
 				</span>
 			</a>
 
-			<ul class="switch-lang">
-				<li>
+			<ul class="navbar-lang-container switch-lang">
+				<li class="navbar-lang__english">
 					<a href="#" rel="external">en.</a>
 				</li>
-				<li>
+				<li class="navbar-lang__french">
 					<a href="#" rel="external">fr.</a>
 				</li>
 			</ul>
 
-			<ul class="socials">
+			<ul class="navbar-social-container">
 				<li>
 					<a href="https://www.github.com/jumastevens" rel="external" target="_blank">
 						<span>
@@ -75,22 +77,22 @@
 				</li>
 			</ul>
 
-			<span class="scrolldown">
-				<span class="arrow">
-					<svg xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 17 10">
+			<span class="navbar-scrolldown">
+				<span class="navbar-scrolldown__arrow">
+					<svg class="navbar-scrolldown__arrow-svg" xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 17 10">
 						<path class="cls-1" d="M6.22,8.75,3.37,5.89H17V4.12H3.37L6.22,1.25,5,0,0,5l5,5Z"></path>
 					</svg>
 				</span>
-				<span class="txt">Scroll</span>
+				<span class="navbar-scrolldown__text">Scroll</span>
 			</span>
 
-			<a class="scrolltop" href="#">
-				<span class="arrow">
-					<svg xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 17 10">
+			<a class="navbar-scrolltop" href="#">
+				<span class="navbar-scrolltop__arrow">
+					<svg class="navbar-scrolltop__arrow-svg" xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 17 10">
 						<path class="cls-1" d="M6.22,8.75,3.37,5.89H17V4.12H3.37L6.22,1.25,5,0,0,5l5,5Z"></path>
 					</svg>
 				</span>
-				<span class="txt">top</span>
+				<span class="navbar-scrolltop__text">top</span>
 			</a>
 		</header>
 
@@ -206,7 +208,7 @@
 
 						<div class="intro-scrolldown">
 							<span class="intro-scrolldown__arrow bounce animated">
-								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 17 10">
+								<svg class="intro-scrolldown__arrow-svg" xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 17 10">
 									<path class="cls-1" d="M6.22,8.75,3.37,5.89H17V4.12H3.37L6.22,1.25,5,0,0,5l5,5Z"></path>
 								</svg>
 							</span>
@@ -238,10 +240,10 @@
 					<!-- FEATURED WORKS -->
 					<section class="page__works">
 						<div class="works-title-container">
-							<canvas id="canvas"></canvas> <!-- TEST TEST -->
+							<canvas class="works-title-container__canvas"></canvas>
 							<span class="works-title">
 								<h2 class="works-title__heading">Featured Works</h2>
-								<p class="works-title__body">All handcoded with love.</p>
+								<p class="works-title__body">All handcoded with <span class="works-title__body--highlight">love.</span></p>
 							</span>
 						</div>
 						
@@ -281,25 +283,27 @@
 					<section class="page__contact">
 						<div class="contact__title-container">
 							<p class="contact__title-heading">I'd love to hear from you</p>
-							<p class="contact__title-body">Feel free to reach out anytime</p>
+							<p class="contact__title-body">Feel free to reach out <span class="contact__title-heading--highlight">anytime</span></p>
 						</div>
 
-						<div class="contact__info">
-							<div class="contact__avatar-container">
-								<img class="contact__avatar" src="/images/avatar.jpg" alt="">
-							</div>
-							<h4 class="contact__name">Juma Stevens</h4>
-							<p class="contact__descript">Front-End Web Developer</p>
-							<a class="conact__button button" href="#">Submit a Brief</a>
-						</div> 
+						<div class="contact-info-form-container">
+							<div class="contact__info">
+								<div class="contact__avatar-container">
+									<img class="contact__avatar" src="/images/avatar.jpg" alt="">
+								</div>
+								<h4 class="contact__name">Juma Stevens</h4>
+								<p class="contact__descript">Front-End Web Developer</p>
+								<a class="conact__button button" href="#">Submit a Brief</a>
+							</div> 
 
-						<div class="contact__form-container">
-							<form class="contact__form" action="#" method="post">
-								<input class="contact__form-name" type="text" name="name" value="pp" placeholder="John Smith" autocomplete="name">
-								<input class="contact__form-email" type="email" name="email" value="jj" placeholder="YourName@Email.com" autocomplete="email">
-								<textarea class="contact__form-message" type="" name="message" placeholder="Hey Juma!" cols="30" rows="5"></textarea>
-								<input class="contact__form-button button" type="submit" value="Send">
-							</form>
+							<div class="contact__form-container">
+								<form class="contact__form" action="#" method="post">
+									<input class="contact__form-name" type="text" name="name" value="pp" placeholder="John Smith" autocomplete="name">
+									<input class="contact__form-email" type="email" name="email" value="jj" placeholder="YourName@Email.com" autocomplete="email">
+									<textarea class="contact__form-message" type="" name="message" placeholder="Hey Juma!" cols="30" rows="5"></textarea>
+									<input class="contact__form-button button" type="submit" value="Send">
+								</form>
+							</div>
 						</div>
 					</section>
 				</main>

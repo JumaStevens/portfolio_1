@@ -43,7 +43,7 @@ var scroll = {
 				home_color.style[scroll.vendor[i] + "transform"] = "translate(0, 0) scale(1)";
 				article_body.style[scroll.vendor[i] + "transform"] = "translate(0, 50%) scale(1)";
 				article_blocker.style[scroll.vendor[i] + "transform"] = "translate(0, 0) scale(1)";
-				scrolldown.style[scroll.vendor[i] + "transform"] = "translate(0, 0) scale(1) rotate(-90deg)"; 
+				scrolldown.style[scroll.vendor[i] + "transform"] = "translate(-50%, 0) scale(1) rotate(-90deg)"; 
 			}
 			//padding
 			article_line.style.padding = 0;
@@ -60,7 +60,7 @@ var scroll = {
 				home_color.style[scroll.vendor[i] + "transform"] = "translate(100%, 0) scale(1)";
 				article_body.style[scroll.vendor[i] + "transform"] = "translate(0, 0) scale(1)";
 				article_blocker.style[scroll.vendor[i] + "transform"] = "translate(0, 100%) scale(1)";
-				scrolldown.style[scroll.vendor[i] + "transform"] = "translate(0, 100%) scale(1) rotate(-90deg)";
+				scrolldown.style[scroll.vendor[i] + "transform"] = "translate(-50%, 100%) scale(1) rotate(-90deg)";
 			}
 			//padding
 			article_line.style.padding = "0.05em 0.5em";
@@ -268,12 +268,20 @@ var particle = {
 	loop_on: false,
 
 
-
+	//initialize (triggered by scroll events & screen resize)
+	init: function() {
+		//turn loop on
+		particle.loop_on = true;
+		particle.create_canvas();
+		particle.canvas_dimensions();
+		particle.emitter();
+		particle.loop();
+	},
 	//create canvas
 	create_canvas: function() {
 		//
-		particle.canvas = document.getElementById("canvas");
-		particle.ctx = canvas.getContext("2d");
+		particle.canvas = document.getElementsByClassName("works-title-container__canvas")[0];
+		particle.ctx = particle.canvas.getContext("2d");
 	},
 	//canvas width & height
 	canvas_dimensions: function() {
@@ -292,9 +300,6 @@ var particle = {
 	    }
 	    return "rgb(" + r + "," + g + ","  + b + ")";
 	},
-
-
-
 	//random starting position, velocity, color and size
 	emitter: function() {
 		for(let i=0;i<particle.num_particles;i++) {
@@ -304,14 +309,8 @@ var particle = {
 		    particle.vy[i] = 1 * Math.random() - .5;
 		    particle.color[i] = particle.get_random_color();
 		    particle.size[i] = Math.floor(Math.random() * ((20-2)+1) + 2);
-		    console.log(particle.size[i]);
 		}
 	},
-
-
-
-
-
 	//draw particle onto the canvas
 	draw: function(ctx, i) {
 		ctx.beginPath();
@@ -319,7 +318,6 @@ var particle = {
    		ctx.arc(particle.x[i], particle.y[i], particle.size[i], 0, 2 * Math.PI, false);
    		ctx.fill();
 	},
-
 	//update particle position
 	update: function(i) {
     	particle.x[i] += particle.vx[i];
@@ -332,8 +330,6 @@ var particle = {
         	particle.vy[i] = -particle.vy[i];
    		}
 	},
-
-
 	//main loop
 	loop: function(value) {
 		//framerate
@@ -357,22 +353,7 @@ var particle = {
 	  			}
 			});
 		}, fps);
-	},
-
-
-	//initialize (triggered by scroll events & screen resize)
-	init: function() {
-		//turn loop on
-		particle.loop_on = true;
-		particle.create_canvas();
-		particle.canvas_dimensions();
-		particle.emitter();
-		particle.loop();
 	}
-
-
-
-
 };
 
 
