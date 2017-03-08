@@ -194,8 +194,7 @@ var scroll = {
 		//hooks
 		const heading = document.getElementsByClassName("intro-heading")[0];
 		const home_color = document.getElementsByClassName("page__home-color")[0];
-		const article_body = document.getElementsByClassName("intro-article__body")[0];
-		const article_blocker = document.getElementsByClassName("intro-article__body-blocker")[0];
+		const article_body = document.getElementsByClassName("intro-article__body-text");
 		const article_line = document.getElementsByClassName("intro-article__heading-line")[0];
 		const article_heading = document.getElementsByClassName("intro-article__heading-text")[0];
 		const scrolldown = document.getElementsByClassName("intro-scrolldown")[0];
@@ -209,14 +208,16 @@ var scroll = {
 				//transform
 				heading.style[scroll.vendor[i] + "transform"] = "translate(0, 0) scale(1)";
 				home_color.style[scroll.vendor[i] + "transform"] = "translate(0, 0) scale(1)";
-				article_body.style[scroll.vendor[i] + "transform"] = "translate(0, 50%) scale(1)";
-				article_blocker.style[scroll.vendor[i] + "transform"] = "translate(0, 0) scale(1)";
+				article_body[0].style[scroll.vendor[i] + "transform"] = "translateY(200px)";
+				article_body[1].style[scroll.vendor[i] + "transform"] = "translateY(200px)";
 				scrolldown.style[scroll.vendor[i] + "transform"] = "translate(-50%, 0) scale(1) rotate(-90deg)"; 
 			}
 			//padding
 			article_line.style.padding = 0;
 			//opacity
 			article_heading.style.opacity = 0;
+			article_body[0].style.opacity = 0;
+			article_body[1].style.opacity = 0;
 			scrolldown.style.opacity = 1;
 			//bottom
 			nav_scrolldown.style.bottom = -100 + "px";
@@ -228,14 +229,16 @@ var scroll = {
 				//transform
 				heading.style[scroll.vendor[i] + "transform"] = "translate(100%, 0) scale(1)";
 				home_color.style[scroll.vendor[i] + "transform"] = "translate(100%, 0) scale(1)";
-				article_body.style[scroll.vendor[i] + "transform"] = "translate(0, 0) scale(1)";
-				article_blocker.style[scroll.vendor[i] + "transform"] = "translate(0, 100%) scale(1)";
+				article_body[0].style[scroll.vendor[i] + "transform"] = "translateY(0)";
+				article_body[1].style[scroll.vendor[i] + "transform"] = "translateY(0)";
 				scrolldown.style[scroll.vendor[i] + "transform"] = "translate(-50%, 100%) scale(1) rotate(-90deg)";
 			}
 			//padding
-			article_line.style.padding = "0.05em 0.5em";
+			article_line.style.padding = "1px 10px";
 			//opacity
 			article_heading.style.opacity = 1;
+			article_body[0].style.opacity = 1;
+			article_body[1].style.opacity = 1;
 			scrolldown.style.opacity = 0;
 			//bottom
 			nav_scrolldown.style.bottom = 0 + "px";
