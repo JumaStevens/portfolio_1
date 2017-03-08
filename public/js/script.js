@@ -1,5 +1,9 @@
-//WINDOW.ONLOAD
+/*======================================
+WINDOW ONLOAD
+======================================*/
 window.onload = function() {
+	//menu init
+	menu.event_listener();
 	//screen init
 	screen.resize();
 	//scroll init
@@ -10,8 +14,172 @@ window.onload = function() {
 
 
 
+/*======================================
+MENU
+======================================*/
+var menu = {
+	//hook
+	icon: document.getElementsByClassName("navbar-toggle")[0],
+	lines: document.getElementsByClassName("navbar-toggle__line-container")[0],
+	text: document.getElementsByClassName("navbar-toggle__text-container")[0],
+	//vendor prefixes
+	vendor: ["-webkit-", "-moz-", "-ms-", "-o-", ""],
+	//menu toggle
+	active: false,
 
-//SCROLLING
+
+
+
+
+	
+
+	//menu toggle
+	toggle: function() {
+		//hook
+		const body = document.getElementsByTagName("body")[0];
+		const line = menu.lines.childNodes;
+		//open menu
+		if(!menu.active) {
+			//toggle
+			menu.active = true;
+			//add class name
+			body.classList.add("menu-open");
+		}
+		//close menu
+		else if(menu.active) {
+			//toggle
+			menu.active = false;
+			//remove class name
+			body.classList.remove("menu-open");
+			body.classList.remove("menu--hover");
+		}
+	},
+	//menu hover
+	hover: function(mouse) {
+		//hook
+		const body = document.getElementsByTagName("body")[0];
+		//check which mouse event triggered
+		if(mouse.type === "mouseenter") {
+			//add class name
+			body.classList.add("menu--hover");
+		}
+		else if(mouse.type === "mouseleave") {
+			//remove class name
+			body.classList.remove("menu--hover");
+		}
+	},
+
+
+
+
+
+
+
+
+
+
+
+	//add event listener
+	event_listener: function() {
+			menu.icon.addEventListener("click", menu.toggle, false);
+			menu.icon.addEventListener("mouseenter", menu.hover, false);
+			menu.icon.addEventListener("mouseleave", menu.hover, false);
+	},
+
+
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*======================================
+SCREEN DEMINSIONS
+======================================*/
+var screen = {
+	//screen inner height
+	height: 0,
+
+	//find screen height
+	getHeight: function () {
+		//set height
+		screen.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+	},
+
+	//screen resize handler (debounced)
+	resize: function () {
+		let timeout = false; // holder for timeout id
+	    const delay = 250; // delay after event is "complete" to call function
+
+		// window.resize event listener
+		window.addEventListener('resize', function() {
+			// clear the timeout
+			clearTimeout(timeout);
+			//turn off particles
+			particle.loop_on = false;
+			// start timing for event "completion"
+			timeout = setTimeout(function() {
+				//calls
+				screen.getHeight();
+				scroll.parallax();
+				particle.init();
+			}, delay);
+		});
+		//call function
+		screen.getHeight();
+	}
+
+
+
+
+/*	throttle
+	//screen resize handler
+	resize: function () {
+		const delay = 250; //delay between calls
+	    let throttled = false; //are we currently throttled?
+
+		//window.resize event listener
+		window.addEventListener('resize', function() {
+		    //only run if we're not throttled
+			if (!throttled) {
+		    	//actual callback action
+		    	screen.getHeight();
+		    	//we're throttled!
+		    	throttled = true;
+		    	//set a timeout to un-throttle
+		    	console.log(screen.height);
+		    	setTimeout(function() {
+		    		throttled = false;
+		    	}, delay);
+			}	  
+		}, false);
+		//call function
+		screen.getHeight();
+		console.log(screen.height);
+	}
+*/
+
+};
+
+
+
+/*======================================
+SCROLLING BEHAVIOR
+======================================*/
 var scroll = {
 	//scroller position (Top)
 	position: 0,
@@ -19,8 +187,6 @@ var scroll = {
 	vendor: ["-webkit-", "-moz-", "-ms-", "-o-", ""],
 	//intro throttle
 	ticking: false,
-
-
 
 
 	//intro action
@@ -33,7 +199,9 @@ var scroll = {
 		const article_line = document.getElementsByClassName("intro-article__heading-line")[0];
 		const article_heading = document.getElementsByClassName("intro-article__heading-text")[0];
 		const scrolldown = document.getElementsByClassName("intro-scrolldown")[0];
-		
+		const nav_scrolldown = document.getElementsByClassName("navbar-scrolldown")[0];
+		const nav_scrolltop = document.getElementsByClassName("navbar-scrolltop")[0];
+
 		//scroll position trigger point
 		if(scroll.position < 50) {
 			//set styles (with vendor prefixes)
@@ -50,6 +218,8 @@ var scroll = {
 			//opacity
 			article_heading.style.opacity = 0;
 			scrolldown.style.opacity = 1;
+			//bottom
+			nav_scrolldown.style.bottom = -100 + "px";
 		}
 		//scroll position trigger point
 		else if((scroll.position >= 50) && (scroll.position <= screen.height)) {
@@ -67,10 +237,17 @@ var scroll = {
 			//opacity
 			article_heading.style.opacity = 1;
 			scrolldown.style.opacity = 0;
+			//bottom
+			nav_scrolldown.style.bottom = 0 + "px";
+			nav_scrolltop.style.bottom = -100 + "px";
+		}
+		//scroll position trigger point
+		if(scroll.position > (screen.height*1.5 - screen.height)) {
+			//bottom
+			nav_scrolldown.style.bottom = 0 + "px";
+			nav_scrolltop.style.bottom = 40 + "px";
 		}
 	},
-
-
 
 
 	//parallax effect
@@ -151,9 +328,6 @@ var scroll = {
 	},
 
 
-
-
-
 	//event listener
 	event_listener: function() {
 		//window.scroll event listener
@@ -180,76 +354,12 @@ var scroll = {
 
 
 
-//SCREEN DEMINSIONS
-var screen = {
-	//screen inner height
-	height: 0,
-
-	//find screen height
-	getHeight: function () {
-		//set height
-		screen.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-	},
-
-	//screen resize handler (debounced)
-	resize: function () {
-		let timeout = false; // holder for timeout id
-	    const delay = 250; // delay after event is "complete" to call function
-
-		// window.resize event listener
-		window.addEventListener('resize', function() {
-			// clear the timeout
-			clearTimeout(timeout);
-			//turn off particles
-			particle.loop_on = false;
-			// start timing for event "completion"
-			timeout = setTimeout(function() {
-				//calls
-				screen.getHeight();
-				scroll.parallax();
-				particle.init();
-			}, delay);
-		});
-		//call function
-		screen.getHeight();
-	}
 
 
 
-
-/*	throttle
-	//screen resize handler
-	resize: function () {
-		const delay = 250; //delay between calls
-	    let throttled = false; //are we currently throttled?
-
-		//window.resize event listener
-		window.addEventListener('resize', function() {
-		    //only run if we're not throttled
-			if (!throttled) {
-		    	//actual callback action
-		    	screen.getHeight();
-		    	//we're throttled!
-		    	throttled = true;
-		    	//set a timeout to un-throttle
-		    	console.log(screen.height);
-		    	setTimeout(function() {
-		    		throttled = false;
-		    	}, delay);
-			}	  
-		}, false);
-		//call function
-		screen.getHeight();
-		console.log(screen.height);
-	}
-*/
-
-};
-
-
-
-
-//PARTICLES
+/*======================================
+PARTICAL SIMULATOR
+======================================*/
 var particle = {
 	//placeholders
 	container: document.getElementsByClassName("works-title-container")[0],
@@ -358,86 +468,6 @@ var particle = {
 
 
 
-
-/*
-
-
-
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = document.getElementsByClassName("works-title-container")[0].clientHeight;
-var particles = [];
-var num_particles = 25;//Change that to your liking
-
-//Helper function to get a random color - but not too dark
-function GetRandomColor() {
-    var r = 0, g = 0, b = 0;
-    while (r < 100 && g < 100 && b < 100)
-    {
-        r = Math.floor(Math.random() * 256);
-        g = Math.floor(Math.random() * 256);
-        b = Math.floor(Math.random() * 256);
-    }
-
-    return "rgb(" + r + "," + g + ","  + b + ")";
-}
-//Particle object with random starting position, velocity and color
-var Particle = function () {
-    this.x = canvas.width * Math.random();
-    this.y = canvas.height * Math.random();
-    this.vx = 1 * Math.random() - .5;
-    this.vy = 1 * Math.random() - .5;
-    this.Color = GetRandomColor();
-}
-//Ading two methods
-Particle.prototype.Draw = function (ctx) {
-	ctx.beginPath();
-    ctx.fillStyle = this.Color;
-   	ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI, false);
-   	ctx.fill();
-   // ctx.fillRect(this.x, this.y, 20, 20);
-}
-Particle.prototype.Update = function () {
-    this.x += this.vx;
-    this.y += this.vy;
- 
-    if (this.x<0 || this.x > canvas.width)
-        this.vx = -this.vx;
- 
-    if (this.y < 0 || this.y > canvas.height)
-        this.vy = -this.vy;
-}
-
-//main loop
-setInterval(function() {
-//
-requestAnimationFrame(loop);
-
-}, 1000/16);
-//
-function loop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    console.log(particles.length);
-
-    for (var i = 0; i < num_particles; i++) {
-        particles[i].Update();
-        particles[i].Draw(ctx);
-    }
-    
-}
-
-
-//Create particles
-for (var i = 0; i < num_particles; i++) {
-    particles.push(new Particle());
-}
-loop();
-
-
-
-
-*/
 
 
 

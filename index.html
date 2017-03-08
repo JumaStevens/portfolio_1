@@ -35,7 +35,7 @@
 				</span>
 			</a>
 
-			<ul class="navbar-lang-container switch-lang">
+			<ul class="navbar-lang-container">
 				<li class="navbar-lang__english">
 					<a href="#" rel="external">en.</a>
 				</li>
@@ -101,46 +101,42 @@
 
 		<!-- MENU -->
 		<div class="menu">
-			<div class="menu-container">
-				<ul class="switch-lang">
-					<li>
+			<div class="menu-inner-container">
+				<ul class="menu-lang-container">
+					<li class="menu-lang__english">
 						<a href="#" rel="external">en.</a>
 					</li>
-					<li>
+					<li class="menu-lang__french">
 						<a href="#" rel="external">fr.</a>
 					</li>
 				</ul>
 
-				<nav>
+				<nav class="menu-nav-container">
 					<ul class="menu-nav">
-						<li class="nav-item">
-							<a href="#">
-								<span><!-- fill color--></span>
-								<span class="txt">About</span>
+						<li class="menu-nav__item-0">
+							<a class="menu-nav__item-child" href="#">
+								<span class="menu-nav__item-text-0">About</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="#">
-								<span><!-- fill color--></span>
-								<span class="txt">Works</span>
+						<li class="menu-nav__item-1">
+							<a class="menu-nav__item-child" href="#">
+								<span class="menu-nav__item-text-1">Works</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="#">
-								<span><!-- fill color--></span>
-								<span class="txt">Journal</span>
+						<li class="menu-nav__item-2">
+							<a class="menu-nav__item-child" href="#">
+								<span class="menu-nav__item-text-2">Journal</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="#">
-								<span><!-- fill color --></span>
-								<span class="txt">FAQ</span>
+						<li class="menu-nav__item-3">
+							<a class="menu-nav__item-child" href="#">
+								<span class="menu-nav__item-text-3">FAQ</span>
 							</a>
 						</li>
 					</ul>
 				</nav>
 
-				<ul class="socials">
+				<ul class="menu-social-container">
 					<li>
 						<a href="https://www.github.com/jumastevens" rel="external" target="_blank">
 							<span>
@@ -173,16 +169,18 @@
 					</li>
 				</ul>
 
-				<div class="contact">
-					<span class="txt">Current Location: Portland, Oregon.</span>
-					<br>
-					<a href="tel:+1 407-341-8080" rel="external" class="phone">407-341-8080</a>
+				<div class="menu-contact-container">
+					<span class="txt">Available for hire!</span>
 					<br>
 					<a href="mailto:jumastevens@gmail.com" rel="external" class="mail">jumastevens@gmail.com</a>
+					<br>
+					<a href="tel:+1 407-341-8080" rel="external" class="phone">407-341-8080</a>
 				</div>
 			</div>
 		</div>
 
+		<!-- MENU COLOR -->
+		<div class="menu-color"></div>
 
 
 
@@ -330,8 +328,8 @@
 
 
 
-
 		<!-- SCRIPT(S) -->
 		<script src="js/script.js"></script>
+		<script src="js/classList.js"></script><!-- classlist polyfill -->
 	</body>
 </html>
