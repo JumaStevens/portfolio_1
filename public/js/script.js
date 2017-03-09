@@ -2,6 +2,8 @@
 WINDOW ONLOAD
 ======================================*/
 window.onload = function() {
+	//loaded
+	loader.status("complete");
 	//menu init
 	menu.event_listener();
 	//screen init
@@ -9,6 +11,59 @@ window.onload = function() {
 	//scroll init
 	scroll.event_listener();
 };
+
+
+
+
+/*======================================
+LOADER
+======================================*/
+var loader = {
+
+
+	
+
+
+	loading: function() {
+
+	},
+
+	//
+	status: function(stage) {
+		//hook
+		const body = document.getElementsByTagName("body")[0];
+		
+		//initial loading phrase
+		if(stage === "initial") {
+			//add class name
+			body.classList.add("load-init");
+		}
+		//AJAX loading
+		if(stage === "loading") {
+			//remove class name
+			body.classList.remove("load-complete");
+			//add class name
+			body.classList.add("load-loading");
+		}
+		//loading complete
+		if(stage === "complete") {
+			//remove class name
+			body.classList.remove("load-init");
+			body.classList.remove("load-loading");
+			//add class name
+			body.classList.add("load-complete");
+		}
+	}
+
+
+
+
+};
+/*======================================
+INITIATE LOADER
+======================================*/
+loader.status("initial");
+
 
 
 
@@ -26,12 +81,6 @@ var menu = {
 	vendor: ["-webkit-", "-moz-", "-ms-", "-o-", ""],
 	//menu toggle
 	active: false,
-
-
-
-
-
-	
 
 	//menu toggle
 	toggle: function() {
@@ -68,29 +117,12 @@ var menu = {
 			body.classList.remove("menu--hover");
 		}
 	},
-
-
-
-
-
-
-
-
-
-
-
 	//add event listener
 	event_listener: function() {
 			menu.icon.addEventListener("click", menu.toggle, false);
 			menu.icon.addEventListener("mouseenter", menu.hover, false);
 			menu.icon.addEventListener("mouseleave", menu.hover, false);
-	},
-
-
-
-
-
-
+	}
 };
 
 

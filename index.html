@@ -186,6 +186,7 @@
 
 		<!-- LOADER -->
 		<div class="loader">
+
 		</div>
 
 
@@ -201,7 +202,7 @@
 						<div class="page__home-color"><!-- fill color --></div>
 
 						<div class="intro-heading">
-							<h1 class="intro-heading__title">He<br>llo</h1>
+							<h1 class="intro-heading__title">He<br>llo<span class="intro-heading__title-circle"></span></h1>
 						</div>
 
 						<div class="intro-scrolldown">
@@ -330,6 +331,16 @@
 
 		<!-- SCRIPT(S) -->
 		<script src="js/script.js"></script>
-		<script src="js/classList.js"></script><!-- classlist polyfill -->
+		<!-- classlist polyfill -->
+		<script src="js/classList.js"></script>
+
+		<!-- JAVASCRIPT TURNED OFF -->
+		<noscript>
+			<style>
+				body {overflow: initial;}
+				.page {visibility: initial;}
+				.loader {display: none;}
+			</style>
+		</noscript>
 	</body>
 </html>

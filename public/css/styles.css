@@ -116,10 +116,10 @@ menu icon
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-end;
-	-webkit-transform: translate(0, -50%);
-	-moz-transform: translate(0, -50%);
-	-ms-transform: translate(0, -50%);
-	-o-transform: translate(0, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
 .navbar-toggle__line-0,
@@ -127,8 +127,8 @@ menu icon
 .navbar-toggle__line-2 {
 	background: rgb(34, 34, 34);
 	height: 2px;
-	-webkit-transition: width 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, -webkit-transform 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 100ms ease-out 0ms;
-    -moz-transition: width 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, -moz-transform 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 100ms ease-out 0ms;
+	-webkit-transition: width 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, -webkit-transform 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 100ms ease-out 200ms;
+    -moz-transition: width 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, -moz-transform 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 100ms ease-out 200ms;
     transition: width 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, transform 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 100ms ease-out 200ms;
 }
 .navbar-toggle__line-0 {
@@ -141,8 +141,36 @@ menu icon
 	width: 12px;
 }
 /*===================
+transforms
+===================*/
+.navbar-brand-container,
+.navbar-toggle {
+	-webkit-transform: translate(0, 0);
+	-moz-transform: translate(0, 0);
+	-ms-transform: translate(0, 0);
+	-o-transform: translate(0, 0);
+	transform: translate(0, 0);
+}
+/*===================
+transitions
+===================*/
+.navbar-brand-container,
+.navbar-toggle {
+	-webkit-transition: -webkit-transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    -moz-transition: -moz-transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    transition: transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+}
+
+/*===================
 menu open
 ===================*/
+.menu-open .navbar-brand-container {
+	-webkit-transform: translate(0, -20vh) scale(1);
+    -moz-transform: translate(0, -20vh) scale(1);
+    -ms-transform: translate(0, -20vh) scale(1);
+    -o-transform: translate(0, -20vh) scale(1);
+    transform: translate(0, -20vh) scale(1);
+}
 .menu-open .navbar-toggle__line-0 {
 	width: 20px !important;
 	-webkit-transform: translateY(4px) rotate(-45deg);
@@ -162,6 +190,26 @@ menu open
 	-o-transform: translateY(-4px) rotate(45deg);
 	transform: translateY(-4px) rotate(45deg);
 } 
+/*============================================================================
+END OF HEADER
+============================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -368,6 +416,20 @@ MENU COLOR
 	visibility: initial;
 	opacity: 0.9;
 }
+/*============================================================================
+END OF MENU
+============================================================================*/
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -385,9 +447,6 @@ APPLICATION
 /* information:
 
 */
-
-
-
 /*======================================
 HOME SECTION
 ======================================*/
@@ -419,8 +478,18 @@ heading
     justify-content: center;
 }
 .intro-heading__title {
+	position: relative;
 	font-size: 10rem;
 	text-transform: uppercase;
+}
+.intro-heading__title-circle {
+	position: absolute;
+	bottom: 0.2em;
+	left: 100%;
+	width: 0.2em;
+	height: 0.2em;
+	border-radius: 50%;
+	background: rgb(255, 88, 81);
 }
 /*===================
 article
@@ -457,7 +526,7 @@ scrolldown
 .intro-scrolldown {
 	position: fixed;
 	left: 50%;
-	bottom: 80px;
+	bottom: 40px;
 	opacity: 1;
 	color: rgb(255, 255, 255);
 	line-height: 1;
@@ -483,6 +552,13 @@ transform groupings
 	-ms-transform: translate(0, 0) scale(1);
 	-o-transform: translate(0, 0) scale(1);
 	transform: translate(0, 0) scale(1);
+}
+.intro-heading__title-circle {
+	-webkit-transform: translate(0, -100vh);
+    -moz-transform: translate(0, -100vh);
+    -ms-transform: translate(0, -100vh);
+    -o-transform: translate(0, -100vh);
+    transform: translate(0, -100vh);
 }
 .intro-article__body-text {
 	-webkit-transform: translateY(200px);
@@ -512,6 +588,11 @@ transition groupings
     -moz-transition: -moz-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
     transition: transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
 }
+/*.intro-heading__title-circle {
+	-webkit-transition: -webkit-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    -moz-transition: -moz-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    transition: transform 2000ms easeOutBounce 1000ms;
+}*/
 .intro-article__body-text {
 	-webkit-transition: -webkit-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 500ms linear 600ms;
     -moz-transition: -moz-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 500ms linear 600ms;
@@ -532,14 +613,6 @@ transition groupings
     -moz-transition: -moz-transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
     transition: transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
 }
-
-
-
-
-
-
-
-
 /*======================================
 GAP SPACE SECTION
 ======================================*/
@@ -549,10 +622,6 @@ javacript object "scroll" */
 	height: 250vh;
 	visibility: hidden;
 }
-
-
-
-
 /*======================================
 TRANSITION SECTION
 ======================================*/
@@ -569,6 +638,7 @@ TRANSITION SECTION
 }
 .page__transition-image {
 	background-image: url("https://www.walldevil.com/wallpapers/w02/778324-blondes-brunettes-emilie-voe-nereng-norwegian-teeth-women.jpg");
+	background-image: url("https://takarasmall.files.wordpress.com/2014/03/computers.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -590,10 +660,6 @@ transition
     -moz-transition: -moz-transform 25ms ease-out 0ms;
     transition: transform 25ms ease-out 0ms;
 }
-
-
-
-
 /*======================================
 WORKS SECTION
 ======================================*/
@@ -678,20 +744,12 @@ works example
 	display: none;
 
 }
-
-
-
-
 /*======================================
 TESTIMONIALS SECTION
 ======================================*/
 .page__testimonials {
 	display: none;
 }
-
-
-
-
 /*======================================
 CONTACT SECTION
 ======================================*/
@@ -804,12 +862,6 @@ form
     -moz-appearance: none;
 	appearance: none;
 }
-
-
-
-
-
-
 /*============================================================================
 END OF APPLICATION
 ============================================================================*/
@@ -824,9 +876,136 @@ END OF APPLICATION
 
 
 
+
+
+
+
+
+
+
+
+/*============================================================================
+LOADER
+============================================================================*/
+.page {
+	visibility: hidden;
+}
+.loader {
+	position: fixed;
+	z-index: 89;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgb(255, 88, 81);
+	pointer-events: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    -webkit-transition: -webkit-transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    -moz-transition: -moz-transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+    transition: transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
+}
 /*======================================
-BORDERS 
+initial load
 ======================================*/
+.load-init body {
+	overflow: hidden;
+}
+.load-init .loader {
+	z-index: 999;
+	-webkit-transform: translate(0, 0) scale(1);
+    -moz-transform: translate(0, 0) scale(1);
+    -ms-transform: translate(0, 0) scale(1);
+    -o-transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) scale(1);
+}
+/* position elements off screen */
+.load-init .page__home-color,
+.load-init .intro-heading {
+	-webkit-transform: translate(100%, 0) scale(1);
+    -moz-transform: translate(100%, 0) scale(1);
+    -ms-transform: translate(100%, 0) scale(1);
+    -o-transform: translate(100%, 0) scale(1);
+    transform: translate(100%, 0) scale(1);
+}
+.load-init .intro-scrolldown {
+	-webkit-transform: translate(-50%, 100%) scale(1) rotate(-90deg);
+    -moz-transform: translate(-50%, 100%) scale(1) rotate(-90deg);
+    -ms-transform: translate(-50%, 100%) scale(1) rotate(-90deg);
+    -o-transform: translate(-50%, 100%) scale(1) rotate(-90deg);
+    transform: translate(-50%, 100%) scale(1) rotate(-90deg);
+}
+.load-init .navbar-brand-container,
+.load-init .navbar-toggle {
+	-webkit-transform: translate(0, -20vh) scale(1);
+    -moz-transform: translate(0, -20vh) scale(1);
+    -ms-transform: translate(0, -20vh) scale(1);
+    -o-transform: translate(0, -20vh) scale(1);
+    transform: translate(0, -20vh) scale(1);
+}
+.load-init .border__top,
+.load-init .loader,
+.load-init .page__home-color,
+.load-init .intro-heading,
+.load-init .intro-scrolldown,
+.load-init .navbar-brand-container,
+.load-init .navbar-toggle {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    transition: none !important;
+}
+/*======================================
+loading
+======================================*/
+.load-loading body {
+	overflow: hidden;
+}
+.load-loading .loader {
+	-webkit-transform: translate(0, 0) scale(1);
+    -moz-transform: translate(0, 0) scale(1);
+    -ms-transform: translate(0, 0) scale(1);
+    -o-transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) scale(1);
+}
+/*======================================
+load complete
+======================================*/
+.load-complete body {
+	overflow: initial;
+}
+.load-complete .loader {
+	-webkit-transform: translate(-100%, 0) scale(1);
+    -moz-transform: translate(-100%, 0) scale(1);
+    -ms-transform: translate(-100%, 0) scale(1);
+    -o-transform: translate(-100%, 0) scale(1);
+    transform: translate(-100%, 0) scale(1);
+}
+.load-complete .page {
+	visibility: initial;
+}
+/*============================================================================
+END OF LOADER
+============================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*============================================================================
+BOARDER
+============================================================================*/
 .border__top,
 .border__bottom,
 .border__left,
@@ -916,6 +1095,9 @@ menu open
 	    -o-transform: translate(0, 0) scale(1);
 	    transform: translate(0, 0) scale(1);
 	}
+/*============================================================================
+END OF BOARDER
+============================================================================*/
 
 
 
@@ -925,13 +1107,18 @@ menu open
 
 
 
-/*======================================
-ANIMATION KEYFRAMES
-======================================*/
+
+
+
+
+/*============================================================================
+ANIMATION KEYFRAME
+============================================================================*/
 .navbar-scrolldown__arrow,
 .intro-scrolldown__arrow {
 	-webkit-animation: bounce-down 800ms cubic-bezier(0.7, 0, 0.3, 1) infinite alternate;
     -moz-animation: bounce-down 800ms cubic-bezier(0.7, 0, 0.3, 1) infinite alternate;
+    -o-animation: bounce-down 800ms cubic-bezier(0.7, 0, 0.3, 1) infinite alternate;
     animation: bounce-down 800ms cubic-bezier(0.7, 0, 0.3, 1) infinite alternate;
 }
 @-webkit-keyframes bounce-down {
@@ -966,6 +1153,202 @@ ANIMATION KEYFRAMES
 		transform: translateX( -8px);
 	}
 }
+.intro-heading__title-circle {
+	-webkit-animation: balldrop 1100ms 1 550ms forwards paused;
+    -moz-animation: balldrop 1100ms 1 550ms forwards paused;
+    -o-animation: balldrop 1100ms 1 550ms forwards paused;
+    animation: balldrop 1100ms 1 550ms forwards paused;
+}
+.load-complete .intro-heading__title-circle {
+	-webkit-animation-play-state: running;
+	-moz-animation-play-state: running;
+	-o-animation-play-state: running;
+	animation-play-state: running;
+}
+@-webkit-keyframes bounce-down {
+	0% {
+		-webkit-transform: translate(50%, -100vh);
+		-webkit-animation-timing-function: ease-in;
+	}
+	35% {
+		-webkit-transform: translate(50%, 0);
+		-webkit-animation-timing-function: ease-out;
+		height: 0.17em;
+	}
+	45% {
+		-webkit-transform: translate(50%, -50px);
+		-webkit-animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	56% {
+		-webkit-transform: translate(50%, 0);
+		-webkit-animation-timing-function: ease-out;
+		height: 0.18em;
+	}
+	62% {
+		-webkit-transform: translate(50%, -25px);
+		-webkit-animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	68% {
+		-webkit-transform: translate(50%, 0);
+		-webkit-animation-timing-function: ease-out;
+		height: 0.19em;
+	}
+	70% {
+		-webkit-transform: translate(50%, -2px);
+		-webkit-animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	83% {
+		-webkit-transform: translate(50%, 0);
+	}
+	100% {
+		-webkit-transform: translate(50%, 0);
+
+	}
+}
+@-moz-keyframes bounce-down {
+	0% {
+		-moz-transform: translate(50%, -100vh);
+		-moz-animation-timing-function: ease-in;
+	}
+	35% {
+		-moz-transform: translate(50%, 0);
+		-moz-animation-timing-function: ease-out;
+		height: 0.17em;
+	}
+	45% {
+		-moz-transform: translate(50%, -50px);
+		-moz-animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	56% {
+		-moz-transform: translate(50%, 0);
+		-moz-animation-timing-function: ease-out;
+		height: 0.18em;
+	}
+	62% {
+		-moz-transform: translate(50%, -25px);
+		-moz-animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	68% {
+		-moz-transform: translate(50%, 0);
+		-moz-animation-timing-function: ease-out;
+		height: 0.19em;
+	}
+	70% {
+		-moz-transform: translate(50%, -2px);
+		-moz-animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	83% {
+		-moz-transform: translate(50%, 0);
+	}
+	100% {
+		-moz-transform: translate(50%, 0);
+
+	}
+}
+@-o-keyframes bounce-down {
+	0% {
+		-o-transform: translate(50%, -100vh);
+		animation-timing-function: ease-in;
+	}
+	35% {
+		-o-transform: translate(50%, 0);
+		-o-animation-timing-function: ease-out;
+		height: 0.17em;
+	}
+	45% {
+		-o-transform: translate(50%, -50px);
+		-o-animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	56% {
+		-o-transform: translate(50%, 0);
+		-o-animation-timing-function: ease-out;
+		height: 0.18em;
+	}
+	62% {
+		-o-transform: translate(50%, -25px);
+		-o-animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	68% {
+		-o-transform: translate(50%, 0);
+		-o-animation-timing-function: ease-out;
+		height: 0.19em;
+	}
+	70% {
+		-o-transform: translate(50%, -2px);
+		-o-animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	83% {
+		-o-transform: translate(50%, 0);
+	}
+	100% {
+		-o-transform: translate(50%, 0);
+
+	}
+}
+@keyframes balldrop {
+	0% {
+		transform: translate(50%, -100vh);
+		animation-timing-function: ease-in;
+	}
+	35% {
+		transform: translate(50%, 0);
+		animation-timing-function: ease-out;
+		height: 0.17em;
+	}
+	45% {
+		transform: translate(50%, -50px);
+		animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	56% {
+		transform: translate(50%, 0);
+		animation-timing-function: ease-out;
+		height: 0.18em;
+	}
+	62% {
+		transform: translate(50%, -25px);
+		animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	68% {
+		transform: translate(50%, 0);
+		animation-timing-function: ease-out;
+		height: 0.19em;
+	}
+	70% {
+		transform: translate(50%, -2px);
+		animation-timing-function: ease-in;
+		height: 0.2em;
+	}
+	83% {
+		transform: translate(50%, 0);
+	}
+	100% {
+		transform: translate(50%, 0);
+
+	}
+}
+/*============================================================================
+END OF ANIMATION KEYFRAME
+============================================================================*/
+
+
+
+
+
+
+
+
+
 
 
 
@@ -978,10 +1361,7 @@ MEDIA QUERY
 @media only screen and (min-width: 767px) {
 
 
-/*============================================================================
-HEADER
-============================================================================*/
-/* turn on navbar units */
+
 /*======================================
 HEADER
 ======================================*/
@@ -1217,8 +1597,6 @@ transitions
     -moz-transition: -moz-transform 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
     transition: transform 400ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
 }
-.navbar-brand-container,
-.navbar-toggle,
 .navbar-lang-container,
 .navbar-social-container {
 	-webkit-transition: -webkit-transform 500ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
@@ -1270,9 +1648,22 @@ menu open
 
 
 
-/*============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*======================================
 MENU
-============================================================================*/
+======================================*/
 .menu {
 	left: 40px;
 	right: 20%;
@@ -1303,9 +1694,23 @@ contact
 
 
 
-/*============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*======================================
 APPLICATION
-============================================================================*/
+======================================*/
 
 
 /*===================
@@ -1313,6 +1718,12 @@ page section
 ===================*/
 .page {
 	margin: 40px;
+}
+/*===================
+home section
+===================*/
+.intro-scrolldown {
+	bottom: 80px;
 }
 /*===================
 works section
@@ -1389,8 +1800,67 @@ menu open
 
 
 
-}
 
+
+
+
+
+
+
+/*======================================
+LOADER
+======================================*/
+/*===================
+initial load
+===================*/
+/* position elements off screen */
+.load-init .navbar-toggle {
+	-webkit-transform: translate(-20vw, -50%);
+    -moz-transform: translate(-20vw, -50%);
+    -ms-transform: translate(-20vw, -50%);
+    -o-transform: translate(-20vw, -50%);
+    transform: translate(-20vw, -50%);
+}
+.load-init .navbar-lang-container {
+	-webkit-transform: translate(0, -20vh);
+    -moz-transform: translate(0, -20vh);
+    -ms-transform: translate(0, -20vh);
+    -o-transform: translate(0, -20vh);
+    transform: translate(0, -20vh);
+}
+.load-init .navbar-social-container {
+	-webkit-transform: translate(20vw, -50%);
+    -moz-transform: translate(20vw, -50%);
+    -ms-transform: translate(20vw, -50%);
+    -o-transform: translate(20vw, -50%);
+    transform: translate(20vw, -50%);
+}
+.load-init .navbar-lang-container,
+.load-init .navbar-social-container {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    transition: none !important;
+}
+/*======================================
+END OF LOADER
+======================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+/*============================================================================
+END OF MEDIA QUERY
+============================================================================*/
 
 
 
