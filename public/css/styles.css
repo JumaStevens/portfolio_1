@@ -585,11 +585,6 @@ transition groupings
     -moz-transition: -moz-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
     transition: transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
 }
-/*.intro-heading__title-circle {
-	-webkit-transition: -webkit-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
-    -moz-transition: -moz-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms;
-    transition: transform 2000ms easeOutBounce 1000ms;
-}*/
 .intro-article__body-text {
 	-webkit-transition: -webkit-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 500ms linear 600ms;
     -moz-transition: -moz-transform 1000ms cubic-bezier(0.7, 0, 0.3, 1) 0ms, opacity 500ms linear 600ms;
@@ -629,6 +624,14 @@ TRANSITION SECTION
 	z-index: 10;
 	display: none;
 }
+/* improving scroll hack */
+.page__transition {
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	-o-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
 .page__transition-image {
 	width: 100vw;
 	height: 100vh;
@@ -664,6 +667,14 @@ WORKS SECTION
 	position: relative;
 	z-index: 20;
 	background: rgb(248, 248, 248);
+}
+/* improving scroll hack */
+.page__works {
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	-o-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
 }
 /*===================
 title
@@ -1742,10 +1753,6 @@ contact
 /*======================================
 APPLICATION
 ======================================*/
-footer {
-	height: 200vh;
-	width: 100vw;
-}
 
 /*===================
 page section
@@ -1772,9 +1779,8 @@ works section
 .works-example__image-container {
 	position: relative;
 	width: 50%;
-	max-height: 300px;
+	max-height: 500px;
 	overflow-y: hidden;
-	
 }
 .works-example__image {
 	position: relative;
@@ -1782,11 +1788,12 @@ works section
 	left: 0;
 	max-width: 100%;
 	height: auto;
-	
+	-webkit-transition: -webkit-transform 25ms ease-out 0ms;
+    -moz-transition: -moz-transform 25ms ease-out 0ms;
+    transition: transform 25ms ease-out 0ms;
 }
 .works-example__article {
 	flex: 1;
-
 }
 .works-example__image-container--left,
 .works-example__article--right {

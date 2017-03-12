@@ -290,16 +290,23 @@ var scroll = {
 		//hooks
 		const home = document.getElementsByClassName("page__home")[0];
 		const transition = document.getElementsByClassName("page__transition")[0];
-		const works_img_container = document.getElementsByClassName("works-example__image-container")[0];
+		const works_img_container = document.getElementsByClassName("works-example__image-container");
 		const works_img = document.getElementsByClassName("works-example__image");
-		//top positions
+		//positions
 		const transition_top = screen.height * 1.5;
 		const works_top = screen.height * 2.5;
+		let works_img_container_middle = [(works_img_container[0].getBoundingClientRect().top + works_img_container[0].clientHeight/2),
+			(works_img_container[1].getBoundingClientRect().top + works_img_container[1].clientHeight/2)];
 		//scroll speed
 		const speed = [0.5, 1];
 		//offset formulas
 		let offset_0 = (transition_top - screen.height - scroll.position);
 		let offset_1 = (works_top - screen.height - scroll.position);
+		let works_img_offset_0 = ((works_img_container_middle[0] * 100 / screen.height) -100) *
+			((works_img[0].clientHeight - works_img_container[0].clientHeight) /100);
+		let works_img_offset_1 = ((works_img_container_middle[1] * 100 / screen.height) -100) *
+			((works_img[1].clientHeight - works_img_container[1].clientHeight) /100);
+		
 
 		//scroll position trigger point
 		if(scroll.position < transition_top - screen.height) {
@@ -320,8 +327,8 @@ var scroll = {
 			//set styles (with vendor prefixes)
 			for(let i=0;i<scroll.vendor.length;i++) {
 				//transform
-				home.style[scroll.vendor[i] + "transform"] = "translate3d(0,"+ offset_0 * speed[0] + "px" +",0) scale(1)";
-				transition.style[scroll.vendor[i] + "transform"] = "translate3d(0,"+ ((screen.height + offset_0) * speed[1]) + "px" +",0) scale(1)";
+				home.style[scroll.vendor[i] + "transform"] = "translate3d(0,"+ Math.round(offset_0 * speed[0]) + "px" +",0) scale(1)";
+				transition.style[scroll.vendor[i] + "transform"] = "translate3d(0,"+ Math.round(((screen.height + offset_0) * speed[1])) + "px" +",0) scale(1)";
 			}
 			//turn off particles
 			if(particle.loop_on === true) {
@@ -337,7 +344,7 @@ var scroll = {
 			for(let i=0;i<scroll.vendor.length;i++) {
 				//transform
 				transition.style[scroll.vendor[i] + "transform"] = 
-				"translate3d(0,"+ offset_1 * speed[0] + "px" +",0) scale(1)";
+				"translate3d(0,"+ Math.round(offset_1 * speed[0]) + "px" +",0) scale(1)";
 			}
 			//turn on particles
 			if(particle.loop_on === false) {
@@ -360,24 +367,22 @@ var scroll = {
 				particle.loop_on = false;
 			}
 		}
-		//trigger point (turn work example 1 on)
-		let works_img_container_top = works_img_container.getBoundingClientRect().top;
-		let works_img_container_bottom = works_img_container_top + works_img_container.clientHeight;
-		let works_img_container_middle = works_img_container_top + works_img_container.clientHeight/2;
-
-
-		if((works_img_container_middle > 0)
-		&& (works_img_container_middle < screen.height)) {
-			console.log("top: "+works_img_container_top);
-			console.log("bottom: "+works_img_container_bottom);
-			console.log("middle: "+works_img_container_middle);
-			console.log((((works_img_container_middle * 100 / screen.height) -100)*-1));
+		//trigger point (turn work example 0)
+		if((works_img_container_middle[0] > 0)
+		&& (works_img_container_middle[0] < screen.height)) {
 			//set styles (with vendor prefixes)
 			for(let i=0;i<scroll.vendor.length;i++) {
 				//transform
-				works_img[0].style[scroll.vendor[i] + "transform"] =
-				"translate3d(0, -"+ (((works_img_container_middle * 100 / screen.height) -100)*-1) *
-				((works_img[0].clientHeight - works_img_container.clientHeight)/100) + "px, 0)";
+				works_img[0].style[scroll.vendor[i] + "transform"] = "translate3d(0, "+ Math.round(works_img_offset_0) + "px, 0)";
+			}
+		}
+		//trigger point (turn work example 1)
+		if((works_img_container_middle[1] > 0)
+		&& (works_img_container_middle[1] < screen.height)) {
+			//set styles (with vendor prefixes)
+			for(let i=0;i<scroll.vendor.length;i++) {
+				//transform
+				works_img[1].style[scroll.vendor[i] + "transform"] = "translate3d(0, "+ Math.round(works_img_offset_1) + "px, 0)";
 			}
 		}
 
