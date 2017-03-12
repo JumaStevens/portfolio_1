@@ -32,7 +32,7 @@ var loader = {
 	status: function(stage) {
 		//hook
 		const body = document.getElementsByTagName("body")[0];
-		
+
 		//initial loading phrase
 		if(stage === "initial") {
 			//add class name
@@ -290,6 +290,8 @@ var scroll = {
 		//hooks
 		const home = document.getElementsByClassName("page__home")[0];
 		const transition = document.getElementsByClassName("page__transition")[0];
+		const works_img_container = document.getElementsByClassName("works-example__image-container")[0];
+		const works_img = document.getElementsByClassName("works-example__image");
 		//top positions
 		const transition_top = screen.height * 1.5;
 		const works_top = screen.height * 2.5;
@@ -298,7 +300,6 @@ var scroll = {
 		//offset formulas
 		let offset_0 = (transition_top - screen.height - scroll.position);
 		let offset_1 = (works_top - screen.height - scroll.position);
-		
 
 		//scroll position trigger point
 		if(scroll.position < transition_top - screen.height) {
@@ -357,6 +358,26 @@ var scroll = {
 			//turn off particles
 			if(particle.loop_on === true) {
 				particle.loop_on = false;
+			}
+		}
+		//trigger point (turn work example 1 on)
+		let works_img_container_top = works_img_container.getBoundingClientRect().top;
+		let works_img_container_bottom = works_img_container_top + works_img_container.clientHeight;
+		let works_img_container_middle = works_img_container_top + works_img_container.clientHeight/2;
+
+
+		if((works_img_container_middle > 0)
+		&& (works_img_container_middle < screen.height)) {
+			console.log("top: "+works_img_container_top);
+			console.log("bottom: "+works_img_container_bottom);
+			console.log("middle: "+works_img_container_middle);
+			console.log((((works_img_container_middle * 100 / screen.height) -100)*-1));
+			//set styles (with vendor prefixes)
+			for(let i=0;i<scroll.vendor.length;i++) {
+				//transform
+				works_img[0].style[scroll.vendor[i] + "transform"] =
+				"translate3d(0, -"+ (((works_img_container_middle * 100 / screen.height) -100)*-1) *
+				((works_img[0].clientHeight - works_img_container.clientHeight)/100) + "px, 0)";
 			}
 		}
 

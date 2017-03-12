@@ -444,9 +444,6 @@ END OF MENU
 /*============================================================================
 APPLICATION
 ============================================================================*/
-/* information:
-
-*/
 /*======================================
 HOME SECTION
 ======================================*/
@@ -638,7 +635,7 @@ TRANSITION SECTION
 }
 .page__transition-image {
 	background-image: url("https://www.walldevil.com/wallpapers/w02/778324-blondes-brunettes-emilie-voe-nereng-norwegian-teeth-women.jpg");
-	background-image: url("https://takarasmall.files.wordpress.com/2014/03/computers.jpg");
+	background-image: url("http://techttalks.com/wp-content/uploads/2015/09/founders-of-startup.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -742,7 +739,6 @@ works example
 }
 .works-example__heading--show {
 	display: none;
-
 }
 /*======================================
 TESTIMONIALS SECTION
@@ -770,6 +766,7 @@ title
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background: skyblue;
 }
 .contact__title-heading {
 
@@ -779,6 +776,41 @@ title
 }
 .contact__title-body {
 
+}
+.contact__title-woman {
+	position: absolute;
+	align-self: flex-start;
+	left: 20%;
+}
+.contact__title-man {
+	position: absolute;
+	align-self: flex-end;
+	right: 20%;
+}
+.contact__title-woman-svg,
+.contact__title-man-svg  {
+	width: 120px;
+	height: 120px;
+}
+.contact__title-woman-typing {
+	position: inherit;
+	top: 0;
+	left: 100%;
+}
+.contact__title-man-typing {
+	position: inherit;
+	top: 0;
+	right: 100%;
+	-webkit-transform: scale(-1,1);
+    -moz-transform: scale(-1,1);
+    -ms-transform: scale(-1,1);
+    -o-transform: scale(-1,1);
+    transform: scale(-1,1);
+}
+.contact__title-woman-typing-svg,
+.contact__title-man-typing-svg {
+	width: 50px;
+	height: 50px; 
 }
 /*===================
 info/form container
@@ -816,8 +848,14 @@ info
 .contact__descript {
 
 }
-.contact__button {
+.contact__text {
 
+}
+.contact__text--highlight {
+	color: rgb(255, 88, 81);
+}
+.contact__social-container {
+	display: flex;
 }
 /*===================
 form
@@ -838,29 +876,22 @@ form
     -moz-appearance: none;
 	appearance: none;
 }
-.contact__form-name {
-	width: 45%;
-}
-.contact__form-email {
-	width: 45%;
-}
-.contact__form-message {
-	width: 100%;
-	resize: none;
-}
-.contact__form-button {
-	margin: 0 auto;
-}
 .contact__form-name,
 .contact__form-email,
 .contact__form-message {
+	width: 100%;
+	resize: none;
 	border-bottom: 2px solid;
 	border-color: inherit;
 }
-.contact__form-email {
-	-webkit-appearance: none;
-    -moz-appearance: none;
-	appearance: none;
+.contact__form-text {
+
+}
+.contact__form-input {
+	width: 100%;
+}
+.contact__form-button {
+	
 }
 /*============================================================================
 END OF APPLICATION
@@ -1150,7 +1181,7 @@ ANIMATION KEYFRAME
 		transform: translateX(0);
 	} 
 	100% {
-		transform: translateX( -8px);
+		transform: translateX(-8px);
 	}
 }
 .intro-heading__title-circle {
@@ -1165,7 +1196,7 @@ ANIMATION KEYFRAME
 	-o-animation-play-state: running;
 	animation-play-state: running;
 }
-@-webkit-keyframes bounce-down {
+@-webkit-keyframes balldrop {
 	0% {
 		-webkit-transform: translate(50%, -100vh);
 		-webkit-animation-timing-function: ease-in;
@@ -1208,7 +1239,7 @@ ANIMATION KEYFRAME
 
 	}
 }
-@-moz-keyframes bounce-down {
+@-moz-keyframes balldrop {
 	0% {
 		-moz-transform: translate(50%, -100vh);
 		-moz-animation-timing-function: ease-in;
@@ -1251,7 +1282,7 @@ ANIMATION KEYFRAME
 
 	}
 }
-@-o-keyframes bounce-down {
+@-o-keyframes balldrop {
 	0% {
 		-o-transform: translate(50%, -100vh);
 		animation-timing-function: ease-in;
@@ -1711,7 +1742,10 @@ contact
 /*======================================
 APPLICATION
 ======================================*/
-
+footer {
+	height: 200vh;
+	width: 100vw;
+}
 
 /*===================
 page section
@@ -1735,8 +1769,24 @@ works section
 .works-example__heading {
 	align-self: center;
 }
+.works-example__image-container {
+	position: relative;
+	width: 50%;
+	max-height: 300px;
+	overflow-y: hidden;
+	
+}
 .works-example__image {
-	width: 50vw;
+	position: relative;
+	top: 0;
+	left: 0;
+	max-width: 100%;
+	height: auto;
+	
+}
+.works-example__article {
+	flex: 1;
+
 }
 .works-example__image-container--left,
 .works-example__article--right {
