@@ -19,7 +19,8 @@ window.onload = function() {
 LOADER
 ======================================*/
 var loader = {
-
+	//intro circle drop animation
+	balldrop: false,
 
 	
 
@@ -52,6 +53,12 @@ var loader = {
 			body.classList.remove("load-loading");
 			//add class name
 			body.classList.add("load-complete");
+			//limit intro ball drop to once
+			if(!loader.balldrop) {
+				loader.balldrop = true;
+				//triggers animation
+				body.classList.add("balldrop");
+			}
 		}
 	}
 
@@ -285,9 +292,28 @@ var scroll = {
 	},
 
 
+	//contact title trigger
+	contact: function() {
+		//hook
+		const contact = document.getElementsByClassName("contact__title-container")[0];
+		//is class name is active?
+		if(!contact.classList.contains("contact__title-trigger")) {
+			//contact title container bottom position
+			let contact_bottom = contact.getBoundingClientRect().bottom;
+			//scroll position trigger point
+			if(contact_bottom < screen.height) {
+				//add class name
+				contact.classList.add("contact__title-trigger");
+			}
+		}
+
+	},
+
+
 	//parallax effect
 	parallax: function() {
 		//hooks
+		const body = document.getElementsByTagName("body")[0];
 		const home = document.getElementsByClassName("page__home")[0];
 		const transition = document.getElementsByClassName("page__transition")[0];
 		const works_img_container = document.getElementsByClassName("works-example__image-container");
@@ -296,7 +322,7 @@ var scroll = {
 		const transition_top = screen.height * 1.5;
 		const works_top = screen.height * 2.5;
 		let works_img_container_middle = [(works_img_container[0].getBoundingClientRect().top + works_img_container[0].clientHeight/2),
-			(works_img_container[1].getBoundingClientRect().top + works_img_container[1].clientHeight/2)];
+			(works_img_container[2].getBoundingClientRect().top + works_img_container[2].clientHeight/2)];
 		//scroll speed
 		const speed = [0.5, 1];
 		//offset formulas
@@ -305,7 +331,7 @@ var scroll = {
 		let works_img_offset_0 = ((works_img_container_middle[0] * 100 / screen.height) -100) *
 			((works_img[0].clientHeight - works_img_container[0].clientHeight) /100);
 		let works_img_offset_1 = ((works_img_container_middle[1] * 100 / screen.height) -100) *
-			((works_img[1].clientHeight - works_img_container[1].clientHeight) /100);
+			((works_img[2].clientHeight - works_img_container[2].clientHeight) /100);
 		
 
 		//scroll position trigger point
@@ -333,6 +359,11 @@ var scroll = {
 			//turn off particles
 			if(particle.loop_on === true) {
 				particle.loop_on = false;
+			}
+			//limits intro ball drop to once
+			if(loader.balldrop) {
+				body.classList.remove("balldrop");
+				body.classList.add("balldropped");
 			}
 		}
 		//scroll position trigger point
@@ -382,8 +413,12 @@ var scroll = {
 			//set styles (with vendor prefixes)
 			for(let i=0;i<scroll.vendor.length;i++) {
 				//transform
-				works_img[1].style[scroll.vendor[i] + "transform"] = "translate3d(0, "+ Math.round(works_img_offset_1) + "px, 0)";
+				works_img[2].style[scroll.vendor[i] + "transform"] = "translate3d(0, "+ Math.round(works_img_offset_1) + "px, 0)";
 			}
+		}
+		//call contact when last image is in view
+		if(works_img_container_middle[1] < screen.height) {
+			scroll.contact();
 		}
 
 	},
