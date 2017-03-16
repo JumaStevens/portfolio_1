@@ -1,16 +1,29 @@
 /*======================================
 WINDOW ONLOAD
 ======================================*/
-window.onload = function() {
-	//loaded
-	loader.status("complete");
-	//menu init
-	menu.event_listener();
+function window_onload() {
 	//screen init
 	screen.resize();
 	//scroll init
 	scroll.event_listener();
+	//menu init
+	menu.event_listener();
+	//loader
+	loader.status("complete");
+	//assign img to background-image
+	const nodes = [document.getElementsByClassName("page__transition-image")[0],
+		document.getElementsByClassName("page__transition-image-dummy")[0]];
+	nodes[0].style.backgroundImage = "url('"+nodes[1].src+"')";
+	//reset body overflow
+	document.getElementsByTagName("body")[0].style.overflow = "initial";
+
+	//remove event listener
+	window.removeEventListener("load", window_onload, false);
 };
+//add event listener
+window.addEventListener("load", window_onload, false);
+
+
 
 
 
@@ -21,9 +34,7 @@ LOADER
 var loader = {
 	//intro circle drop animation
 	balldrop: false,
-
 	
-
 
 	loading: function() {
 
@@ -61,10 +72,6 @@ var loader = {
 			}
 		}
 	}
-
-
-
-
 };
 /*======================================
 INITIATE LOADER
@@ -561,14 +568,6 @@ var particle = {
 		}, fps);
 	}
 };
-
-
-
-
-
-
-
-
 
 
 

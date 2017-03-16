@@ -186,7 +186,12 @@
 
 		<!-- LOADER -->
 		<div class="loader">
-
+			<span class="loader__brand-name">JS</span>
+			<div class="spinner">
+				<div class="spinner__bubble-0"></div>
+				<div class="spinner__bubble-1"></div>
+				<div class="spinner__bubble-2"></div>
+			</div>
 		</div>
 
 
@@ -233,7 +238,8 @@
 
 					<!-- TRANSITION -->
 					<section class="page__transition">
-						<img class="page__transition-image" src="" alt="">
+						<div class="page__transition-image"></div>
+						<img class="page__transition-image-dummy" src="/images/transition_background.jpg">
 					</section>
 
 					<!-- FEATURED WORKS -->
@@ -497,16 +503,16 @@
 							<div class="contact__form-container">
 								<form class="contact__form" action="#" method="post">
 									<span class="contact__form-name">
-										<p class="contact__form-text">Name</p>
+										<label class="contact__form-text">Name</label>
 										<input class="contact__form-input" type="text" name="name" placeholder="John Smith" autocomplete="name">
 									</span>
 									<br>
 									<span class="contact__form-email">
-										<p class="contact__form-text">Email</p>
+										<label class="contact__form-text">Email</label>
 										<input class="contact__form-input" type="email" name="email" placeholder="YourName@Email.com" autocomplete="email">
 									</span>
 									<span class="contact__form-message">
-										<p class="contact__form-text">Message</p>
+										<label class="contact__form-text">Message</label>
 										<textarea class="contact__form-input" type="" name="message" placeholder="Hey Juma!" cols="30" rows="5"></textarea>
 									</span>
 									<input class="contact__form-button button" type="submit" value="Send">
@@ -542,6 +548,7 @@
 		<script src="js/script.js"></script>
 		<!-- classList polyfill -->
 		<script src="js/classList.js"></script>
+		<script src="js/width_finder.js"></script>
 
 		<!-- JAVASCRIPT TURNED OFF -->
 		<noscript>
