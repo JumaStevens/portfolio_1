@@ -14,14 +14,14 @@ function window_onload() {
 	const nodes = [document.getElementsByClassName("page__transition-image")[0],
 		document.getElementsByClassName("page__transition-image-dummy")[0]];
 	nodes[0].style.backgroundImage = "url('"+nodes[1].src+"')";
-	//reset body overflow
-	document.getElementsByTagName("body")[0].style.overflow = "initial";
-
 	//remove event listener
 	window.removeEventListener("load", window_onload, false);
 };
 //add event listener
 window.addEventListener("load", window_onload, false);
+/*======================================
+END OF WINDOW ONLOAD
+======================================*/
 
 
 
@@ -34,13 +34,7 @@ LOADER
 var loader = {
 	//intro circle drop animation
 	balldrop: false,
-	
-
-	loading: function() {
-
-	},
-
-	//
+	//different loading phases
 	status: function(stage) {
 		//hook
 		const body = document.getElementsByTagName("body")[0];
@@ -73,10 +67,11 @@ var loader = {
 		}
 	}
 };
-/*======================================
-INITIATE LOADER
-======================================*/
+//initiate loader
 loader.status("initial");
+/*======================================
+END OF LOADER
+======================================*/
 
 
 
@@ -101,12 +96,17 @@ var menu = {
 		//hook
 		const body = document.getElementsByTagName("body")[0];
 		const line = menu.lines.childNodes;
+		const links = document.getElementsByClassName("menu-nav__item-child");
 		//open menu
 		if(!menu.active) {
 			//toggle
 			menu.active = true;
 			//add class name
 			body.classList.add("menu-open");
+			//add event listeners to links
+			for(let i=0;i<links.length;i++) {
+				links[i].addEventListener("click", menu.toggle, false);
+			}
 		}
 		//close menu
 		else if(menu.active) {
@@ -115,6 +115,10 @@ var menu = {
 			//remove class name
 			body.classList.remove("menu-open");
 			body.classList.remove("menu--hover");
+			//remove event listeners to links
+			for(let i=0;i<links.length;i++) {
+				links[i].removeEventListener("click", menu.toggle, false);
+			}
 		}
 	},
 	//menu hover
@@ -138,7 +142,9 @@ var menu = {
 			menu.icon.addEventListener("mouseleave", menu.hover, false);
 	}
 };
-
+/*======================================
+END OF MENU
+======================================*/
 
 
 
@@ -159,11 +165,14 @@ SCREEN DEMINSIONS
 var screen = {
 	//screen inner height
 	height: 0,
-
+	//total height of body
+	total_height: 0,
 	//find screen height
 	getHeight: function () {
 		//set height
 		screen.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		//set total height
+		screen.total_height = document.getElementsByTagName("body")[0].clientHeight;
 	},
 
 	//screen resize handler (debounced)
@@ -220,6 +229,11 @@ var screen = {
 */
 
 };
+/*======================================
+END OF SCREEN DEMINSIONS
+======================================*/
+
+
 
 
 
@@ -299,21 +313,32 @@ var scroll = {
 	},
 
 
-	//contact title trigger
+	//trigger contact title (..typing) animation
 	contact: function() {
 		//hook
 		const contact = document.getElementsByClassName("contact__title-container")[0];
-		//is class name is active?
+		//is class name active?
 		if(!contact.classList.contains("contact__title-trigger")) {
 			//contact title container bottom position
 			let contact_bottom = contact.getBoundingClientRect().bottom;
-			//scroll position trigger point
+			//trigger when contact bottom is in view
 			if(contact_bottom < screen.height) {
 				//add class name
 				contact.classList.add("contact__title-trigger");
 			}
 		}
+	},
 
+
+	//handler scrolldown fade away
+	scrolldown_fade: function() {
+		const scrolldown = document.getElementsByClassName("navbar-scrolldown")[0];
+		if(scroll.position + screen.height < screen.total_height) {
+			scrolldown.style.opacity = 1;
+		}
+		else if(scroll.position + screen.height > screen.total_height) {
+			scrolldown.style.opacity = 0;
+		}
 	},
 
 
@@ -426,6 +451,7 @@ var scroll = {
 		//call contact when last image is in view
 		if(works_img_container_middle[1] < screen.height) {
 			scroll.contact();
+			scroll.scrolldown_fade();
 		}
 
 	},
@@ -453,7 +479,9 @@ var scroll = {
 		}, false);
 	}
 };
-
+/*======================================
+END OF SCROLLING BEHAVIOR
+======================================*/
 
 
 
@@ -504,7 +532,7 @@ var particle = {
 	},
 	//random colors - not too dark
 	get_random_color: function() {
-	    var r = 0, g = 0, b = 0;
+	    let r = 0, g = 0, b = 0;
 
 	    while (r < 100 && g < 100 && b < 100) {
 	        r = Math.floor(Math.random() * 256);
@@ -568,7 +596,9 @@ var particle = {
 		}, fps);
 	}
 };
-
+/*======================================
+END OF PARTICAL SIMULATOR
+======================================*/
 
 
 

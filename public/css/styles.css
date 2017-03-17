@@ -944,9 +944,6 @@ LOADER
 .page {
 	visibility: hidden;
 }
-body {
-	overflow: hidden;
-}
 .loader {
 	position: fixed;
 	left: 0;
@@ -1020,7 +1017,7 @@ spinner
 /*======================================
 initial load
 ======================================*/
-.load-init body {
+.load-init {
 	overflow: hidden;
 }
 .load-init .loader {
@@ -1069,7 +1066,7 @@ initial load
 /*======================================
 loading
 ======================================*/
-.load-loading body {
+.load-loading {
 	overflow: hidden;
 }
 .load-loading .loader {
@@ -1083,7 +1080,7 @@ loading
 /*======================================
 load complete
 ======================================*/
-.load-complete body {
+.load-complete {
 	overflow: initial;
 }
 .load-complete .loader {

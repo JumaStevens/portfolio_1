@@ -21,7 +21,7 @@
 				<a class="navbar-brand" href="#">Juma</a>
 			</div>
 
-			<a class="navbar-toggle" href="#">
+			<a class="navbar-toggle">
 				<span class="navbar-toggle__line-container">
 					<span class="navbar-toggle__line-0"></span>
 					<span class="navbar-toggle__line-1"></span>
@@ -115,22 +115,22 @@
 					<ul class="menu-nav">
 						<li class="menu-nav__item-0">
 							<a class="menu-nav__item-child" href="#">
-								<span class="menu-nav__item-text-0">About</span>
+								<span class="menu-nav__item-text-0">Home</span>
 							</a>
 						</li>
 						<li class="menu-nav__item-1">
 							<a class="menu-nav__item-child" href="#">
-								<span class="menu-nav__item-text-1">Works</span>
+								<span class="menu-nav__item-text-1">About</span>
 							</a>
 						</li>
 						<li class="menu-nav__item-2">
-							<a class="menu-nav__item-child" href="#">
-								<span class="menu-nav__item-text-2">Journal</span>
+							<a class="menu-nav__item-child" href="#page__works">
+								<span class="menu-nav__item-text-2">Works</span>
 							</a>
 						</li>
 						<li class="menu-nav__item-3">
-							<a class="menu-nav__item-child" href="#">
-								<span class="menu-nav__item-text-3">FAQ</span>
+							<a class="menu-nav__item-child" href="#page__contact">
+								<span class="menu-nav__item-text-3">Contact</span>
 							</a>
 						</li>
 					</ul>
@@ -204,7 +204,7 @@
 					<!-- HOME -->
 					<section class="page__home">
 
-						<div class="page__home-color"><!-- fill color --></div>
+						<div class="page__home-color"></div><!-- fill color -->
 
 						<div class="intro-heading">
 							<h1 class="intro-heading__title">He<br>llo<span class="intro-heading__title-circle"></span></h1>
@@ -243,7 +243,7 @@
 					</section>
 
 					<!-- FEATURED WORKS -->
-					<section class="page__works">
+					<section class="page__works" id="page__works">
 						<div class="works-title-container">
 							<canvas class="works-title-container__canvas"></canvas>
 							<span class="works-title">
@@ -289,7 +289,7 @@
 					</section>
 
 					<!-- CONTACT -->
-					<section class="page__contact">
+					<section class="page__contact" id="page__contact">
 						<div class="contact__title-container">
 							<span class="contact__title-woman">
 								<svg class="contact__title-woman-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -545,15 +545,17 @@
 
 
 		<!-- SCRIPT(S) -->
-		<script src="js/script.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
 		<!-- classList polyfill -->
-		<script src="js/classList.js"></script>
-		<script src="js/width_finder.js"></script>
+		<script type="text/javascript" src="js/classList.js"></script>
+		<!-- smooth scrolling -->
+		<script type="text/javascript" src="js/zenscroll-min.js"></script>
+		<!-- DEVELOPMENT SCRIPTS -->
+		<script type="text/javascript" src="js/width_finder.js"></script>
 
 		<!-- JAVASCRIPT TURNED OFF -->
 		<noscript>
 			<style>
-				body {overflow: initial;}
 				.page {visibility: initial;}
 				.loader {display: none;}
 			</style>
