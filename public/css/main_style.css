@@ -1,0 +1,545 @@
+/*============================================================================
+STYLE
+============================================================================*/
+.button {
+	padding: 5px;
+	color: inherit;
+	border: 2px solid;
+	border-color: inherit;
+	text-decoration: none;
+	background: none;
+}
+/*======================================
+COLORS
+======================================*/
+/*===================
+primary
+===================*/
+.menu-nav__item-text-0::before,
+.page__home,
+.intro-heading__title-circle,
+.loader,
+.menu-color {
+	background: rgb(255, 88, 81);
+}
+.menu-contact__text--highlight,
+.works-title__body--highlight,
+.contact__text--highlight,
+.contact__title-heading--highlight {
+	color: rgb(255, 88, 81);
+}
+/*===================
+white
+===================*/
+.menu,
+.navbar-toggle,
+.border__top,
+.border__bottom,
+.border__left,
+.border__right {
+	background: rgb(255, 255, 255);
+}
+.intro-article__body-text--color,
+.intro-scrolldown,
+.works-title__heading,
+.works-title__body,
+.contact__title-heading,
+.contact__title-body {
+	color: rgb(255, 255, 255);
+}
+.intro-scrolldown__arrow-svg {
+	fill: rgb(255, 255, 255);
+}
+/*===================
+off white
+===================*/
+.page__home-color,
+.page__works,
+.page__contact,
+.page-about,
+.contact__info,
+.contact__form-input,
+.contact__form-input:focus,
+.contact__form-input:valid {
+	background: rgb(248, 248, 248);
+}
+/*===================
+black
+===================*/
+.navbar-toggle__line-0,
+.navbar-toggle__line-1,
+.navbar-toggle__line-2,
+.intro-article__heading-line,
+.error__message,
+.loader__brand-name {
+	background: rgb(34, 34, 34);
+}
+.navbar-brand,
+.navbar-scrolldown,
+.navbar-scrolltop,
+.menu-nav__item-child,
+.menu-lang__english-link,
+.menu-lang__french-link,
+.menu-contact__text,
+.intro-heading__title,
+.intro-article,
+.contact__info,
+.works-example__heading,
+.works-example__button,
+.contact__form-text,
+.button,
+.contact__mail,
+.contact__phone,
+.contact__form-text,
+.about__copy-heading,
+.about__skill-heading,
+.about__method-tech-heading {
+	color: rgb(34, 34, 34);
+}
+.contact__form-name,
+.contact__form-email,
+.contact__form-message {
+	border-color: rgb(34, 34, 34);
+}
+.navbar-scrolldown__arrow-svg,
+.navbar-scrolltop__arrow-svg {
+	fill: rgb(34, 34, 34);
+}
+/*===================
+grey
+===================*/
+.works-example__body,
+.works-example__button,
+.contact__descript,
+.about__copy-body,
+.about__method-tech-list-item {
+	color: rgb(96, 96, 96);
+}
+/*===================
+light grey
+===================*/
+.works-example__type {
+	color: rgb(186, 188, 193);
+}
+/*===================
+dark blue
+===================*/
+.contact__title-container,
+.bar:before,
+.bar:after {
+	background: rgb(82, 100, 174);
+}
+.contact__form-input:focus ~ .contact__form-text,
+.contact__form-input:valid ~ .contact__form-text,
+.contact__form-button:hover,
+.contact__about-button:hover {
+	color: rgb(82, 100, 174);
+}
+.contact__form-button:hover,
+.contact__about-button:hover {
+	border-color: rgb(82, 100, 174);
+}
+/*===================
+misc. colors
+===================*/
+.menu-nav__item-text-1::before {
+	background: rgb(65, 74, 107);
+}
+.menu-nav__item-text-2::before {
+	background: skyblue;
+}
+.menu-nav__item-text-3::before {
+	background: rgb(243, 193, 48);
+}
+.works-title-container {
+	background: rgb(30, 136, 229);
+	background: -webkit-linear-gradient(rgb(30, 136, 229), rgb(160, 210, 245));
+	background: -moz-linear-gradient(rgb(30, 136, 229), rgb(160, 210, 245));
+	background: -o-linear-gradient(rgb(30, 136, 229), rgb(160, 210, 245));
+	background: linear-gradient(rgb(30, 136, 229), rgb(160, 210, 245));
+}
+/*======================================
+END OF COLORS
+======================================*/
+
+
+
+
+
+/*======================================
+FONT
+======================================*/
+.intro-article__heading-text,
+.works-example__type--show,
+.works-example__button {
+	font-family: 'Alike', serif;
+}
+.works-example__body,
+.about__copy-body,
+.about__method-tech-list-item {
+	font-family: 'Roboto', sans-serif;
+}
+/*===================
+size
+===================*/
+.intro-heading__title {
+	font-size: 6rem;
+}
+.loader__brand-name,
+.error__message {
+ 	font-size: 4rem;
+}
+.works-title__heading,
+.contact__title-heading {
+	font-size: 3rem;
+}
+.menu-nav__item-child,
+.works-example__heading,
+.about__copy-heading,
+.about__skill-heading,
+.about__method-tech-heading {
+	font-size: 1.5rem;
+}
+.intro-article__body-text {
+	font-size: 1.2rem;
+}
+.page__contact,
+.works-title__body,
+.works-example,
+.contact__title-body,
+.about__copy-body,
+.about__method-tech-list-item,
+.works-example__body,
+.button,
+.contact__mail {
+	font-size: 1rem;
+}
+.intro-article__heading-text,
+.works-example__button {
+	font-size: 0.8rem;
+}
+.contact__descript,
+.works-example__type--show,
+.intro-article__heading,
+.navbar-lang-container,
+.menu-lang-container,
+.navbar-brand,
+.navbar-scrolldown,
+.navbar-scrolltop,
+.intro-scrolldown,
+.navbar-toggle__text-container {
+	font-size: 0.7rem;
+}
+/*===================
+line height
+===================*/
+.works-example__body,
+.about__copy-body {
+	line-height: 1.6;
+}
+.menu-nav__item-child {
+	line-height: 1.2;
+}
+.intro-heading__title,
+.intro-article__body-text,
+.works-title__heading,
+.contact__title-heading {
+	line-height: 1;
+}
+/*===================
+weight
+===================*/
+.navbar-brand,
+.works-title__body,
+.contact__title-body,
+.works-title__heading,
+.contact__title-heading,
+.intro-article__body-text,
+.menu-nav__item-child,
+.navbar-lang-container,
+.menu-lang-container,
+.intro-article__heading-text {
+	font-weight: 900;
+}
+/*===================
+transform
+===================*/
+.navbar-brand,
+.navbar-lang-container,
+.menu-lang-container,
+.intro-heading__title,
+.works-example__heading {
+	text-transform: uppercase;
+}
+.works-title__heading,
+.contact__title-heading,
+.works-title__body,
+.contact__title-body {
+	text-transform: capitalize;
+}
+/*===================
+decoration
+===================*/
+a {
+	text-decoration: none;
+}
+.contact__mail,
+.about__copy-heading,
+.about__skill-heading,
+.about__method-tech-heading,
+.works-example__button {
+	text-decoration: underline;
+}
+/*======================================
+END OF FONT
+======================================*/
+
+
+
+
+
+/*======================================
+NAV & MENU
+======================================*/
+.navbar-brand {
+	white-space: nowrap;
+}
+.navbar-lang-container,
+.menu-lang-container {
+	letter-spacing: 0.2em;
+}
+.navbar-lang__french,
+.menu-lang__french {
+	margin-left: 3px;
+}
+.menu-nav__item-1,
+.menu-nav__item-2,
+.menu-nav__item-3 {
+	margin-top: 6px;
+}
+.menu-social-items,
+.contact__social-items {
+	width: 25px;
+	height: 25px;
+}
+/*======================================
+END OF NAV & MENU
+======================================*/
+
+
+
+
+/*======================================
+HOME SECTION
+======================================*/
+.intro-article__heading {
+	margin-bottom: 10px;
+}
+.intro-article__heading-text {
+	font-style: italic;
+	margin-left: 2px;
+}
+.intro-article__body-text {
+	max-width: 20rem;
+}
+.intro-article__body-text--color {
+	padding-bottom: 5px;
+}
+/*======================================
+END OF HOME SECTION
+======================================*/
+
+
+
+
+/*======================================
+WORKS SECTION
+======================================*/
+.works-title__body,
+.contact__title-body {
+	margin-top: .5rem;
+}
+.works-example__type--show,
+.works-example__button {
+	font-style: italic;
+}
+.works-example__body {
+	margin: 1rem 0;
+}
+.works-example__type {
+	margin: 2px 0 4px 0;
+}
+/*======================================
+END OF WORKS SECTION
+======================================*/
+
+
+
+
+
+/*======================================
+CONTACT SECTION
+======================================*/
+.page__contact {
+	padding-bottom: 5px;
+}
+/*===================
+info
+===================*/
+.contact__name {
+	margin-top: 10px;
+}
+.contact__descript {
+	margin-top: 2px;
+}
+.contact__mail {
+	margin: 2px 0 50px 0;
+}
+.contact__about-button-container {
+	position: relative;
+	margin: 50px 0;
+}
+/*===================
+form
+===================*/
+.contact__form-container {
+	margin: 60px 0 80px 0;
+}
+.contact__form {
+	width: 80%;
+}
+.contact__form-name,
+.contact__form-email,
+.contact__form-message { 
+	position: relative; 
+	margin-bottom: 30px;
+}
+.contact__form-message {
+	margin-bottom: 15px;
+}
+.contact__form-input {
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	border: none;
+	border-bottom: 1px solid #757575;
+	-webkit-box-shadow: 0 0 0px 1000px rgb(248, 248, 248) inset; /* prevent autofill color*/
+}
+.contact__form-input[name=message] {
+	height: 41px;
+}
+.contact__form-button {
+	width: 100%;
+	-webkit-transition: border-color 0.2s ease;
+	-moz-transition: border-color 0.2s ease; 
+	transition: border-color 0.2s ease;
+}
+.contact__form-text {
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+}
+.contact__form-text,
+.contact__form-input[name=message],
+.bar:before,
+.bar:after {
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease; 
+	transition: all 0.2s ease; 
+}
+.bar {
+	position: relative;
+	display: block;
+}
+.bar:before,
+.bar:after {
+	position: absolute;
+	bottom: 1px;
+	height: 2px; 
+	width: 0;
+	content: '';
+}
+.bar:before {
+	left: 50%;
+}
+.bar:after {
+	right: 50%; 
+}
+.highlight {
+	position: absolute;
+	top: 25%; 
+	left: 0;
+	height: 60%; 
+	width: 50%; 
+	opacity: 0.5;
+	pointer-events: none;
+}
+/*===================
+form --active
+===================*/
+.contact__form-input[name=message]:focus,
+.contact__form-input[name=message]:valid {
+	height: 121px;
+}
+.contact__form-button:focus,
+.contact__form-input:focus {
+	outline: none;
+}
+.contact__form-input:focus ~ .contact__form-text,
+.contact__form-input:valid ~ .contact__form-text {
+	top: -20px;
+	font-size: 14px;
+}
+.contact__form-input:focus ~ .bar:before,
+.contact__form-input:focus ~ .bar:after {
+	width: 50%;
+}
+/*======================================
+END OF CONTACT SECTION
+======================================*/
+
+
+
+
+
+
+
+
+
+/*======================================
+LOADER & FORM RES
+======================================*/
+.loader__brand-name {
+  	color: transparent;
+ 	text-shadow: 0px 2px 3px rgb(255, 88, 81);
+	-webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+.spinner__bubble-0,
+.spinner__bubble-1,
+.spinner__bubble-2 {
+    background-color: inherit; /* loader background color */
+    box-shadow: inset 0px 0px 15px rgb(34, 34, 34);
+}
+/*===================
+response
+===================*/
+.error__message {
+	color: transparent;
+ 	text-shadow: 0px 2px 3px rgb(255, 88, 81);
+	-webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+/*======================================
+END OF LOADER & FORM RES
+======================================*/
+
+
+/*============================================================================
+END OF STYLE
+============================================================================*/

@@ -8,12 +8,20 @@ function window_onload() {
 	scroll.event_listener();
 	//menu init
 	menu.event_listener();
-	//loader
-	loader.status("complete");
+	//add listener navbar-brand (dest: home page)
+	home.navbar_brand();
+	//contact form init
+	contact.event_listener("add");
+	//contact info button init
+	contact_info.event_listener();
+	//zenscroll setup
+	zenscroll_settings.offset();
 	//assign img to background-image
 	const nodes = [document.getElementsByClassName("page__transition-image")[0],
 		document.getElementsByClassName("page__transition-image-dummy")[0]];
 	nodes[0].style.backgroundImage = "url('"+nodes[1].src+"')";
+	//loader
+	loader.status("complete");
 	//remove event listener
 	window.removeEventListener("load", window_onload, false);
 };
@@ -43,6 +51,8 @@ var loader = {
 		if(stage === "initial") {
 			//add class name
 			body.classList.add("load-init");
+			//remove class name
+			body.classList.remove("load-complete");
 		}
 		//AJAX loading
 		if(stage === "loading") {
@@ -92,7 +102,7 @@ var menu = {
 	active: false,
 
 	//menu toggle
-	toggle: function() {
+	toggle: function(e) {
 		//hook
 		const body = document.getElementsByTagName("body")[0];
 		const line = menu.lines.childNodes;
@@ -118,6 +128,34 @@ var menu = {
 			//remove event listeners to links
 			for(let i=0;i<links.length;i++) {
 				links[i].removeEventListener("click", menu.toggle, false);
+			}
+		}
+		if( !(e == undefined) ) {
+			//handle home page request
+			if(e.target.innerHTML === "Home") {
+				home.handler();
+			}
+			//request about page (AJAX)
+			else if(e.target.innerHTML === "About") {
+				const about_page = document.getElementsByClassName("page-about")[0] || false;
+				//enable scrolling when on About page
+				e.srcElement.offsetParent.setAttribute("href", "#");
+
+				if(about_page) {
+					if( !(about_page.style.display == "block") ) {
+						about.ajax();
+						//disable scrolling when on Home page
+						e.srcElement.offsetParent.removeAttribute("href");
+					}
+				}
+				else {
+					about.ajax();
+					e.srcElement.offsetParent.removeAttribute("href");
+				}
+			}
+			//
+			else if( (e.target.innerHTML === "Works") || (e.target.innerHTML === "Contact") ) {
+				home.handler(e.target.innerHTML);
 			}
 		}
 	},
@@ -153,6 +191,174 @@ END OF MENU
 
 
 
+/*======================================
+HOME
+======================================*/
+var home = {
+	//handle navigation requests
+	handler: function(target) {
+		const home = document.getElementsByClassName("page")[0];
+		const about = document.getElementsByClassName("page-about")[0] || false;
+		const error = document.getElementsByClassName("error")[0];
+
+		//is home page active?
+		if(home.style.display == "none") {
+			loader.status("loading");
+			//loader.status("loading");
+			setTimeout(function() {
+				home.style.display = "block";
+				about.style.display = "none";
+				error.style.display = "none";
+				zenscroll.to(home);
+				loader.status("complete");
+				//scroll to sections
+				if(target === "Works") {
+					const works = document.getElementsByClassName("page__works")[0];
+					zenscroll.to(works);
+				}
+				else if (target === "Contact") {
+					const contact = document.getElementsByClassName("page__contact")[0];
+					zenscroll.to(contact);
+				}
+			}, 1000);
+		}
+	},
+	//add listener to navbar-brand name (destination: home page)
+	navbar_brand: function() {
+		const navbar = document.getElementsByClassName("navbar-brand")[0];
+		//add listener
+		navbar.addEventListener("click", function() {
+			home.handler();
+			if(menu.active) {
+				menu.toggle();
+			}
+		}, false);
+	}
+};
+/*======================================
+END OF HOME
+======================================*/
+
+
+
+
+
+
+
+
+/*======================================
+ABOUT
+======================================*/
+var about = {
+	//about page content
+	content: false,
+
+	//retrieve about page
+	ajax: function(e) {
+		//reveal loader
+		loader.status("loading");
+
+		//has content already been loaded?
+		if(about.content == "") {
+			var xhr = new XMLHttpRequest();
+	    	xhr.open("GET", "//localhost:8080/about", true);
+	    	xhr.setRequestHeader('Content-Type', 'text/HTML');
+	    	xhr.timeout = 15000;
+	    	xhr.send();
+	    	let start_time = new Date().getTime();
+	    	//AJAX status
+	    	xhr.onload = function() {
+	    		//success
+				if(xhr.readyState === 4 && xhr.status === 200) {
+					let response = xhr.responseText;
+					let parser = new DOMParser();
+					let html = parser.parseFromString(response, "text/html");
+					about.content = html.getElementsByClassName("page-about")[0];
+					const page_container = document.getElementsByClassName("page-container")[0];
+					page_container.appendChild(about.content);
+					about.handler("loading", false, start_time);
+				} 
+			    //error
+			    else {
+				    about.handler("error", xhr.status, start_time);
+			    }
+			};
+	    	//handle timeout
+			xhr.ontimeout = function() {
+	       		xhr.abort();
+	       		about.handler("error", "Connection Timeout", start_time);
+	    	};
+	    }
+	    //content already loaded
+	    else {
+	    	about.handler("loaded");
+	    }
+	},
+
+
+
+	//append response
+	handler: function(status, msg, start_time) {
+		const home = document.getElementsByClassName("page")[0];
+		const about = document.getElementsByClassName("page-about")[0] || false;
+		const dummy_img = document.getElementsByClassName("about__image-dummy")[0] || false;
+		const img = document.getElementsByClassName("about__image")[0] || false;
+		const error = document.getElementsByClassName("error")[0];
+		const error_msg = document.getElementsByClassName("error__message")[0];
+
+		if(status === "loading") {
+			dummy_img.onload = function() {
+				//assign img to background-image
+				img.style.backgroundImage = "url('"+dummy_img.src+"')";
+				//minimum of nth time to elapse
+				let time_elapse = new Date().getTime() - start_time;
+				setTimeout(function() {
+					home.style.display = "none";
+					about.style.display = "block";
+					zenscroll.to(about);
+					loader.status("complete");
+				}, 1000-time_elapse);
+			}
+		}
+		else if(status === "loaded") {
+			setTimeout(function() {
+				home.style.display = "none";
+				about.style.display = "block";
+				zenscroll.to(about);
+				loader.status("complete");
+			}, 1000);
+		}
+		else if(status === "error") {
+			home.style.display = "none";
+			error.style.display = "flex";
+			error_msg.innerHTML = "ERROR: "+msg+".";
+			//minimum of nth time to elapse
+			let time_elapse = new Date().getTime() - start_time;
+			setTimeout(function() {
+				loader.status("complete");
+				//delays
+				setTimeout(function() {
+					loader.status("loading");
+				}, 3000);
+				setTimeout(function() {
+					home.style.display = "block";
+					error.style.display = "none";
+					loader.status("complete");
+				}, 4000);
+			}, 1000-time_elapse);
+		}
+	}
+};
+/*======================================
+END OF ABOUT
+======================================*/
+
+
+
+
+
+
+
 
 
 
@@ -163,14 +369,17 @@ END OF MENU
 SCREEN DEMINSIONS
 ======================================*/
 var screen = {
-	//screen inner height
+	//screen inner height & width
 	height: 0,
+	width: 0,
 	//total height of body
 	total_height: 0,
 	//find screen height
 	getHeight: function () {
 		//set height
 		screen.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		//set width
+		screen.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 		//set total height
 		screen.total_height = document.getElementsByTagName("body")[0].clientHeight;
 	},
@@ -192,6 +401,7 @@ var screen = {
 				screen.getHeight();
 				scroll.parallax();
 				particle.init();
+				zenscroll_settings.offset();
 			}, delay);
 		});
 		//call function
@@ -369,6 +579,7 @@ var scroll = {
 		//scroll position trigger point
 		if(scroll.position < transition_top - screen.height) {
 			//display
+			home.style.display = "flex";
 			transition.style.display = "none";	
 			//set styles (with vendor prefixes)
 			for(let i=0;i<scroll.vendor.length;i++) {
@@ -607,6 +818,149 @@ END OF PARTICAL SIMULATOR
 
 
 
+/*======================================
+CONTACT FORM
+======================================*/
+var contact = {
+	form: document.getElementsByClassName("contact__form")[0],
+
+	//form submission
+	submit: function(e) {
+		//form
+		let form = e.target;
+    	//collect form data
+    	let data = {
+    		"name": form.name.value,
+    		"email": form.email.value,
+    		"message": form.message.value,
+    		"company": form.company.value //spam field
+    	};
+    	//honeypot (spam bots)
+    	if(data.company) {
+    		//spam
+    		contact.response("error", "spam detection");
+    	} else {
+    		//real person
+    		ajax();
+    		contact.response("sending");
+    	}
+    	//AJAX
+    	function ajax() {
+	    	var xhr = new XMLHttpRequest();
+	    	xhr.open(form.method, form.action);
+	    	xhr.setRequestHeader('Content-Type', 'application/json');
+	    	xhr.timeout = 15000;
+	    	xhr.send(JSON.stringify(data));
+	    	//AJAX status
+	    	xhr.onreadystatechange = function() {
+				if(xhr.readyState === 4) {
+					//success
+				    if(xhr.status === 200) {
+				    	if(JSON.parse(xhr.response).msg === "success") {
+				    		contact.response("success");
+				    	} else {
+				    		contact.response("error", JSON.parse(xhr.response).msg);
+				    	}
+				    } 
+				    //error
+				    else {
+				    	contact.response("error", xhr.status);
+				    	console.log("xhr error: " + xhr.status)
+				    }
+				}
+	       	};
+	       	//handle timeout
+	       	xhr.ontimeout = function() {
+	       		xhr.abort();
+	       		contact.response("error", "Network timeout");
+	       	};
+	    };
+       	//stop url change
+		e.preventDefault();
+    	//remove listener
+		contact.event_listener("remove");
+		//prevent user from submitting form with 'enter' while already submitting
+		const button = document.getElementsByClassName("contact__form-button")[0];
+		button.type = "";
+	},
+
+
+	//submit response
+	response: function(type, msg) {
+		const res = document.getElementsByClassName("contact__form-container")[0];
+		const form = contact.form;
+		const text = document.getElementsByClassName("contact__response-text")[0];
+		const button = document.getElementsByClassName("contact__form-button")[0];
+
+		//handle response requests
+		if(type === "sending") {
+			//remove class
+			res.classList.remove("success");
+			res.classList.remove("contact-error");
+			//add class
+			res.classList.add("waiting");
+			//hide form
+			form.style.visibility = "hidden";
+		}
+		else if(type === "success") {
+			//remove class
+			res.classList.remove("waiting");
+			res.classList.remove("contact-error");
+			//add class
+			res.classList.add("success");
+			//response text
+			text.innerHTML = "Thank you! Expect a response within 24hrs.";
+			//clear input values
+			contact.form.name.value = "";
+			contact.form.email.value = "";
+			contact.form.message.value = "";
+ 			//remove class after delay
+			setTimeout(function(){ 
+				res.classList.remove("success");
+				//add listener
+				contact.event_listener("add");
+				//return type value
+				button.type = "submit";
+				//show form
+				form.style.visibility = "initial";
+			}, 6000);
+		}
+		else if(type === "error") {
+			//remove class
+			res.classList.remove("waiting");
+			res.classList.remove("success");
+			//add class
+			res.classList.add("contact-error");
+			//hide form
+			form.style.visibility = "hidden";
+			//output error message
+			text.innerHTML = "Something went wrong! (ERR: "+msg+"). Message failure!";
+			//remove class after delay
+			setTimeout(function(){
+				res.classList.remove("contact-error");
+				//add listener
+				contact.event_listener("add");
+				//return type value
+				button.type = "submit";
+				//show form
+				form.style.visibility = "initial";
+			}, 6000);
+		}
+	},
+
+
+	//add listener
+	event_listener: function(add_remove) {
+		if(add_remove === "add") {
+			contact.form.addEventListener("submit", contact.submit, false);
+		} else if(add_remove === "remove") {
+			contact.form.removeEventListener("submit", contact.submit, false);
+		}
+	}
+};
+/*======================================
+END OF CONTACT FORM
+======================================*/  
 
 
 
@@ -616,11 +970,42 @@ END OF PARTICAL SIMULATOR
 
 
 
+/*======================================
+CONTACT INFO
+======================================*/ 
+var contact_info = {
+
+	//add listener to button (about ajax call)
+	event_listener: function() {
+		const button = document.getElementsByClassName("contact__about-button")[0];
+		button.addEventListener("click", about.ajax, false);
+	}
+};
+/*======================================
+END OF CONTACT INFO
+======================================*/ 
 
 
 
 
+/*======================================
+ZENSCROLL SETTINGS
+======================================*/
+var zenscroll_settings = {
 
-
+	//change edgeOffset value
+	offset: function() {
+		console.log(screen.width);
+		if(screen.width <= 767) {
+			zenscroll.setup(null, -1);
+		}
+		else if(screen.width > 767) {
+			zenscroll.setup(null, 39);
+		}
+	}
+};
+/*======================================
+END OF ZENSCROLL SETTINGS
+======================================*/
 
 
