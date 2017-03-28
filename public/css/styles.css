@@ -377,6 +377,13 @@ social media icons
 	margin: 0 0 40px 0;
 	display: flex;
 }
+.menu-social-items,
+.navbar-social__items,
+.contact__social-items {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 /*===================
 contact
 ===================*/
@@ -959,28 +966,29 @@ APPLICATION (ABOUT)
 	position: relative;
 	top: 0;
 	left: 0;
-	z-index: 80;
-	width: 100vw;
+	z-index: 5;
 	display: none;
 }
-.about__image {
-	width: 320px;
-	height: 320px;
+.about-container {
+	min-height: 100vh;
 }
-
+.about__image-container,
 .about__copy-container,
 .about__skill-container,
 .about__method-tech-container {
 	width: 80%;
 	margin: 0 auto;
 }
-.about__image-dummy {
-	display: none !important;
+.about__image-container {
+	
 }
 .about__image {
-	transform: rotate(90deg); /* TEMP */
-    background-size: cover;
-    background-repeat: no-repeat;
+	width: 100%;
+	max-width: 550px;
+	height: auto;
+}
+.about__copy-body {
+	max-width: 550px;
 }
 .about__skill-list-container {
 	display: flex;
@@ -1010,8 +1018,13 @@ APPLICATION (ABOUT)
 .about__method-tech-list-item {
 	margin: 5px 0;
 }
-.about__method-tech-container {
-	padding-bottom: 3rem;
+.about__color {
+	display: none;
+	position: fixed;
+	top: 40px;
+	right: 40px;
+	width: 20%;
+	height: 100%;
 }
 /*============================================================================
 END OF APPLICATION (ABOUT)
@@ -1368,6 +1381,33 @@ END OF LAYOUT
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*============================================================================
 ==============================================================================
 PRESENTATION
@@ -1428,7 +1468,7 @@ off white
 .page__home-color,
 .page__works,
 .page__contact,
-.page-about,
+.about-container,
 .contact__info,
 .contact__form-input,
 .contact__form-input:focus,
@@ -1452,6 +1492,8 @@ black
 .menu-nav__item-child,
 .menu-lang__english-link,
 .menu-lang__french-link,
+.navbar-land__english-link,
+.navbar-lang__french-link,
 .menu-contact__text,
 .intro-heading__title,
 .intro-article,
@@ -1523,12 +1565,20 @@ misc. colors
 .menu-nav__item-text-3::before {
 	background: rgb(243, 193, 48);
 }
-.works-title-container {
+.works-title-container,
+.about__color {
 	background: rgb(30, 136, 229);
 	background: -webkit-linear-gradient(rgb(30, 136, 229), rgb(160, 210, 245));
 	background: -moz-linear-gradient(rgb(30, 136, 229), rgb(160, 210, 245));
 	background: -o-linear-gradient(rgb(30, 136, 229), rgb(160, 210, 245));
 	background: linear-gradient(rgb(30, 136, 229), rgb(160, 210, 245));
+}
+.about__color-0 {
+	background: rgb(30, 136, 229);
+	background: -webkit-linear-gradient(rgb(5, 84, 155), rgb(160, 245, 245));
+	background: -moz-linear-gradient(rgb(5, 84, 155), rgb(160, 245, 245));
+	background: -o-linear-gradient(rgb(5, 84, 155), rgb(160, 245, 245));
+	background: linear-gradient(rgb(5, 84, 155), rgb(160, 245, 245));
 }
 /*======================================
 END OF COLORS
@@ -1542,7 +1592,7 @@ END OF COLORS
 FONT
 ======================================*/
 .intro-article__heading-text,
-.works-example__type--show,
+.works-example__type,
 .works-example__button {
 	font-family: 'Alike', serif;
 }
@@ -1591,7 +1641,7 @@ size
 	font-size: 0.8rem;
 }
 .contact__descript,
-.works-example__type--show,
+.works-example__type,
 .intro-article__heading,
 .navbar-lang-container,
 .menu-lang-container,
@@ -1609,11 +1659,11 @@ line height
 .about__copy-body {
 	line-height: 1.6;
 }
-.menu-nav__item-child {
+.menu-nav__item-child,
+.intro-article__body-text {
 	line-height: 1.2;
 }
 .intro-heading__title,
-.intro-article__body-text,
 .works-title__heading,
 .contact__title-heading {
 	line-height: 1;
@@ -1690,7 +1740,8 @@ NAV & MENU
 	margin-top: 6px;
 }
 .menu-social-items,
-.contact__social-items {
+.contact__social-items,
+.navbar-social__items {
 	width: 25px;
 	height: 25px;
 }
@@ -1705,7 +1756,7 @@ END OF NAV & MENU
 HOME SECTION
 ======================================*/
 .intro-article__heading {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 .intro-article__heading-text {
 	font-style: italic;
@@ -1727,6 +1778,10 @@ END OF HOME SECTION
 /*======================================
 WORKS SECTION
 ======================================*/
+.works-title__heading,
+.contact__title-heading {
+	margin: 0 20px;
+}
 .works-title__body,
 .contact__title-body {
 	margin-top: .5rem;
@@ -1736,7 +1791,7 @@ WORKS SECTION
 	font-style: italic;
 }
 .works-example__body {
-	margin: 1rem 0;
+	margin: 0.8rem 0 1rem 0;
 }
 .works-example__type {
 	margin: 2px 0 4px 0;
@@ -1762,10 +1817,10 @@ info
 	margin-top: 10px;
 }
 .contact__descript {
-	margin-top: 2px;
+	margin: 2px 0 40px 0;
 }
 .contact__mail {
-	margin: 2px 0 50px 0;
+	margin-top: 2px;
 }
 .contact__about-button-container {
 	position: relative;
@@ -1829,7 +1884,7 @@ form
 .bar:before,
 .bar:after {
 	position: absolute;
-	bottom: 1px;
+	bottom: 0;
 	height: 2px; 
 	width: 0;
 	content: '';
@@ -1917,6 +1972,24 @@ END OF LOADER & FORM RES
 END OF PRESENTATION
 ==============================================================================
 ============================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2230,20 +2303,6 @@ menu open
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*======================================
 MENU
 ======================================*/
@@ -2276,20 +2335,6 @@ contact
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*======================================
 APPLICATION
 ======================================*/
@@ -2316,9 +2361,7 @@ works section
 .works-example {
 	width: 100%;
 	flex-direction: row;
-}
-.works-example__heading {
-	align-self: center;
+	margin-top: 80px;
 }
 .works-example__image-container {
 	display: initial;
@@ -2342,6 +2385,10 @@ works section
 }
 .works-example__article {
 	flex: 1;
+	align-self: flex-start;
+	max-width: 550px;
+	margin: 0 auto;
+	padding: 0 40px;
 }
 .works-example__image-container--left,
 .works-example__article--right {
@@ -2350,6 +2397,23 @@ works section
 .works-example__image-container--right,
 .works-example__article--left {
 	order: 2;
+}
+.works-example__heading {
+	align-self: center;
+}
+.works-example__type {
+	display: initial;
+}
+.works-example__type--show {
+	display: none !important;
+}
+.works-example__body,
+.about__copy-body {
+	overflow-y: auto;
+	max-height: 350px;
+}
+.works-example__button {
+	margin: 20px 20px 20px 0;
 }
 /*===================
 contact section
@@ -2361,11 +2425,31 @@ contact section
 .contact__info {
 	order: 1;
 }
+.contact__social-container {
+	display: none;
+}
 .contact__form-container {
 	order: 2;
 }
 
 
+
+/*===================
+about page
+===================*/
+.about-container {
+	min-height: calc(100vh - 80px);
+	margin: 40px;
+}
+.about__image-container,
+.about__copy-container,
+.about__skill-container,
+.about__method-tech-container {
+	padding: 0 20% 0 40px;
+}
+.about__color {
+	display: initial;
+}
 
 
 
@@ -2414,14 +2498,6 @@ menu open
 
 
 
-
-
-
-
-
-
-
-
 /*======================================
 LOADER
 ======================================*/
@@ -2459,6 +2535,24 @@ initial load
 /*======================================
 END OF LOADER
 ======================================*/
+
+
+
+
+
+/*======================================
+PRESENTATION
+======================================*/
+.intro-heading__title {
+	font-size: 10rem;
+}
+.works-example__heading {
+	text-decoration: underline;
+}
+
+
+
+
 
 
 }
@@ -3345,6 +3439,18 @@ ANIMATION KEYFRAME
 		width: 0;
 		background: transparent;
 	}
+}
+.about__color {
+	-webkit-animation: sending 10s ease infinite alternate;
+  	-moz-animation: sending 10s ease infinite alternate;
+  	-o-animation: sending 10s ease infinite alternate;
+	animation: sending 10s ease infinite alternate;
+}
+.about__color-0 {
+	-webkit-animation-direction: alternate-reverse;
+	-moz-animation-direction: alternate-reverse;
+	-o-animation-direction: alternate-reverse;
+	animation-direction: alternate-reverse;
 }
 /*============================================================================
 END OF ANIMATION KEYFRAME

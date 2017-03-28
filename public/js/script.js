@@ -301,15 +301,12 @@ var about = {
 	handler: function(status, msg, start_time) {
 		const home = document.getElementsByClassName("page")[0];
 		const about = document.getElementsByClassName("page-about")[0] || false;
-		const dummy_img = document.getElementsByClassName("about__image-dummy")[0] || false;
 		const img = document.getElementsByClassName("about__image")[0] || false;
 		const error = document.getElementsByClassName("error")[0];
 		const error_msg = document.getElementsByClassName("error__message")[0];
 
 		if(status === "loading") {
-			dummy_img.onload = function() {
-				//assign img to background-image
-				img.style.backgroundImage = "url('"+dummy_img.src+"')";
+			img.onload = function() {
 				//minimum of nth time to elapse
 				let time_elapse = new Date().getTime() - start_time;
 				setTimeout(function() {
@@ -546,7 +543,7 @@ var scroll = {
 		if(scroll.position + screen.height < screen.total_height) {
 			scrolldown.style.opacity = 1;
 		}
-		else if(scroll.position + screen.height > screen.total_height) {
+		else if(scroll.position + screen.height >= screen.total_height) {
 			scrolldown.style.opacity = 0;
 		}
 	},
@@ -626,7 +623,7 @@ var scroll = {
 			}
 		}
 		//scroll position trigger point
-		if(scroll.position >= works_top) {
+		if( (scroll.position >= works_top) && (scroll.position < (works_top + particle.canvas.height)) ) {
 			//display
 			transition.style.display = "none";
 			//turn on particles
@@ -705,7 +702,7 @@ PARTICAL SIMULATOR
 var particle = {
 	//placeholders
 	container: document.getElementsByClassName("works-title-container")[0],
-	canvas: false,
+	canvas: document.getElementsByClassName("works-title-container__canvas")[0],
 	ctx: false,
 	//particle values
 	num_particles: 50, //number of particles
@@ -732,13 +729,12 @@ var particle = {
 	//create canvas
 	create_canvas: function() {
 		//
-		particle.canvas = document.getElementsByClassName("works-title-container__canvas")[0];
 		particle.ctx = particle.canvas.getContext("2d");
 	},
 	//canvas width & height
 	canvas_dimensions: function() {
 		//set values
-		particle.canvas.width = window.innerWidth;
+		particle.canvas.width = particle.container.clientWidth;
 		particle.canvas.height = particle.container.clientHeight;
 	},
 	//random colors - not too dark
@@ -786,7 +782,6 @@ var particle = {
 	loop: function(value) {
 		//framerate
 		const fps = 1000/16;
-
 		//limiter
 		setTimeout(function() {
 			//loop
@@ -810,6 +805,8 @@ var particle = {
 /*======================================
 END OF PARTICAL SIMULATOR
 ======================================*/
+
+
 
 
 
@@ -995,7 +992,6 @@ var zenscroll_settings = {
 
 	//change edgeOffset value
 	offset: function() {
-		console.log(screen.width);
 		if(screen.width <= 767) {
 			zenscroll.setup(null, -1);
 		}
