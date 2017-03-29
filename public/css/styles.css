@@ -8,6 +8,7 @@ Responsive/Mobile First
 BROWSER BUG FIXES
 -rotate(0.0001deg) to ..typing fixes FireFox clunky motion on animation
 -background-color to ..typing-svg fixes Safari flickering on animation
+-translate3d to loader__brand-name to fix Safari line
 ========================================
 TABLE OF CONTENT
 ========================================
@@ -593,7 +594,8 @@ scrolldown
 .intro-scrolldown {
 	position: fixed;
 	left: 50%;
-	bottom: 40px;
+	bottom: 5%;
+	z-index: 7;
 	display: flex;
 	align-items: center;
 	-webkit-transform-origin: left center;
@@ -920,6 +922,14 @@ submit response
 }
 .contact__response .sending {
 	position: absolute;
+	font-size: 12px;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(0, 100%, 0) scale(1);
+	-moz-transform: translate3d(0, 100%, 0) scale(1);
+	-ms-transform: translate3d(0, 100%, 0) scale(1);
+	-o-transform: translate3d(0, 100%, 0) scale(1);
+	transform: translate(-50%, -50%);
 }
 .contact__response .spinner {
 	width: 100px;
@@ -939,6 +949,9 @@ submit response
 .success .contact__response-text,
 .contact-error .contact__response-text {
 	display: initial;
+}
+.contact__response-text {
+	width: 80%;
 }
 /*============================================================================
 END OF APPLICATION
@@ -1086,6 +1099,13 @@ spinner
 }
 .loader__brand-name {
 	position: fixed;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    -ms-transform: translate3d(-50%, -50%, 0);
+    -o-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0); /* 3d to avoid line glitch in Safari */
 }
 .spinner {
 	position: relative;
@@ -1431,7 +1451,8 @@ primary
 .page__home,
 .intro-heading__title-circle,
 .loader,
-.menu-color {
+.menu-color,
+.error {
 	background: rgb(255, 88, 81);
 }
 .menu-contact__text--highlight,
@@ -1507,7 +1528,10 @@ black
 .contact__form-text,
 .about__copy-heading,
 .about__skill-heading,
-.about__method-tech-heading {
+.about__method-tech-heading,
+.contact__response-text,
+.contact__response .sending,
+.error__redirect {
 	color: rgb(34, 34, 34);
 }
 .contact__form-name,
@@ -1542,16 +1566,20 @@ dark blue
 .bar:before,
 .bar:after {
 	background: rgb(82, 100, 174);
+	background: rgb(36, 114, 220);
 }
 .contact__form-input:focus ~ .contact__form-text,
 .contact__form-input:valid ~ .contact__form-text,
 .contact__form-button:hover,
-.contact__about-button:hover {
+.contact__about-button:hover,
+.works-example__button:hover {
 	color: rgb(82, 100, 174);
+	color: rgb(36, 114, 220);
 }
 .contact__form-button:hover,
 .contact__about-button:hover {
 	border-color: rgb(82, 100, 174);
+	border-color: rgb(36, 114, 220);
 }
 /*===================
 misc. colors
@@ -1607,8 +1635,7 @@ size
 .intro-heading__title {
 	font-size: 6rem;
 }
-.loader__brand-name,
-.error__message {
+.loader__brand-name {
  	font-size: 4rem;
 }
 .works-title__heading,
@@ -1619,7 +1646,8 @@ size
 .works-example__heading,
 .about__copy-heading,
 .about__skill-heading,
-.about__method-tech-heading {
+.about__method-tech-heading,
+.error__message {
 	font-size: 1.5rem;
 }
 .intro-article__body-text {
@@ -1633,7 +1661,8 @@ size
 .about__method-tech-list-item,
 .works-example__body,
 .button,
-.contact__mail {
+.contact__mail,
+.error__redirect {
 	font-size: 1rem;
 }
 .intro-article__heading-text,
@@ -1962,6 +1991,10 @@ response
     -moz-background-clip: text;
     background-clip: text;
 }
+.error__redirect {
+	margin-top: 10px;
+	color: white;
+}
 /*======================================
 END OF LOADER & FORM RES
 ======================================*/
@@ -2023,11 +2056,17 @@ END OF PRESENTATION
 
 
 
-
-
-
-
-
+/*============================================================================
+MEDIA QUERY
+============================================================================*/
+@media only screen and (min-width: 414px) {
+.intro-heading__title {		
+	font-size: 8rem;
+}
+}
+/*============================================================================
+END OF MEDIA QUERY
+============================================================================*/
 
 
 
@@ -2607,7 +2646,7 @@ APPLICATION
 	position: absolute;
 	height: 40%;
 	overflow: hidden;
-	background-color: rgba(23,33,200, 0); /* Safari animation glitch fix */
+	background-color: rgb(36, 114, 220); /* Safari animation glitch fix */
 	-webkit-transform-origin: top left;
     -moz-transform-origin: top left;
     -ms-transform-origin: top left;
@@ -2686,6 +2725,27 @@ END OF MEDIA QUERY
 
 
 
+
+
+
+
+
+
+/*============================================================================
+MEDIA QUERY
+============================================================================*/
+@media only screen and (min-width: 1300px) {
+.contact__form-name,
+.contact__form-email {
+	width: 45%;
+}
+
+
+
+}
+/*============================================================================
+END OF MEDIA QUERY
+============================================================================*/
 
 
 

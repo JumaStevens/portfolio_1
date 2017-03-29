@@ -133,24 +133,25 @@ var menu = {
 		if( !(e == undefined) ) {
 			//handle home page request
 			if(e.target.innerHTML === "Home") {
-				home.handler();
+				home.handler("Home");
 			}
 			//request about page (AJAX)
 			else if(e.target.innerHTML === "About") {
 				const about_page = document.getElementsByClassName("page-about")[0] || false;
 				//enable scrolling when on About page
-				e.srcElement.offsetParent.setAttribute("href", "#");
+				console.log(e);
+				e.target.offsetParent.setAttribute("href", "#");
 
 				if(about_page) {
 					if( !(about_page.style.display == "block") ) {
 						about.ajax();
 						//disable scrolling when on Home page
-						e.srcElement.offsetParent.removeAttribute("href");
+						e.target.offsetParent.removeAttribute("href");
 					}
 				}
 				else {
 					about.ajax();
-					e.srcElement.offsetParent.removeAttribute("href");
+					e.target.offsetParent.removeAttribute("href");
 				}
 			}
 			//
@@ -200,6 +201,8 @@ var home = {
 		const home = document.getElementsByClassName("page")[0];
 		const about = document.getElementsByClassName("page-about")[0] || false;
 		const error = document.getElementsByClassName("error")[0];
+		const works = document.getElementsByClassName("page__works")[0];
+		const contact = document.getElementsByClassName("page__contact")[0];
 
 		//is home page active?
 		if(home.style.display == "none") {
@@ -209,18 +212,27 @@ var home = {
 				home.style.display = "block";
 				about.style.display = "none";
 				error.style.display = "none";
+				scroll_arrows.handler("show");
 				zenscroll.to(home);
 				loader.status("complete");
 				//scroll to sections
 				if(target === "Works") {
-					const works = document.getElementsByClassName("page__works")[0];
 					zenscroll.to(works);
 				}
 				else if (target === "Contact") {
-					const contact = document.getElementsByClassName("page__contact")[0];
 					zenscroll.to(contact);
 				}
 			}, 1000);
+		}
+		else {
+			//handle scroll when on Home page
+			if(target === "Home") {
+				zenscroll.to(home);
+			} else if(target === "Works") {
+				zenscroll.to(works);
+			} else if(target === "Contact") {
+				zenscroll.to(contact);
+			}
 		}
 	},
 	//add listener to navbar-brand name (destination: home page)
@@ -228,7 +240,7 @@ var home = {
 		const navbar = document.getElementsByClassName("navbar-brand")[0];
 		//add listener
 		navbar.addEventListener("click", function() {
-			home.handler();
+			home.handler("Home");
 			if(menu.active) {
 				menu.toggle();
 			}
@@ -312,6 +324,7 @@ var about = {
 				setTimeout(function() {
 					home.style.display = "none";
 					about.style.display = "block";
+					scroll_arrows.handler("hide");
 					zenscroll.to(about);
 					loader.status("complete");
 				}, 1000-time_elapse);
@@ -321,17 +334,18 @@ var about = {
 			setTimeout(function() {
 				home.style.display = "none";
 				about.style.display = "block";
+				scroll_arrows.handler("hide");
 				zenscroll.to(about);
 				loader.status("complete");
 			}, 1000);
 		}
 		else if(status === "error") {
-			home.style.display = "none";
-			error.style.display = "flex";
-			error_msg.innerHTML = "ERROR: "+msg+".";
 			//minimum of nth time to elapse
 			let time_elapse = new Date().getTime() - start_time;
 			setTimeout(function() {
+				home.style.display = "none";
+				error.style.display = "flex";
+				error_msg.innerHTML = "ERROR: "+msg+".";
 				loader.status("complete");
 				//delays
 				setTimeout(function() {
@@ -540,10 +554,10 @@ var scroll = {
 	//handler scrolldown fade away
 	scrolldown_fade: function() {
 		const scrolldown = document.getElementsByClassName("navbar-scrolldown")[0];
-		if(scroll.position + screen.height < screen.total_height) {
+		if(scroll.position + screen.height < screen.total_height-40) {
 			scrolldown.style.opacity = 1;
 		}
-		else if(scroll.position + screen.height >= screen.total_height) {
+		else {
 			scrolldown.style.opacity = 0;
 		}
 	},
@@ -690,6 +704,51 @@ var scroll = {
 /*======================================
 END OF SCROLLING BEHAVIOR
 ======================================*/
+
+
+
+
+
+
+
+
+
+
+/*======================================
+SCROLL ARROWS
+======================================*/
+//hide arrows when on about page 
+var scroll_arrows = {
+	handler: function(show_hide) {
+		const arrow =
+			[document.getElementsByClassName("intro-scrolldown")[0],
+			document.getElementsByClassName("navbar-scrolldown")[0],
+			document.getElementsByClassName("navbar-scrolltop")[0]];
+
+		if(screen.width > 767) {
+			if(show_hide === "show") {
+				for(let i=0;i<arrow.length;i++) {
+					arrow[i].style.display = "flex";
+				}
+			}
+			else if(show_hide === "hide") {
+				for(let i=0;i<arrow.length;i++) {
+					arrow[i].style.display = "none";
+				}
+			}
+		}
+	}
+};
+/*======================================
+END OF SCROLL ARROWS
+======================================*/
+
+
+
+
+
+
+
 
 
 
@@ -906,7 +965,7 @@ var contact = {
 			//add class
 			res.classList.add("success");
 			//response text
-			text.innerHTML = "Thank you! Expect a response within 24hrs.";
+			text.innerHTML = "Message sent! Expect a response within 24hrs.";
 			//clear input values
 			contact.form.name.value = "";
 			contact.form.email.value = "";
