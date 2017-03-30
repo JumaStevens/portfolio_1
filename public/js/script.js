@@ -139,7 +139,6 @@ var menu = {
 			else if(e.target.innerHTML === "About") {
 				const about_page = document.getElementsByClassName("page-about")[0] || false;
 				//enable scrolling when on About page
-				console.log(e);
 				e.target.offsetParent.setAttribute("href", "#");
 
 				if(about_page) {
