@@ -1725,7 +1725,8 @@ transform
 .works-title__heading,
 .contact__title-heading,
 .works-title__body,
-.contact__title-body {
+.contact__title-body,
+.about__copy-heading {
 	text-transform: capitalize;
 }
 /*===================
