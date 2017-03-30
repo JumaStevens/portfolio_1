@@ -272,7 +272,7 @@ var about = {
 		//has content already been loaded?
 		if(about.content == "") {
 			var xhr = new XMLHttpRequest();
-	    	xhr.open("GET", "http://juma-stevens-portfolio.herokuapp.com", true);
+	    	xhr.open("GET", "http://www.juma-stevens-portfolio.herokuapp.com", true);
 	    	xhr.setRequestHeader('Content-Type', 'text/HTML');
 	    	xhr.timeout = 15000;
 	    	xhr.send();
@@ -285,7 +285,6 @@ var about = {
 					let parser = new DOMParser();
 					let html = parser.parseFromString(response, "text/html");
 					about.content = html.getElementsByClassName("page-about")[0];
-					console.log(about.content);
 					const page_container = document.getElementsByClassName("page-container")[0];
 					page_container.appendChild(about.content);
 					about.handler("loading", false, start_time);
