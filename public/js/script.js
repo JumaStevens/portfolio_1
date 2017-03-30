@@ -272,7 +272,7 @@ var about = {
 		//has content already been loaded?
 		if(about.content == "") {
 			var xhr = new XMLHttpRequest();
-	    	xhr.open("GET", "http://www.juma-stevens-portfolio.herokuapp.com/about", true);
+	    	xhr.open("GET", "http://juma-stevens-portfolio.herokuapp.com/about", true);
 	    	xhr.setRequestHeader('Content-Type', 'text/HTML');
 	    	xhr.timeout = 15000;
 	    	xhr.send();
