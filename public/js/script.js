@@ -285,6 +285,7 @@ var about = {
 					let parser = new DOMParser();
 					let html = parser.parseFromString(response, "text/html");
 					about.content = html.getElementsByClassName("page-about")[0];
+					console.log(about.content);
 					const page_container = document.getElementsByClassName("page-container")[0];
 					page_container.appendChild(about.content);
 					about.handler("loading", false, start_time);
