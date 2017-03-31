@@ -1741,7 +1741,7 @@ NAV & MENU
 }
 .menu-social-items,
 .contact__social-items {
-	width: 30px;
+	width: 25px;
 	height: 25px;
 }
 .navbar-social__items {
@@ -2343,7 +2343,10 @@ navigation
 /*===================
 contact
 ===================*/
-
+.menu-contact-container {
+	margin-top: 20px;
+	margin-bottom: 0;
+}
 
 
 
