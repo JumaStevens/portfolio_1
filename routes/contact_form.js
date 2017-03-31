@@ -28,7 +28,7 @@ router.post("/contact_form", function(req, res) {
 			    service: 'gmail',
 			    auth: {
 			        user: 'jumastevens.contact@gmail.com',
-			        pass: 'j192837465s' /*process.env.GMAIL_PASS*/
+			        pass: process.env.GMAIL_PASS
 			    }
 			});
 
