@@ -66,6 +66,7 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
+  cursor: none;
 }
 h1,h2,h3,h4,h5,h6,p,span,a,ul,li,div,input {
 	font-family: 'Montserrat', sans-serif;
