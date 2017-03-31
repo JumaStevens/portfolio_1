@@ -1740,10 +1740,7 @@ NAV & MENU
 	margin-top: 6px;
 }
 .menu-social-items,
-.contact__social-items {
-	width: 25px;
-	height: 25px;
-}
+.contact__social-items,
 .navbar-social__items {
 	width: 25px;
 	height: 25px;
