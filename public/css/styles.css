@@ -115,8 +115,15 @@ h1,h2,h3,h4,h5,h6,p,span,a,ul,li,div,input {
 	text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
-
-
+/*======================================
+LANGAUGE OPTION
+======================================*/
+.french .en {
+	display: none !important;
+}
+.english .fr {
+	display: none !important;
+}
 
 
 
@@ -1509,11 +1516,11 @@ black
 .navbar-brand,
 .navbar-scrolldown,
 .navbar-scrolltop,
+.navbar-land__english-link,
+.navbar-lang__french-link,
 .menu-nav__item-child,
 .menu-lang__english-link,
 .menu-lang__french-link,
-.navbar-land__english-link,
-.navbar-lang__french-link,
 .menu-contact__text,
 .intro-heading__title,
 .intro-article,
@@ -1530,7 +1537,11 @@ black
 .about__method-tech-heading,
 .contact__response-text,
 .contact__response .sending,
-.error__redirect {
+.error__redirect,
+.english .navbar-land__english-link,
+.french .navbar-lang__french-link,
+.english .menu-lang__english-link,
+.french .menu-lang__french-link {
 	color: rgb(34, 34, 34);
 }
 .contact__form-name,
@@ -1555,7 +1566,11 @@ grey
 /*===================
 light grey
 ===================*/
-.works-example__type {
+.works-example__type,
+.french .navbar-land__english-link,
+.english .navbar-lang__french-link,
+.french .menu-lang__english-link,
+.english .menu-lang__french-link {
 	color: rgb(186, 188, 193);
 }
 /*===================

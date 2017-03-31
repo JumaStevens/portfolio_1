@@ -10,6 +10,8 @@ function window_onload() {
 	menu.event_listener();
 	//add listener navbar-brand (dest: home page)
 	home.navbar_brand();
+	//add language listener
+	lang.event_listener();
 	//contact form init
 	contact.event_listener("add");
 	//contact info button init
@@ -190,6 +192,57 @@ END OF MENU
 
 
 
+/*======================================
+LANGUAGE
+======================================*/
+var lang = {
+
+	//assign language
+	handler: function(e) {
+		const body = document.getElementsByTagName("body")[0];
+		let target = e.target.innerHTML;
+		
+		if(target === "en." && body.classList.contains("french")) {
+			loader.status("loading");
+			setTimeout(function() {
+				body.classList.remove("french");
+				body.classList.add("english");
+				loader.status("complete");
+			}, 1000);
+		}
+		else if(target === "fr." && body.classList.contains("english")) {
+			loader.status("loading");
+			setTimeout(function() {
+				body.classList.remove("english");
+				body.classList.add("french");
+				loader.status("complete");
+			}, 1000);
+		}
+	},
+
+	//add event listeners to lang anchors
+	event_listener: function() {
+		const button = [document.getElementsByClassName("navbar-land__english-link")[0],
+						document.getElementsByClassName("navbar-lang__french-link")[0],
+						document.getElementsByClassName("menu-lang__english-link")[0],
+						document.getElementsByClassName("menu-lang__french-link")[0]];
+
+		for(let i=0;i<button.length;i++) {
+			button[i].addEventListener('click', lang.handler, false);
+		}
+	}
+};
+/*======================================
+END OF LANGUAGE
+======================================*/
+
+
+
+
+
+
+
+
 
 /*======================================
 HOME
@@ -272,7 +325,7 @@ var about = {
 		//has content already been loaded?
 		if(about.content == "") {
 			var xhr = new XMLHttpRequest();
-	    	xhr.open("GET", "http://juma-stevens-portfolio.herokuapp.com/about", true);
+	    	xhr.open("GET", "http://localhost:8080/about" /*"http://juma-stevens-portfolio.herokuapp.com/about"*/, true);
 	    	xhr.setRequestHeader('Content-Type', 'text/HTML');
 	    	xhr.timeout = 15000;
 	    	xhr.send();
