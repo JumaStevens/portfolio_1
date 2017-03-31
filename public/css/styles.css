@@ -407,7 +407,7 @@ transitions
 /*===================
 menu open
 ===================*/
-.menu-open {
+.menu-open .overflow {
 	overflow: hidden !important;
 }
 .menu-open .menu {
@@ -2556,6 +2556,9 @@ PRESENTATION
 ======================================*/
 .intro-heading__title {
 	font-size: 10rem;
+}
+.menu-nav__item-child {
+	font-size: 3rem;
 }
 .works-example__heading {
 	text-decoration: underline;
