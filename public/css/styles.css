@@ -280,7 +280,7 @@ MENU
 switch language
 ===================*/
 .menu-lang-container {
-	margin: 40px 0;
+	margin-top: 40px;
 	display: flex;
 }
 /*===================
@@ -353,7 +353,7 @@ social media icons
 contact
 ===================*/
 .menu-contact-container {
-	margin: 40px 0;
+	margin-bottom: 40px;
 }
 /*===================
 transforms
@@ -1740,7 +1740,10 @@ NAV & MENU
 	margin-top: 6px;
 }
 .menu-social-items,
-.contact__social-items,
+.contact__social-items {
+	width: 30px;
+	height: 25px;
+}
 .navbar-social__items {
 	width: 25px;
 	height: 25px;
@@ -2033,6 +2036,9 @@ MEDIA QUERY
 @media only screen and (min-width: 414px) {
 .intro-heading__title {		
 	font-size: 8rem;
+}
+.menu-nav__item-child {
+	font-size: 2rem;
 }
 }
 /*============================================================================
@@ -2337,9 +2343,7 @@ navigation
 /*===================
 contact
 ===================*/
-.menu-contact-container {
-	margin: 0;
-}
+
 
 
 
