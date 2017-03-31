@@ -270,11 +270,11 @@ MENU
 }
 .menu-inner-container {
 	height: 100%;
-	margin: 0;
 	padding: 0 40px;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 }
 /*===================
 switch language
@@ -287,7 +287,7 @@ switch language
 navigation
 ===================*/
 .menu-nav-container {
-	margin: 100px 0 20px -10px;
+	margin-left: -10px;
 }
 .menu-nav__item-0,
 .menu-nav__item-1,
@@ -339,7 +339,7 @@ navigation
 social media icons
 ===================*/
 .menu-social-container {
-	margin: 0 0 40px 0;
+	margin-top: 20px;
 	display: flex;
 }
 .menu-social-items,
@@ -354,7 +354,6 @@ contact
 ===================*/
 .menu-contact-container {
 	margin: 40px 0;
-	margin-top: auto;
 }
 /*===================
 transforms
@@ -407,7 +406,7 @@ transitions
 /*===================
 menu open
 ===================*/
-.menu-open .overflow {
+.menu-open {
 	overflow: hidden !important;
 }
 .menu-open .menu {
