@@ -955,7 +955,7 @@ APPLICATION (ABOUT)
 	margin: 0 auto;
 }
 .about__image-container {
-	
+	padding-top: 100px; 
 }
 .about__image {
 	width: 100%;
@@ -992,6 +992,9 @@ APPLICATION (ABOUT)
 .about__skill-list-item,
 .about__method-tech-list-item {
 	margin: 5px 0;
+}
+.about__method-tech-container {
+	padding-bottom: 100px;
 }
 .about__color {
 	display: none;
@@ -2460,6 +2463,12 @@ about page
 .about__skill-container,
 .about__method-tech-container {
 	padding: 0 20% 0 40px;
+}
+.about__image-container {
+	padding-top: 80px;
+}
+.about__method-tech-container {
+	padding-bottom: 80px;
 }
 .about__color {
 	display: initial;
