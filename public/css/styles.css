@@ -1833,9 +1833,15 @@ CONTACT SECTION
 .page__contact {
 	padding-bottom: 5px;
 }
+.contact-info-form-container {
+	margin: 60px 0 40px 0;
+}
 /*===================
 info
 ===================*/
+.contact__info {
+	margin-top: 60px;
+}
 .contact__name {
 	margin-top: 10px;
 }
@@ -1852,9 +1858,6 @@ info
 /*===================
 form
 ===================*/
-.contact__form-container {
-	margin: 60px 0 80px 0;
-}
 .contact__form {
 	width: 80%;
 }
@@ -2458,9 +2461,11 @@ contact section
 .contact-info-form-container {
 	flex-direction: row;
 	flex-wrap: wrap;
+	margin: 60px 0 80px 0;
 }
 .contact__info {
 	order: 1;
+	margin-top: 0;
 }
 .contact__social-container {
 	display: none;
