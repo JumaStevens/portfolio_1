@@ -66,12 +66,32 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
-  cursor: none;
+  cursor: default;
 }
 h1,h2,h3,h4,h5,h6,p,span,a,ul,li,div,input {
 	font-family: 'Montserrat', sans-serif;
 	text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+}
+.navbar-social__items,
+.menu-social-items,
+.contact__social-items,
+.navbar-scrolltop,
+.navbar-land__english-link,
+.navbar-lang__french-link,
+.menu-nav__item-child,
+.menu-lang__english-link,
+.menu-lang__french-link,
+.navbar-brand,
+.navbar-toggle,
+.contact__mail,
+.works-example__button,
+.contact__form-button,
+.contact__about-button {
+	cursor: pointer;
+}
+.contact__form-input {
+	cursor: text;
 }
 /*======================================
 LANGAUGE OPTION
