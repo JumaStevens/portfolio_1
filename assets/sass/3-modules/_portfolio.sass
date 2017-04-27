@@ -1,0 +1,30 @@
+.portfolio
+	padding-top: 100px
+	background: $secondary-color
+
+	&-title-container
+		display: flex
+		justify-content: center
+		+mq-tablet
+			width: 50%
+
+	&-title
+		padding: 0 40px
+
+	&-composite-container
+		padding: 0 40px 0 0
+
+	&-composite
+		max-width: 520px
+
+		&__image
+			width: 100%
+			height: auto
+
+	&-article-container
+		+mq-tablet
+			display: flex
+			justify-content: center
+			align-items: center
+			width: calc(50% - #{$border-size})
+			height: calc(100% - #{$border-size}*2)

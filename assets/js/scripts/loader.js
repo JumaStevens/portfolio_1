@@ -1,0 +1,78 @@
+var loader = {
+	
+	// set elements in preload "ready position"
+	init: function() {
+		const elem = [
+			// home elements
+			document.getElementsByClassName('home-color')[0],
+			document.getElementsByClassName('home-title')[0],
+			document.getElementsByClassName('title__period--drop')[0],
+			document.getElementsByClassName('home-scrolldown')[0],
+			document.getElementsByClassName('home-article__header-line')[0],
+			document.getElementsByClassName('home-article__header-copy')[0],
+			document.getElementsByClassName('home-article__content-copy')[0],
+			document.getElementsByClassName('home-article__content-copy')[1],
+			// header elements 
+			document.getElementsByClassName('header-logo')[0],
+			document.getElementsByClassName('header-menu-toggle--top')[0],
+			document.getElementsByClassName('header-menu-toggle--left')[0],
+			document.getElementsByClassName('header-lang-list')[0],
+			document.getElementsByClassName('header-social-list')[0],
+			// border elements
+			document.getElementsByClassName('border__top')[0],
+			document.getElementsByClassName('border__bottom')[0],
+			document.getElementsByClassName('border__left')[0],
+			document.getElementsByClassName('border__right')[0]
+		];
+		// portfolio elements
+		const port_article = document.getElementsByClassName('portfolio-article');
+		// hide elements
+		for(let i=0;i<elem.length;i++) {
+			elem[i].classList.add('hide');
+		}
+		// hide portfolio article children
+		for(let i=0;i<port_article.length;i++) {
+			for(let j=0;j<port_article[i].children.length;j++) {
+				port_article[i].children[j].classList.add('hide');
+			}
+		}
+	},
+
+	// load events
+	handler: function(e) {
+		const loader_elem = document.getElementsByClassName('loader')[0];
+		const elem = [
+			// home elements
+			document.getElementsByClassName('home-color')[0],
+			document.getElementsByClassName('home-title')[0],
+			document.getElementsByClassName('title__period--drop')[0],
+			document.getElementsByClassName('home-scrolldown')[0],
+			// header elements
+			document.getElementsByClassName('header-logo')[0],
+			document.getElementsByClassName('header-menu-toggle--top')[0],
+			document.getElementsByClassName('header-menu-toggle--left')[0],
+			document.getElementsByClassName('header-lang-list')[0],
+			document.getElementsByClassName('header-social-list')[0],
+			// border elements
+			document.getElementsByClassName('border__top')[0],
+			document.getElementsByClassName('border__bottom')[0],
+			document.getElementsByClassName('border__left')[0],
+			document.getElementsByClassName('border__right')[0]
+		];
+		// load complete
+		if(e) {
+			loader_elem.classList.add('hide');
+			// reveal elements
+			for(let i=0;i<elem.length;i++) {
+				elem[i].classList.remove('hide');
+			}
+		}
+		// load active
+		else {
+			loader_elem.classList.remove('hide');
+		}
+	}
+};
+
+// call
+loader.init();

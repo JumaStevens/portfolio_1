@@ -1,0 +1,57 @@
+.header-menu-toggle--top
+	width: 45px
+	height: 45px
+	border-radius: 25px
+	background: $white-color
+
+.header-menu-toggle--left
+	width: 40px
+	height: 40px
+	border-radius: 0
+	background: none
+
+.menu-toggle
+	&__lines
+		position: absolute
+		top: 50%
+		left: 50%
+		width: 20px
+		height: 10px
+		transform: translate(-50%, -50%)
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: flex-end
+		+mq-tablet
+			left: 25%
+			transform: translate(0, -50%)
+	
+	&__line-0
+		height: 2px
+		width: 16px
+		background: $black-color
+		transition: width 400ms $bezier, transform 400ms $bezier, opacity 100ms ease-out 200ms
+	&__line-1
+		@extend .menu-toggle__line-0
+		width: 20px
+	&__line-2
+		@extend .menu-toggle__line-0
+		width: 12px
+
+	&__copy
+		position: absolute
+		top: 50%
+		left: 0.3rem
+		width: 100%
+		font-family: $primary-font
+		font-size: 0.7rem
+		color: $black-color
+		text-align: center
+		text-transform: uppercase
+		white-space: nowrap
+		transform: translate(50%, -50%) rotate(-90deg)
+		transition: opacity 200ms ease-out
+		
+		&-0, &-1, &-2, &-3
+			display: inline-block
+			transition: transform 400ms $bezier

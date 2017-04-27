@@ -1,0 +1,19 @@
+.portfolio
+	position: relative
+	z-index: 20
+	+mq-tablet
+		margin: 0 $border-size
+
+	&-composite-container
+		+mq-tablet
+			position: relative
+			left: 50%
+			margin-top: 100px
+
+	&-article-container
+		margin-top: 100px
+		+mq-tablet
+			position: fixed
+			top: $border-size
+			left: $border-size
+			margin-top: 0

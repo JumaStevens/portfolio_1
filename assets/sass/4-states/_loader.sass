@@ -1,0 +1,8 @@
+.loader
+	visibility: initial
+	transition: transform 500ms $bezier, visibility
+
+	&.hide
+		visibility: hidden
+		transform: translateX(-100%)
+		transition: transform 500ms $bezier, visibility 0ms 500ms
