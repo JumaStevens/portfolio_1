@@ -1,0 +1,14 @@
+mixin social-list(name, modifier)
+	ul(class='social-list ' + 'social-list--' + modifier + ' ' + name + '-social-list')
+		li(class='social-list__item ' + 'social-list__item--' + modifier)
+			a(href='https://www.github.com/jumastevens', rel='external', target='_blank')
+				span
+					include ../svg/github.pug
+		li(class='social-list__item ' + 'social-list__item--' + modifier)
+			a(href='https://www.linkedin.com/in/juma-stevens-05730b138/', rel='external', target='_blank')
+				span
+					include ../svg/linkedin.pug
+		li(class='social-list__item ' + 'social-list__item--' + modifier)
+			a(href='https://www.instagram.com/jumastevens', rel='external', target='_blank')
+				span
+					include ../svg/instagram.pug

@@ -1,0 +1,46 @@
+.menu
+
+	//- languages
+	.menu-inner-container
+		ul.menu-lang-container
+			li.menu-lang__english
+				a.menu-lang__english-link en.
+			li.menu-lang__french
+				a.menu-lang__french-link fr.
+
+		//- wrapper
+		div
+
+			//- navigation
+			nav.menu-nav-container
+				ul.menu-nav
+					mixin list(count, name)
+						li(class='menu-nav__item-' + count)
+							a.menu-nav__item-child
+								span(class='menu-nav__item-text-' + count)= name
+					+list(0, 'Home')
+					+list(1, 'About')
+					+list(2, 'Works')
+					+list(3, 'Contact')
+
+			//- social media
+			ul.menu-social-container
+				li.menu-social-items
+					a(href='https://www.github.com/jumastevens', rel='external', target='_blank')
+						span
+							include svg/github.pug
+				li.menu-social-items
+					a(href='https://www.linkedin.com/in/juma-stevens-05730b138/', rel='external', target='_blank')
+						span
+							include svg/linkedin.pug
+				li.menu-social-items
+					a(href='https://www.instagram.com/jumastevens', rel='external', target='_blank')
+						span
+							include svg/instagram.pug
+
+			//- contact
+			.menu-contact-container
+				p.contact__text
+					| Available for
+					span.menu-contact__text--highlight &#32;hire.
+				a.contact__mail(href='mailto:jumastevens@gmail.com', rel='external') jumastevens@gmail.com

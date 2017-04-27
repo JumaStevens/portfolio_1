@@ -1,0 +1,64 @@
+section.bio
+
+	//- title
+	.bio-title-container
+		h2.title.title--md.bio-title Bio
+			span.title__period .
+
+	//- content container
+	.bio-content-container
+
+		//- composite
+		.bio-composite-container
+			.bio-composite
+				img.bio-composite__image(src='../../assets/images/avatar.jpg', alt='')
+
+		//- about
+		article.article.bio-article
+			h3.article__title.title.title--sm About
+			p.article__copy I&#39;m an American front-end web developer currently based in Portland, Oregon. I build carefully-crafted, intuitive, and adaptive websites and applications using HTML, CSS, and Javascript. All helping to improve the user experience, drive sales, and boost profitability. As a web developer in an ever-evolving field, I work hard to stay in touch with emerging technologies, and design trends. If you have any projects or opportunities, please get in touch!
+
+			//- skills
+			.skills.bio-skills
+				h3.skills__title.title.title--sm Skills
+				.skills__list-container
+					ul.skills__list
+						li.skills__item
+							span(title='HTML5')
+								include svg/html5.pug
+						li.skills__item
+							span(title='CSS3')
+								include svg/css3.pug
+						li.skills__item
+							span(title='Javascript')
+								include svg/javascript.pug
+					ul.skills__list
+						li.skills__item
+							span(title='Node.js')
+								include svg/nodejs.pug
+						li.skills__item
+							span(title='Photoshop')
+								include svg/photoshop.pug
+
+			//- methodologies & techniques
+			.methods.bio-methods
+				h3.methods__title.title.title--sm 
+					| Methodologies &amp;
+					br
+					| Techniques
+				ul.methods__list
+					li.methods__item 
+						span.methods__item--color &rtrif; 
+						| &#32;BEM
+					li.methods__item
+						span.methods__item--color &rtrif;
+						| &#32;AJAX
+					li.methods__item
+						span.methods__item--color &rtrif;
+						| &#32;Responsive Design
+					li.methods__item
+						span.methods__item--color &rtrif;
+						| &#32;Mobile-First
+					li.methods__item
+						span.methods__item--color &rtrif;
+						| &#32;Version Control (git/github)

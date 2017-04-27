@@ -1,14 +1,22 @@
 {
-  "name": "Personal_Portfolio",
-  "version": "1.0.0",
+  "name": "personal_portfolio",
+  "version": "1.1.0",
   "description": "Web Developer Portfolio",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JumaStevens/portfolio.git"
+  },
   "author": "Juma Stevens",
-  "license": "ISC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JumaStevens/portfolio/issues"
+  },
+  "homepage": "https://github.com/JumaStevens/portfolio#readme",
   "dependencies": {
     "express": "^4.14.1",
     "nodemailer": "^3.1.7",
@@ -17,5 +25,19 @@
   },
   "engines": {
     "node": "v6.9.2"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "gulp": "latest",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "latest",
+    "gulp-concat": "latest",
+    "gulp-connect": "latest",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "latest"
   }
 }
