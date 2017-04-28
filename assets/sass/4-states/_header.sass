@@ -14,3 +14,14 @@
 
 	&-social-list.hide
 		transform: translate(0, -50%)
+
+	&-logo.open
+		+mq-tablet
+			transform: translate(calc(-10vw + #{$border-size * 1.5}), -20px)
+	&-lang-list.open
+		+mq-tablet
+			transform: translate(-$border-size /2, 50px)
+	&-social-list.open
+		+mq-tablet
+			transform: translate(-50px, -50%)
+

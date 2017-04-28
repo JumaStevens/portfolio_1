@@ -27,6 +27,8 @@ window.addEventListener('load', function load() {
 	scroll.init();
 	// loader
 	loader.handler(true);
+	// menu
+	menu.init();
 
 	// remove listener
 	window.removeEventListener('load', load, false);

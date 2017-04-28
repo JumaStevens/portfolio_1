@@ -26,6 +26,10 @@ var loader = {
 		];
 		// portfolio elements
 		const port_article = document.getElementsByClassName('portfolio-article');
+		// menu elements
+		const nav_link = document.getElementsByClassName('nav__link');
+		const lang_list = document.getElementsByClassName('menu-lang-list')[0];
+		const menu_button = document.getElementsByClassName('menu-button')[0];
 		// hide elements
 		for(let i=0;i<elem.length;i++) {
 			elem[i].classList.add('hide');
@@ -35,6 +39,14 @@ var loader = {
 			for(let j=0;j<port_article[i].children.length;j++) {
 				port_article[i].children[j].classList.add('hide');
 			}
+		}
+		// hide menu elements
+		menu_button.classList.add('hide')
+		for(let b=0;b<nav_link.length;b++) {
+			nav_link[b].classList.add('hide');
+		}
+		for(let c=0;c<lang_list.children.length;c++) {
+			lang_list.children[c].classList.add('hide');
 		}
 	},
 

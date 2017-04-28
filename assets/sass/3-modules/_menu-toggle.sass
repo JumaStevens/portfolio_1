@@ -49,8 +49,11 @@
 		text-align: center
 		text-transform: uppercase
 		white-space: nowrap
+		opacity: 0
 		transform: translate(50%, -50%) rotate(-90deg)
-		transition: opacity 200ms ease-out
+		transition: opacity 200ms $bezier
+		+mq-tablet
+			opacity: 1
 		
 		&-0, &-1, &-2, &-3
 			display: inline-block
