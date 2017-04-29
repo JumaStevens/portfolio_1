@@ -46,7 +46,7 @@ var loader = {
 			nav_link[b].classList.add('hide');
 		}
 		for(let c=0;c<lang_list.children.length;c++) {
-			lang_list.children[c].classList.add('hide');
+			lang_list.children[c].children[0].classList.add('hide');
 		}
 	},
 

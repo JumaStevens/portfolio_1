@@ -1,7 +1,9 @@
 .header
 	
 	&-logo.hide
-		transform: translate(calc(-10vw + #{$border-size}), -70px)
+		transform: translateY(-70px)
+		+mq-tablet
+			transform: translate(-28px + $border-size, -70px)
 
 	&-menu-toggle--top.hide
 		transform: translateY(0)
@@ -16,8 +18,9 @@
 		transform: translate(0, -50%)
 
 	&-logo.open
+		transform: translateY(-70px)
 		+mq-tablet
-			transform: translate(calc(-10vw + #{$border-size * 1.5}), -20px)
+			transform: translate((-28px + $border-size * 1.5) + 130px, -20px)
 	&-lang-list.open
 		+mq-tablet
 			transform: translate(-$border-size /2, 50px)

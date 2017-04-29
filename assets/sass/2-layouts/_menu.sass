@@ -1,5 +1,25 @@
 .menu
 	position: fixed
 	top: 0
-	left: -100%
+	left: calc(-100% + #{$border-size * 2})
 	z-index: 900
+	+mq-tablet
+		left: calc(-100% + 15vw)
+
+	&-inner-container
+		position: relative
+
+	&-lang-list
+		margin-left: $border-size/2
+
+	&-nav
+		margin-left: $border-size/2 
+		+mq-tablet
+			margin-left: $border-size * 3.25
+
+	&-button-container
+		+mq-tablet
+			position: absolute
+			bottom: 0
+			padding-left: $border-size * 3.25
+			margin-bottom: $border-size

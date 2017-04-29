@@ -1,17 +1,40 @@
 .menu
-	width: 100%
+	width: calc(100% - #{$border-size *2})
 	height: 100%
 	padding: 20px
 	background: $white-color
-	background: lightblue
-	display: flex
-	flex-direction: column
-	justify-content: space-between
 	+mq-tablet
-		padding: 40px
+		width: calc(100% - 15vw)
+		padding: 60px
 
-	&-button
+	// inner container
+	&-inner-container
+		width: inherit
+		height: inherit
+		display: flex
+		flex-direction: column
+		justify-content: center
+
+
+	// language
+	&-lang-list
+		position: absolute
+		top: 0
+		+mq-tablet
+			display: none
+		& .lang-list__item
+			overflow: hidden
+		& .lang-list__link
+			display: block
+
+	// button
+	&-button-container
 		display: none
+		+mq-tablet
+			overflow: hidden
+			display: initial
+	
+	&-button
 		+mq-tablet
 			position: relative
 			display: flex
@@ -42,12 +65,42 @@
 				font-style: italic
 				line-height: 1.5
 				color: $darkgrey-color
-		
-			
 
+// navigation
 .nav
 	&__list
+		display: inline-flex
+		flex-direction: column
+
+	&__item
+		width: 125%
+		overflow: hidden
+		margin: 5px 0
+		+mq-tablet
+			margin: 10px 0
 
 	&__item:nth-child(4)
 		+mq-tablet
 			display: none
+
+	&__link
+		display: block
+
+	&__copy
+		position: relative
+		font-size: 2rem
+		+mq-tablet
+			font-size: 4rem
+
+	&__copy::before
+		position: absolute
+		top: 50%
+		left: -100%
+		z-index: -1
+		width: 100%
+		height: 25%
+		display: block
+		content: ''
+		background: $primary-color
+		transform: translateY(-50%)
+		transition: transform 250ms $bezier

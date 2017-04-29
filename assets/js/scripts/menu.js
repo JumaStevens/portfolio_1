@@ -10,6 +10,7 @@ var menu = {
 	// handle click events
 	handler: function() {
 		const menu_elem = document.getElementsByClassName('menu')[0];
+		const menu_color = document.getElementsByClassName('menu-color')[0];
 		const menu_toggle = document.getElementsByClassName('menu-toggle');
 		const nav_link = document.getElementsByClassName('nav__link');
 		const lang_list = document.getElementsByClassName('menu-lang-list')[0];
@@ -27,6 +28,7 @@ var menu = {
 		// menu is opening
 		if(menu.open) {
 			menu_elem.classList.add('open');
+			menu_color.classList.add('open');
 			menu_button.classList.remove('hide')
 			for(let a=0;a<menu_toggle.length;a++) {
 				menu_toggle[a].classList.add('open');
@@ -35,7 +37,7 @@ var menu = {
 				nav_link[b].classList.remove('hide');
 			}
 			for(let c=0;c<lang_list.children.length;c++) {
-				lang_list.children[c].classList.remove('hide');
+				lang_list.children[c].children[0].classList.remove('hide');
 			}
 			for(let d=0;d<border.children.length;d++) {
 				border.children[d].classList.add('open');
@@ -49,6 +51,7 @@ var menu = {
 		// menu is closing
 		else if(!menu.open) {
 			menu_elem.classList.remove('open');
+			menu_color.classList.remove('open');
 			menu_button.classList.add('hide')
 			for(let a=0;a<menu_toggle.length;a++) {
 				menu_toggle[a].classList.remove('open');
@@ -57,7 +60,7 @@ var menu = {
 				nav_link[b].classList.add('hide');
 			}
 			for(let c=0;c<lang_list.children.length;c++) {
-				lang_list.children[c].classList.add('hide');
+				lang_list.children[c].children[0].classList.add('hide');
 			}
 			for(let d=0;d<border.children.length;d++) {
 				border.children[d].classList.remove('open');

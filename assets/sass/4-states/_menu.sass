@@ -1,8 +1,45 @@
 .menu
-	transition: transform 500ms $bezier
+	transition: transform 500ms $bezier, padding 500ms $bezier
 	
-	
-
 	&.open
 		transform: translateX(100%)
-	&
+	
+
+	// hide
+	&-lang-list
+		& .lang-list__link
+			transition: 500ms $bezier 500ms
+			&.hide
+				transform: translateY(100%)
+
+	// hide
+	&-button
+		transition: 500ms $bezier 500ms
+		&.hide
+			transform: translateY(100%)
+
+		// hover
+		&__arrow
+			transition: transform 500ms $bezier
+		&:hover .menu-button__arrow
+			transform: translateX(-50px) rotate(180deg)
+		&::before
+			transition: transform 500ms $bezier, width 500ms $bezier
+		&:hover.menu-button::before
+			width: 25px
+			transform: translate(-50px, 1px)
+
+// hide
+.nav 
+	&__link
+		transition: transform 500ms $bezier 250ms
+		&.hide
+			transform: translateY(100%)
+
+// hover
+.nav
+	&__item:nth-child(1):hover &__copy::before,
+	&__item:nth-child(2):hover &__copy::before,
+	&__item:nth-child(3):hover &__copy::before,
+	&__item:nth-child(4):hover &__copy::before
+		transform: translate(125%, -50%)

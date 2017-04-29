@@ -1,28 +1,31 @@
 .menu
 
-	//- languages
-	include modules/lang-list
-	+lang-list('menu')
+	//- container
+	.menu-inner-container
 
-	//- navigation
-	nav.nav
-		ul.nav__list
-			mixin item(name)
-				li.nav__item
-					a.nav__link
-						span.nav__copy=name
-			+item('Home')
-			+item('Bio')
-			+item('Portfolio')
-			+item('Contact')
+		//- languages
+		include modules/lang-list
+		+lang-list('menu')
 
-	//- contact button
-	.menu-button-container
-		a.menu-button
-			.menu-button__arrow
-				include svg/arrow
-			p.menu-button__copy
-				| I&#39;m available for
-				span.title__period &#32;hire.
-				br
-				span.title.title--sm Let&#39;s talk
+		//- navigation
+		nav.nav.menu-nav
+			ul.nav__list
+				mixin item(name)
+					li.nav__item
+						a.nav__link
+							span.nav__copy.title.title--md=name
+				+item('Home')
+				+item('Bio')
+				+item('Portfolio')
+				+item('Contact')
+
+		//- contact button
+		.menu-button-container
+			a.menu-button
+				.menu-button__arrow
+					include svg/arrow
+				p.menu-button__copy
+					| I&#39;m available for
+					span.title__period &#32;hire.
+					br
+					span.title.title--sm Let&#39;s talk
