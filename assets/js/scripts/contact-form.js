@@ -15,7 +15,145 @@ var contact_form = {
 		side.classList.remove('hide');
 	},
 
+	// ajax response handler
+	response: function(res) {
+		const contact = document.getElementsByClassName('contact')[0];
+		const form = document.getElementsByClassName('contact-form')[0];
+		const submit = document.getElementsByClassName('contact-form__submit')[0];
+		const side_container = document.getElementsByClassName('contact-side-container')[0];
+		const circle = document.getElementsByClassName('contact-side__circle')[0];
+		const email_svg = document.getElementsByClassName('contact-side__email-svg')[0];
+		const paperplane = document.getElementsByClassName('contact-side__paperplane-svg');
+		const email = document.getElementsByClassName('contact-side__email')[0];
+		const status = document.getElementsByClassName('contact-side__status')[0];
 
+		if(res === 'success') {
+			status.innerHTML = 'Sent.';
+			setTimeout(function(){
+				contact_form.close();
+			}, 4000);
+		}
+		else if(res === 'error') {
+			status.innerHTML = 'Oops! Try again.';
+			setTimeout(function(){
+				form.classList.remove('sending');
+				side_container.classList.remove('sending');
+				circle.classList.remove('sending');
+				email_svg.classList.remove('hide');
+				paperplane[0].classList.remove('sending');
+				paperplane[1].classList.remove('sending');
+				email.classList.remove('hide');
+				status.classList.add('hide');
+			}, 4000);
+		}
+		setTimeout(function(){
+			form.action = 'contact-form';
+			form.method = 'post';
+			submit.type = 'submit';
+		}, 4000);
+	},
+
+	// ajax handler
+	ajax: function() {
+		const form = document.getElementsByClassName('contact-form')[0];
+		// collect form data
+		let data = {
+			'name': form.name.value,
+			'email': form.email.value,
+			'message': form.message.value,
+			'company': form.company.value
+		};
+
+		let xhr = new XMLHttpRequest();
+		xhr.open('POST', 'contact_form');
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.timeout = 15000;
+		xhr.send(JSON.stringify(data));
+		
+		xhr.onload = function() {
+			// success
+			if(JSON.parse(xhr.responseText).msg === 'success') {
+				contact_form.response('success');
+			}
+			// error
+			else {
+				contact_form.response('error');
+			}
+		};
+
+		xhr.onerror = function() {
+			// error
+			contact_form.response('error');
+		};
+
+		xhr.ontimeout = function() {
+			// error
+			xhr.abort();
+			contact_form.response('error');
+		};
+	},
+
+
+	// submit validation
+	validation: function(e) {
+		const form = document.getElementsByClassName('contact-form')[0];
+		const input = document.getElementsByClassName('contact-form__input');
+		const submit = document.getElementsByClassName('contact-form__submit')[0];
+		const honeypot = document.getElementsByClassName('contact-form__honeypot')[0];
+
+		// prevent submit
+		e.preventDefault();
+		form.action = '';
+		form.method = '';
+		submit.type = '';
+
+		// check honeypot
+		if(honeypot.value) {
+			spam();
+		}
+		else if(!honeypot.value) {
+			// check input values
+			for(let i=0;i<input.length;i++) {
+				if(input[i].value) {
+					if(i+1 === input.length) {
+						contact_form.submit();
+					}
+				}
+				else if(!input[i].value) {
+					invalid(i);
+					break;
+				}
+			}
+		}
+
+		function invalid(i) {
+			let text = '** Required field **';
+			input[i].value = text;
+			setTimeout(function(){
+				if(input[i].value = text) {
+					input[i].value = '';
+				}
+				form.action = 'contact-form';
+				form.method = 'post';
+				submit.type = 'submit';
+			}, 2000);
+		};
+
+		function spam() {
+			const email = document.getElementsByClassName('contact-side__email')[0];
+			const status = document.getElementsByClassName('contact-side__status')[0];
+			email.classList.add('hide');
+			status.classList.remove('hide');
+			status.innerHTML = 'Spam detected!';
+			setTimeout(function(){
+				email.classList.remove('hide');
+				status.classList.add('hide');
+				form.action = 'contact-form';
+				form.method = 'post';
+				submit.type = 'submit';
+			}, 4000);
+		};
+	},
 
 	// submit handler
 	submit: function() {
@@ -36,10 +174,12 @@ var contact_form = {
 		paperplane[1].classList.add('sending');
 		email.classList.add('hide');
 		status.classList.remove('hide');
-		status.innerHTML = 'Sending...'
-
-		console.log('SUBMIT CLICKED');
-
+		status.innerHTML = 'Sending';
+		for(let p=0;p<3;p++) {
+			status.innerHTML += '<span class="contact-side__status--period">.</span>';
+		}
+		// call ajax
+		contact_form.ajax();
 	},
 	
 	// close handler
@@ -51,6 +191,7 @@ var contact_form = {
 		const email_svg = document.getElementsByClassName('contact-side__email-svg')[0];
 		const email = document.getElementsByClassName('contact-side__email')[0];
 		const status = document.getElementsByClassName('contact-side__status')[0];
+		
 		contact_form.open = false;
 		contact_form.button_listener();
 		contact_form.blur_listener();
@@ -78,12 +219,12 @@ var contact_form = {
 
 	// sumbit listener
 	submit_listener: function() {
-		const button = document.getElementsByClassName('contact-form__submit')[0];
+		const form = document.getElementsByClassName('contact-form')[0];
 		if(contact_form.open) {
-			button.addEventListener('click', contact_form.submit, false);
+			form.addEventListener('submit', contact_form.validation, false);
 		}
 		else if(!contact_form.open) {
-			button.removeEventListener('click', contact_form.submit, false);
+			form.removeEventListener('submit', contact_form.validation, false);
 		}
 	},
 
@@ -102,17 +243,21 @@ var contact_form = {
 	blur_listener: function() {
 		const input = document.getElementsByClassName('contact-form__input');
 		if(contact_form.open) {
-			input[1].addEventListener('blur', function blur() {
-				if(input[1].value) {
-					input[1].classList.add('value');
-				}
-				else if(!input[1].value) {
-					input[1].classList.remove('value');
-				}
-			}, false);
+			for(let i=0;i<input.length;i++) {
+				input[i].addEventListener('blur', function blur() {
+					if(input[i].value) {
+						input[i].classList.add('value');
+					}
+					else if(!input[i].value) {
+						input[i].classList.remove('value');
+					}
+				}, false);
+			}
 		}
 		else if(!contact_form.open) {
-			input[1].removeEventListener('blue', blur, false);
+			for(let i=0;i<input.length;i++) {
+				input[i].removeEventListener('blue', blur, false);
+			}
 		}
 	}
 };
