@@ -29,6 +29,8 @@ window.addEventListener('load', function load() {
 	loader.handler(true);
 	// menu
 	menu.init();
+	// contact-form
+	contact_form.button_listener();
 
 	// remove listener
 	window.removeEventListener('load', load, false);

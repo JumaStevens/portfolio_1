@@ -15,7 +15,6 @@
 		flex-direction: column
 		justify-content: center
 
-
 	// language
 	&-lang-list
 		position: absolute
@@ -73,10 +72,11 @@
 		flex-direction: column
 
 	&__item
-		width: 125%
-		overflow: hidden
+		width: calc(100% + 1rem)
 		margin: 5px 0
+		overflow: hidden
 		+mq-tablet
+			width: calc(100% + 3rem)
 			margin: 10px 0
 
 	&__item:nth-child(4)

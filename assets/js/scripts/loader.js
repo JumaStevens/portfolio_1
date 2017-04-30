@@ -30,6 +30,10 @@ var loader = {
 		const nav_link = document.getElementsByClassName('nav__link');
 		const lang_list = document.getElementsByClassName('menu-lang-list')[0];
 		const menu_button = document.getElementsByClassName('menu-button')[0];
+		// contact elements
+		const form = document.getElementsByClassName('contact-form')[0];
+		const side = document.getElementsByClassName('contact-side')[0];
+		const status = document.getElementsByClassName('contact-side__status')[0];
 		// hide elements
 		for(let i=0;i<elem.length;i++) {
 			elem[i].classList.add('hide');
@@ -48,6 +52,10 @@ var loader = {
 		for(let c=0;c<lang_list.children.length;c++) {
 			lang_list.children[c].children[0].classList.add('hide');
 		}
+		// hide contact elements
+		form.classList.add('hide');
+		side.classList.add('hide');
+		status.classList.add('hide');
 	},
 
 	// load events

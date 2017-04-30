@@ -1,10 +1,8 @@
 .menu
 	transition: transform 500ms $bezier, padding 500ms $bezier
-	
 	&.open
 		transform: translateX(100%)
 	
-
 	// hide
 	&-lang-list
 		& .lang-list__link
@@ -42,4 +40,6 @@
 	&__item:nth-child(2):hover &__copy::before,
 	&__item:nth-child(3):hover &__copy::before,
 	&__item:nth-child(4):hover &__copy::before
-		transform: translate(125%, -50%)
+		transform: translate(calc(100% + 1rem), -50%)
+		+mq-tablet
+			transform: translate(calc(100% + 3rem), -50%)

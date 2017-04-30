@@ -2,7 +2,7 @@ footer.footer
 	
 	//- contact button
 	.footer-button-container
-		a.footer-button
+		a.footer-button.contact-button
 			.footer-button__arrow
 				include svg/arrow
 			p.footer-button__copy
@@ -10,16 +10,10 @@ footer.footer
 				span.title__period &#32;hire.
 				br
 				span.title.title--sm Let&#39;s talk
-
-	//- social & email container
-	.footer-links-container
-		
-		//- social media
-		include modules/social-list
-		+social-list('footer', 'row')
-
-		//- email
-		a.footer-email.email(href='mailto:jumastevens@gmail.com', rel='external') jumastevens@gmail.com
+	
+	//- social media
+	include modules/social-list
+	+social-list('footer', 'row')
 
 	//- copyright
 	p.footer-copyright &copy;Juma Stevens 2017

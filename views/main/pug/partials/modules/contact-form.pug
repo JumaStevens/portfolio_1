@@ -1,0 +1,32 @@
+form.contact-form(action='contact-form' method='post')
+	
+	//- name
+	.contact-form__group
+		input.contact-form__input(type='text', name='name', autocomplete='name', required)
+		span.contact-form__highlight
+		span.contact-form__bar
+		label.contact-form__label Name
+
+	//- email
+	.contact-form__group
+		input.contact-form__input(type='email', name='email', autocomplete='email', required)
+		span.contact-form__highlight
+		span.contact-form__bar
+		label.contact-form__label Email
+
+	//- message
+	.contact-form__group
+		textarea.contact-form__input.contact-form__textarea(type='text', name='message', cols='30', rows='5', required)
+		span.contact-form__highlight
+		span.contact-form__bar
+		label.contact-form__label Message
+	
+	.contact-form__group
+		//- cancel
+		a.contact-form__cancel Cancel
+
+		//- submit
+		input.contact-form__submit(type='submit', value='Send')
+	
+	//- spam honeypot
+	input.contact-form__honeypot(type='text', name='company', placeholder='leave blank')

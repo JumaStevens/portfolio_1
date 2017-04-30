@@ -1,0 +1,17 @@
+section.contact
+
+	.contact-inner-container
+		//- side panel
+		.contact-side-container
+			.contact-side
+				.contact-side__circle
+					include svg/email
+					include svg/paperplane
+					include svg/paperplane
+				.contact-side__copy
+					a.contact-side__email.email(href='mailto:jumastevens@gmail.com', rel='external') jumastevens@gmail.com
+					p.contact-side__status
+
+		//- form
+		.contact-form-container
+			include modules/contact-form
