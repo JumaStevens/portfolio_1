@@ -6,6 +6,7 @@ var scroll = {
 
 	// initialize
 	init: function() {
+		scroll.position = window.pageYOffset || document.documentElement.scrollTop;
 		scroll.event_listener();
 	},
 
@@ -33,6 +34,7 @@ var scroll = {
 	// handle home events
 	home: function(y) {
 		let trigger = screen.height*.2;
+		const logo = document.getElementsByClassName('header-logo')[0];
 		const title = document.getElementsByClassName('home-title')[0];
 		const color = document.getElementsByClassName('home-color')[0];
 		const article = [
@@ -47,12 +49,18 @@ var scroll = {
 			for(let i=0;i<article.length;i++) {
 				article[i].classList.add('hide');
 			}
+			if(screen.width < media_query.tablet) {
+				logo.classList.remove('hide');
+			}
 		}
 		else if(y >= trigger) {
 			title.classList.add('hide');
 			color.classList.add('hide');
 			for(let i=0;i<article.length;i++) {
 				article[i].classList.remove('hide');
+			}
+			if(screen.width < media_query.tablet) {
+				logo.classList.add('hide');
 			}
 		}
 	},

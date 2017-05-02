@@ -1,0 +1,62 @@
+.gallery-composite
+	display: flex
+	justify-content: center
+	align-items: center
+	
+	&__image
+		visibility: hidden
+		position: absolute
+		width: 47%
+		height: auto
+		+mq-tablet
+			visibility: visible
+			transition: transform 2500ms ease-in-out 250ms
+
+		&:nth-child(2)
+			+mq-tablet
+				top: 0
+				left: 0
+				width: 100%
+
+		&:nth-child(3)
+			+mq-tablet
+				transform: translateY(calc((-100% - 150px)*2))
+
+		&:nth-child(4)
+			+mq-tablet
+				transform: translateY(calc(-100% - 150px))
+
+		&:nth-child(5)
+			+mq-tablet
+				transform: translateY(0)
+
+	&.hide &__image
+		+mq-tablet
+			transition: transform 1000ms ease-in-out
+
+		&:nth-child(3)
+			+mq-tablet
+				transform: translateY(0)
+
+		&:nth-child(4)
+			+mq-tablet
+				transform: translateY(calc(100% + 150px))
+
+		&:nth-child(5)
+			+mq-tablet
+				transform: translateY(calc((100% + 150px)*2))
+		
+	// title		
+	&::after
+		display: none
+		+mq-tablet
+			display: initial
+			position: absolute
+			top: 3%
+			left: 50%
+			content: 'Gallery'
+			transform: translate(-50%, 0)
+			font-family: 'Helvetica', 'Arial', sans-serif
+			font-size: 10px
+			font-weight: 900
+			color: rgb(255, 255, 255)

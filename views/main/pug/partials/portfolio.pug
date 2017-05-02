@@ -7,10 +7,23 @@ section.portfolio
 			br
 			| folio
 			span.title__period .
+
+	//- composite
+	.portfolio-composite-container
+		.portfolio-composite.vessel-composite
+			img.portfolio-composite__image(src='../../assets/images/vessel_composite/vessel_master_min.jpg', width='1000', height='750', alt='')
+
+	//- article
+	.article-container.portfolio-article-container
+		article.article.portfolio-article
+			h3.article__title.title.title--sm Vessel
+			p.article__subtitle Gallery &amp; Portfolio
+			p.article__copy Gallery is a minimalistic showcase for large photographic content. The user interface is stripped down to be unobtrusive, and simple to navigate. CSS animations are used to deliver smooth transitions between sections of the site. The minimalistic aesthetic is reinforced by building custom Javascript buttons and interactions that guide the user through the layered content.
+			a.article__link(href='/example_1', target='_blank') View site
 		
 	//- composite
 	.portfolio-composite-container
-		.portfolio-composite
+		.portfolio-composite.advent-composite
 			img.portfolio-composite__image(src='../../assets/images/image.png', width='1100', height='1100', alt='')
 
 	//- article
@@ -23,10 +36,11 @@ section.portfolio
 
 	//- composite
 	.portfolio-composite-container
-		.portfolio-composite
-			img.portfolio-composite__image(src='../../assets/images/image2.png', width='1100', height='1100', alt='')
+		.portfolio-composite.gallery-composite
+			img.portfolio-composite__image(src='../../assets/images/gallery_composite/gallery_master_min.jpg', width='1200', height='900', alt='')
+			
 
-	//- gallery
+	//- article
 	.article-container.portfolio-article-container
 		article.article.portfolio-article
 			h3.article__title.title.title--sm Gallery

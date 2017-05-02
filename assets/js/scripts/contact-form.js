@@ -6,13 +6,28 @@ var contact_form = {
 		const contact = document.getElementsByClassName('contact')[0];
 		const form = document.getElementsByClassName('contact-form')[0];
 		const side = document.getElementsByClassName('contact-side')[0];
-		contact_form.open = true;
-		contact_form.submit_listener();
-		contact_form.cancel_listener();
-		contact_form.blur_listener();
-		contact.classList.add('open');
-		form.classList.remove('hide');
-		side.classList.remove('hide');
+		const button = document.getElementsByClassName('contact-button');
+
+		if(screen.width < media_query.tablet) {
+			for(let i=0;i<button.length;i++) {
+				button[i].href = 'mailto:jumastevens@gmail.com';
+				button[i].rel = 'external';
+			}
+		}
+		else if(screen.width >= media_query.tablet) {
+			for(let i=0;i<button.length;i++) {
+				button[i].removeAttribute('href');
+				button[i].removeAttribute('rel');
+			}
+			contact_form.open = true;
+			contact_form.button_listener();
+			contact_form.submit_listener();
+			contact_form.cancel_listener();
+			contact_form.blur_listener();
+			contact.classList.add('open');
+			form.classList.remove('hide');
+			side.classList.remove('hide');
+		}
 	},
 
 	// ajax response handler

@@ -1,4 +1,5 @@
 var screen = {
+	width: false,
 	height: false,
 	bio: ['top','bottom'],
 	portfolio: ['top', 'bottom'],
@@ -6,13 +7,14 @@ var screen = {
 
 	// initialize
 	init: function() {
-		screen.get_height();
+		screen.dimensions();
 		screen.handler();
 		screen.resize();
 	},
 
-	// set screen height
-	get_height: function() {
+	// get screen width & height
+	dimensions: function() {
+		screen.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 		screen.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 	},
 
@@ -46,8 +48,9 @@ var screen = {
 			clearTimeout(timeout);
 			// start timing for event "completion"
 			timeout = setTimeout(function() {
-				screen.get_height();
+				screen.dimensions();
 				screen.handler();
+				media_query.handler();
 			}, delay);
 		});
 	}
