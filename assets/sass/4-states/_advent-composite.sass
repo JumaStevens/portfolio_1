@@ -1,12 +1,23 @@
 .advent-composite
 	
 	&__image
+		visibility: hidden
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: auto
+		+mq-tablet
+			visibility: visible
 
-
-
-
-
+		&:nth-child(2)
+			+mq-tablet
+				transform: translateY(calc(-100% + 390px))
+				transition: transform 7000ms ease-in-out 250ms
 
 	&.hide &__image
+		+mq-tablet
+			transform: translateY(0)
+			transition: transform 1000ms ease-in-out
 
 	

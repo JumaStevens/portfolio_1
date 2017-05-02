@@ -26,13 +26,17 @@ var composite = {
 		const vessel_width = ['1000', '40'];
 		const vessel_height = ['5315', '40'];
 		// advent images
+		const advent_composite = document.getElementsByClassName('advent-composite')[0];
+		const advent = ['advent_stitched_min.jpg'];
+		const advent_width = ['1200'];
+		const advent_height = ['6135'];
 		// gallery images
 		const gallery_composite = document.getElementsByClassName('gallery-composite')[0];
 		const gallery = ['gallery_background_min.png', 'gallery_portfolio_min.jpg', 'gallery_animals_min.jpg', 'gallery_fitness_min.jpg'];
 		const gallery_width = ['1200', '634', '634', '634'];
 		const gallery_height = ['900', '424', '424', '424'];
 		// tally images
-		composite.total = vessel.length + gallery.length;
+		composite.total = vessel.length + advent.length + gallery.length;
 
 		// create vessel img(s)
 		for(let a=0;a<vessel.length;a++) {
@@ -44,6 +48,18 @@ var composite = {
 			vessel_img.setAttribute('src', vessel_path+vessel[a]);
 			vessel_composite.appendChild(vessel_img);
 			composite.event_listener(vessel_img);
+		}
+
+		// create advent img(s)
+		for(let b=0;b<advent.length;b++) {
+			const advent_path = '../../assets/images/advent_composite/';
+			let advent_img = document.createElement('img');
+			advent_img.setAttribute('class', 'advent-composite__image');
+			advent_img.setAttribute('width', advent_width[b]);
+			advent_img.setAttribute('height', advent_height[b]);
+			advent_img.setAttribute('src', advent_path+advent[b]);
+			advent_composite.appendChild(advent_img);
+			composite.event_listener(advent_img);
 		}
 
 		// create gallery img(s)
