@@ -46,6 +46,10 @@
 			visibility: initial
 			transform: translateY($border-size)
 			transition: transform 500ms $bezier, visibility
+
+		& .lang-list__link
+			+mq-tablet
+				transition: color 500ms
 			
 	&-social-list
 		position: fixed

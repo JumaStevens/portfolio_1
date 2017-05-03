@@ -60,7 +60,6 @@ var loader = {
 
 	// load events
 	handler: function(e) {
-		console.log('LOADER CALLED');
 		const loader_elem = document.getElementsByClassName('loader')[0];
 		const elem = [
 			// home elements

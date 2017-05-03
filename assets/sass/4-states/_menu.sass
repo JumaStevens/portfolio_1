@@ -6,9 +6,12 @@
 	// hide
 	&-lang-list
 		& .lang-list__link
-			transition: 500ms $bezier 500ms
+			transition: 500ms $bezier 500ms, color 500ms
 			&.hide
 				transform: translateY(100%)
+
+			&.active
+				color: $black-color
 
 	// hide
 	&-button

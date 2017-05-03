@@ -16,9 +16,10 @@ var menu = {
 		const lang_list = document.getElementsByClassName('menu-lang-list')[0];
 		const menu_button = document.getElementsByClassName('menu-button')[0];
 		const border = document.getElementsByClassName('border')[0];
-		const header = [document.getElementsByClassName('header-logo')[0],
-							document.getElementsByClassName('header-lang-list')[0],
-							document.getElementsByClassName('header-social-list')[0]];
+		const header = [
+			document.getElementsByClassName('header-logo')[0],
+			document.getElementsByClassName('header-lang-list')[0],
+			document.getElementsByClassName('header-social-list')[0]];
 		
 		// toggle open/close
 		menu.open = !menu.open;

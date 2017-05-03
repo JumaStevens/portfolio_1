@@ -78,8 +78,6 @@ var composite = {
 
 	// handle load events
 	handler: function() {
-		console.log('total' +composite.total);
-		console.log(composite.download);
 		if(composite.download === composite.total) {
 			if(onload.load) {
 				loader.handler(true);
