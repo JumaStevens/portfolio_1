@@ -89,6 +89,7 @@ var loader = {
 		}
 		// load active
 		else {
+			console.log('active');
 			loader_elem.classList.remove('hide');
 		}
 	}

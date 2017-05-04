@@ -1,14 +1,18 @@
 var media_query = {
 	tablet: 767,
 
-	handler: function() {
+	// initialize
+	init: function() {
+		media_query.logo();
+		media_query.contact();
+		media_query.composite();		
+	},
+
+	// logo
+	logo: function() {
 		const logo = document.getElementsByClassName('header-logo')[0];
-		const button = document.getElementsByClassName('contact-button');
-		const contact = document.getElementsByClassName('contact')[0];
-		const form = document.getElementsByClassName('contact_form')[0];
 		
-		// logo
-		if(screen.width >= media_query.tablet) { // 767 == +mq-tablet
+		if(screen.width >= media_query.tablet) {
 			logo.classList.remove('hide');
 		}
 		else if(screen.width < media_query.tablet && scroll.position > screen.height*.2) { // screen.height*.2 == scroll.home's trigger
@@ -25,13 +29,29 @@ var media_query = {
 				}
 			}, 250);
 		}
+	},
 
-		// contact
+	// contact
+	contact: function() {
 		if(contact_form.open) {
 			if(screen.width < media_query.tablet) {
 				contact_form.close();
 			}
 		}
-	}
+	},
 
+	// composite
+	composite: function() {
+		const composites = document.getElementsByClassName('portfolio-composite');
+
+		if(screen.width >= media_query.tablet) {
+			for(let i=0;i<composites.length;i++) {
+				if(composites[i].children.length < 2) {
+					composite.init();
+					loader.handler();
+					break;
+				}
+			}
+		}
+	}
 };

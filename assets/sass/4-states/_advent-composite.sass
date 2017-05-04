@@ -12,12 +12,12 @@
 
 		&:nth-child(2)
 			+mq-tablet
-				transform: translateY(calc(-100% + 390px))
-				transition: transform 7000ms ease-in-out 250ms
+				animation: advent-scroll 10s 2s
 
 	&.hide &__image
 		+mq-tablet
-			transform: translateY(0)
-			transition: transform 1000ms ease-in-out
+			animation-play-state: paused
 
-	
+@keyframes advent-scroll
+	80%, 100%
+		transform: translateY(calc(-100% + 395px))

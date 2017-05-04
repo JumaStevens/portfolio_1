@@ -50,7 +50,7 @@ var screen = {
 			timeout = setTimeout(function() {
 				screen.dimensions();
 				screen.handler();
-				media_query.handler();
+				media_query.init();
 			}, delay);
 		});
 	}

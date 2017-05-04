@@ -1,6 +1,8 @@
 .portfolio
 	padding: 100px 0
 	background: $secondary-color
+	+mq-tablet
+		padding: 0 0 100px 0
 
 	&-title-container
 		display: flex
@@ -9,21 +11,30 @@
 			position: relative
 			z-index: 25
 			width: 50%
+			padding-top: 100px
 			background: $secondary-color
 
 	&-title
 		padding: 0 40px
 
 	&-composite-container
-		padding: 0 40px 0 0
+		margin-top: 100px
+		padding: 0 20px
+		+mq-tablet
+			padding: 0 40px 0 0
 
 	&-composite
 		position: relative
 		max-width: 520px
-		//height: 420px
+		margin: 0 auto
 		overflow: hidden
+		+mq-tablet
+			margin: 0
 
 		&__image
+			position: relative
+			top: 0
+			left: 0
 			width: 100%
 			height: auto
 			+mq-tablet
@@ -35,4 +46,8 @@
 			justify-content: center
 			align-items: center
 			width: calc(50% - #{$border-size})
-			height: calc(100% - #{$border-size}*2)
+			height: calc(100% - #{$border-size}*2
+
+	&-article
+		+mq-tablet
+			padding: 5px 40px 5px 40px

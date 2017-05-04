@@ -17,7 +17,7 @@ var translate = {
 	//
 	decompile: function(json) {
 		let res = json.text + '';
-		let text = res.split('////');
+		let text = res.split('====');
 
 		for(let i=0;i<translate.req_json.length;i++) {
 			let json_obj = {
@@ -29,19 +29,17 @@ var translate = {
 		translate.handler();
 	},
 
-	//
 	ajax: function(text) {
-		const api_key = 'trnsl.1.1.20170502T212734Z.f3beefb94ac7fdba.6233890982444fd545d3265f061dad7431274b70';
-		const url = 'https://translate.yandex.net/api/v1.5/tr.json/translate';
-		const lang = 'en-fr';
-		let data = 'key='+ api_key +'&text='+ text +'&lang='+lang;
+		let data = {'text': text};
+		let res;
 
 		let xhr = new XMLHttpRequest();
-		xhr.open('post', url, true);
-		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		xhr.send(data);
+		xhr.open('POST', 'translate');
+		xhr.setRequestHeader('Content-type', 'application/json');
+		xhr.send(JSON.stringify(data));
 		xhr.onload = function() {
-			translate.decompile(JSON.parse(xhr.responseText));
+			res = JSON.parse(xhr.responseText);
+			translate.decompile(res);
 		};
 	},
 
@@ -52,7 +50,7 @@ var translate = {
 
 		for(let i=0;i<req.length;i++) {
 			text += req[i].text;
-			text += '////';
+			text += '====';
 		}
 		translate.ajax(text);
 	},
@@ -72,7 +70,12 @@ var translate = {
 	// prepare
 	prepare: function() {
 		const node = [
-			document.getElementsByClassName('article__copy')];
+			document.getElementsByClassName('home-article__header-copy'),
+			document.getElementsByClassName('home-article__content-copy'),
+			document.getElementsByClassName('home-article__content-copy--color'),
+			document.getElementsByClassName('title--sm'),
+			document.getElementsByClassName('article__copy'),
+			document.getElementsByClassName('article__link')];
 
 		for(let i=0;i<node.length;i++) {
 			for(let j=0;j<node[i].length;j++) {

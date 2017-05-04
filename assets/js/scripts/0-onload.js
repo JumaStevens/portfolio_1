@@ -29,7 +29,7 @@ var onload = {
 	complete: function() {
 		if(onload.load) {
 			loader.handler(true);
-			media_query.handler();
+			media_query.init();
 		}
 		else if(!onload.load) {
 			setTimeout(function() {

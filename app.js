@@ -10,6 +10,8 @@ app.use(require('./routes/index.js'));
 app.use(require('./routes/about'));
 // contact form route
 app.use(require('./routes/contact_form'));
+// translation route
+app.use(require('./routes/translate'));
 // work example route
 app.use(require('./routes/example_0'));
 // work example route

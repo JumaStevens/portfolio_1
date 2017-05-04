@@ -22,9 +22,10 @@ var composite = {
 	image: function() {
 		// vessel images
 		const vessel_composite = document.getElementsByClassName('vessel-composite')[0];
-		const vessel = ['vessel_stitched_min.jpg', 'vessel_menu_toggle_min.png'];
-		const vessel_width = ['1000', '40'];
-		const vessel_height = ['5315', '40'];
+		const vessel = ['vessel_about_min.jpg', 'vessel_highlights_min.jpg', 'vessel_menu_min.jpg', 'vessel_location_min.jpg', 'vessel_contact_min.jpg', 'vessel_footer_min.jpg',
+			'vessel_image_0_min.jpg', 'vessel_image_1_min.jpg', 'vessel_image_2_min.jpg', 'vessel_menu_bar_min.jpg', 'vessel_button_min.png', 'vessel_button_min.png', 'vessel_indicator_min.png'];
+		const vessel_width = ['574', '574', '574', '574', '574', '574', '576', '576', '576', '49', '35', '35', '20'];
+		const vessel_height = ['900', '900', '900', '900', '900', '200', '900', '900', '900', '900', '35', '35', '99'];
 		// advent images
 		const advent_composite = document.getElementsByClassName('advent-composite')[0];
 		const advent = ['advent_stitched_min.jpg'];
