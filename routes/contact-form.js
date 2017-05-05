@@ -12,7 +12,7 @@ router.use(body_parser.json());
 
 
 // handle contact form submission
-router.post('/contact_form', function(req, res) {
+router.post('/contact-form', function(req, res) {
 
 	// honeypot (spam checker)
 	if(!validator.isEmpty(req.body.company)) {
@@ -54,7 +54,5 @@ router.post('/contact_form', function(req, res) {
 		}
 	}
 });
-
-
 
 module.exports = router;

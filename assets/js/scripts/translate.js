@@ -1,10 +1,10 @@
-// api key: trnsl.1.1.20170502T212734Z.f3beefb94ac7fdba.6233890982444fd545d3265f061dad7431274b70
-
 var translate = {
+	// elapse time since onclick event
+	time: false,
 	// active language
 	active: 'en',
 	total: false,
-	// 
+	// request & respond object
 	req_json: [],
 	res_json: [],
 	
@@ -14,7 +14,7 @@ var translate = {
 		translate.event_listener();
 	},
 
-	//
+	// apportion string to appropriate node element
 	decompile: function(json) {
 		let res = json.text + '';
 		let text = res.split('====');
@@ -29,6 +29,28 @@ var translate = {
 		translate.handler();
 	},
 
+	// handle ajax error
+	error: function() {
+		const copy = document.getElementsByClassName('loader_copy')[0];
+
+		for(let i=0;i<copy.children.length;i++) {
+			copy.children[i].style.display = 'none';
+		}
+		copy.innerHTML = 'error';
+
+		setTimeout(function() {
+			loader.handler(true);
+			translate.event_listener();
+			setTimeout(function() {
+				copy.innerHTML = '';
+				for(let i=0;i<copy.children.length;i++) {
+					copy.children[i].style.display = 'initial';
+				}
+			}, 500); // time for loader to hide
+		}, 2000);	
+	},
+
+	// ajax to server which in turn calls Yandex server
 	ajax: function(text) {
 		let data = {'text': text};
 		let res;
@@ -36,14 +58,30 @@ var translate = {
 		let xhr = new XMLHttpRequest();
 		xhr.open('POST', 'translate');
 		xhr.setRequestHeader('Content-type', 'application/json');
+		xhr.timeout = 15000;
 		xhr.send(JSON.stringify(data));
+
 		xhr.onload = function() {
 			res = JSON.parse(xhr.responseText);
-			translate.decompile(res);
+			if(res === !undefined) {
+				translate.decompile(res);
+			}
+			else {
+				translate.error();
+			}
+		};
+
+		xhr.onerror = function() {
+			translate.error();
+		};
+
+		xhr.ontimeout = function() {
+			xhr.abort();
+			translate.error();
 		};
 	},
 
-	//
+	// compile all the text into single string
 	compile: function() {
 		let req = translate.req_json;
 		let text = '';
@@ -55,7 +93,7 @@ var translate = {
 		translate.ajax(text);
 	},
 
-	// 
+	// push objs to req_json
 	push: function(target, text) {
 		let json_obj = {
 						'node': target,
@@ -92,38 +130,51 @@ var translate = {
 		}
 	},
 
-	//
+	// handle event clicks & decompile completion
 	handler: function() {
 		let req = translate.req_json;
 		let res = translate.res_json;
+		let time = translate.time; // time that has passed since onclick
 
 		if(res.length) {
 			if(translate.active === 'en') {
 				translate.active = 'fr';
-				translate.event_listener();
-				for(let i=0;i<res.length;i++) {
-					res[i].node.innerHTML = res[i].text;
-				}
+				setTimeout(function() {
+					loader.handler(true);
+					translate.event_listener();
+					active();
+					for(let i=0;i<res.length;i++) {
+						res[i].node.innerHTML = res[i].text;
+					}
+				}, 1000 - time);
 			}
 			else if(translate.active === 'fr') {
 				translate.active = 'en';
-				translate.event_listener();
-				for(let i=0;i<req.length;i++) {
-					res[i].node.innerHTML = req[i].text;
-				}
+				setTimeout(function() {
+					loader.handler(true);
+					translate.event_listener();
+					active();
+					for(let i=0;i<req.length;i++) {
+						res[i].node.innerHTML = req[i].text;
+					}
+				}, 1000 - time);
 			}
 		}
 		else if(!res.length) {
 			translate.prepare();
 		}
 
-		//  
-		const lang = document.getElementsByClassName('lang-list__link');
-		for(let j=0;j<lang.length;j++) {
-			lang[j].classList.remove('active');
-			if(lang[j].innerHTML === translate.active +'.') {
-				lang[j].classList.add('active');
-			}
+		// visually shows the switch between languages
+		function active() {
+			const lang = document.getElementsByClassName('lang-list__link');
+			setTimeout(function() {
+				for(let j=0;j<lang.length;j++) {
+					lang[j].classList.remove('active');
+					if(lang[j].innerHTML === translate.active +'.') {
+						lang[j].classList.add('active');
+					}
+				}
+			}, 500); // time for loader to hide
 		}
 	},
 
@@ -135,8 +186,11 @@ var translate = {
 			for(let i=0;i<lang.length;i++) {
 				if(lang[i].innerHTML === 'fr.') {
 					lang[i].addEventListener('click', function lang_switch() {
+						// set start time
+						translate.time = performance.now();
 						// call
 						translate.handler();
+						loader.handler();
 						// remove
 						for(let j=0;j<lang.length;j++) {
 							if(lang[j].innerHTML === 'fr.') {
@@ -152,8 +206,11 @@ var translate = {
 			for(let i=0;i<lang.length;i++) {
 				if(lang[i].innerHTML === 'en.') {
 					lang[i].addEventListener('click', function lang_switch() {
+						// set start time
+						translate.time = performance.now();
 						// call
 						translate.handler();
+						loader.handler();
 						// remove
 						for(let j=0;j<lang.length;j++) {
 							if(lang[j].innerHTML === 'en.') {
@@ -167,4 +224,5 @@ var translate = {
 	}
 };
 
+// call
 translate.init();

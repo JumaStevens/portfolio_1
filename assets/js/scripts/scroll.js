@@ -3,6 +3,8 @@ var scroll = {
 	position: 0,
 	// intro throttle
 	throttle: false,
+	// tracks if bio has been revealed
+	bio_hide: true,
 
 	// initialize
 	init: function() {
@@ -21,9 +23,11 @@ var scroll = {
 			scroll.home(y);
 		}
 		// route bio
-		if(y + screen.height >= screen.bio[0] && y < screen.bio[1]) {
-			scroll.bio(y);
-		}
+		if(scroll.bio_hide) {
+			if(y + screen.height >= screen.bio[0] && y < screen.bio[1]) {
+				scroll.bio(y);
+			}
+		}	
 		// route portfolio
 		if(y + screen.height >= screen.portfolio[0] && y < screen.portfolio[1]) {
 			scroll.portfolio(y);
@@ -67,7 +71,20 @@ var scroll = {
 
 	// handle bio events
 	bio: function(y) {
-
+		const composite = document.getElementsByClassName('bio-composite')[0];
+		// key: composite_middle = bio.top + bio_comp.top + (bio_comp.bottom - bio_comp.top)/2
+		let composite_middle = screen.bio[0] + screen.bio_composite[0] + ((screen.bio_composite[1] - screen.bio_composite[0])/2);
+		let range = (screen.bio_composite[1] - screen.bio_composite[0]) *.5; // 50% from the middle
+		let range_top = composite_middle - range;
+		let range_bottom = composite_middle + range;
+		let y_middle = y + screen.height/2;
+		
+		// check range
+		if(y_middle >= range_top && y_middle <= range_bottom) {
+			// remove hide
+			composite.classList.remove('hide');
+			scroll.bio_hide = false;
+		}
 	},
 
 	// handle portfolio events

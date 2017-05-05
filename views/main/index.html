@@ -28,7 +28,7 @@
       </div>
       <!-- header-->
       <header class="header">
-        <div class="header-logo logo"><a>Juma Stevens&#8482;</a></div><a class="menu-toggle header-menu-toggle--left"><span class="menu-toggle__lines"><span class="menu-toggle__line-0"></span><span class="menu-toggle__line-1"></span><span class="menu-toggle__line-2"></span></span><span class="menu-toggle__copy"><span class="menu-toggle__copy-0">M</span><span class="menu-toggle__copy-1">e</span><span class="menu-toggle__copy-2">n</span><span class="menu-toggle__copy-3">u</span></span></a><a class="menu-toggle header-menu-toggle--top"><span class="menu-toggle__lines"><span class="menu-toggle__line-0"></span><span class="menu-toggle__line-1"></span><span class="menu-toggle__line-2"></span></span></a>
+        <div class="header-logo logo"><a href="#home">Juma Stevens&#8482;</a></div><a class="menu-toggle header-menu-toggle--left"><span class="menu-toggle__lines"><span class="menu-toggle__line-0"></span><span class="menu-toggle__line-1"></span><span class="menu-toggle__line-2"></span></span><span class="menu-toggle__copy"><span class="menu-toggle__copy-0">M</span><span class="menu-toggle__copy-1">e</span><span class="menu-toggle__copy-2">n</span><span class="menu-toggle__copy-3">u</span></span></a><a class="menu-toggle header-menu-toggle--top"><span class="menu-toggle__lines"><span class="menu-toggle__line-0"></span><span class="menu-toggle__line-1"></span><span class="menu-toggle__line-2"></span></span></a>
                 <ul class="lang-list header-lang-list">
                   <li class="lang-list__item"><a class="lang-list__link active">en.</a></li>
                   <li class="lang-list__item"><a class="lang-list__link">fr.</a></li>
@@ -66,10 +66,10 @@
                     </ul>
           <nav class="nav menu-nav">
             <ul class="nav__list">
-                            <li class="nav__item"><a class="nav__link"><span class="nav__copy title title--md">Home</span></a></li>
-                            <li class="nav__item"><a class="nav__link"><span class="nav__copy title title--md">Bio</span></a></li>
-                            <li class="nav__item"><a class="nav__link"><span class="nav__copy title title--md">Portfolio</span></a></li>
-                            <li class="nav__item"><a class="nav__link"><span class="nav__copy title title--md">Contact</span></a></li>
+                            <li class="nav__item"><a class="nav__link" href="#home"><span class="nav__copy title title--md">home</span></a></li>
+                            <li class="nav__item"><a class="nav__link" href="#bio"><span class="nav__copy title title--md">bio</span></a></li>
+                            <li class="nav__item"><a class="nav__link" href="#portfolio"><span class="nav__copy title title--md">portfolio</span></a></li>
+                            <li class="nav__item"><a class="nav__link" href="#contact"><span class="nav__copy title title--md">contact</span></a></li>
             </ul>
           </nav>
           <div class="menu-button-container"><a class="menu-button contact-button">
@@ -88,7 +88,7 @@
         <div class="page-container">
           <main class="page">
             <!-- home-->
-            <section class="home">
+            <section class="home" id="home">
               <div class="home-color"></div>
               <div class="home-title">
                 <h1 class="title title--lg">He<br>llo<span class="title__period title__period--drop">.</span></h1>
@@ -109,13 +109,13 @@
               </div>
             </section>
             <!-- bio-->
-            <section class="bio">
+            <section class="bio" id="bio">
               <div class="bio-title-container">
                 <h2 class="title title--md bio-title">Bio<span class="title__period">.</span></h2>
               </div>
               <div class="bio-content-container">
                 <div class="bio-composite-container">
-                  <div class="bio-composite"><img class="bio-composite__image" src="../../assets/images/avatar.jpg" alt=""></div>
+                  <div class="bio-composite hide"><img class="bio-composite__image" src="../../assets/images/headshot_min.png" alt=""></div>
                 </div>
                 <article class="article bio-article">
                   <h3 class="article__title title title--sm">About</h3>
@@ -227,7 +227,7 @@
               </div>
             </section>
             <!-- portfolio-->
-            <section class="portfolio">
+            <section class="portfolio" id="portfolio">
               <div class="portfolio-title-container">
                 <h2 class="title title--md portfolio-title">
                    Port<br>folio<span class="title__period">.</span></h2>
@@ -292,7 +292,7 @@
               <p class="footer-copyright">&copy;Juma Stevens 2017</p>
             </footer>
             <!-- contact-->
-            <section class="contact">
+            <section class="contact" id="contact">
               <div class="contact-inner-container">
                 <div class="contact-side-container">
                   <div class="contact-side">
@@ -345,6 +345,6 @@
       </div>
     </div>
     <!-- script-->
-    <script type="text/javascript" src="../js/script.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/script.min.js"></script>
   </body>
 </html>

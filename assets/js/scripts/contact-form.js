@@ -43,7 +43,11 @@ var contact_form = {
 		const status = document.getElementsByClassName('contact-side__status')[0];
 
 		if(res === 'success') {
-			status.innerHTML = 'Sent.';
+			status.classList.add('hide');
+			setTimeout(function(){
+				status.innerHTML = 'Sent.';
+				status.classList.remove('hide');
+			}, 500);
 			setTimeout(function(){
 				contact_form.close();
 			}, 4000);
@@ -247,10 +251,16 @@ var contact_form = {
 	cancel_listener: function() {
 		const cancel = document.getElementsByClassName('contact-form__cancel')[0];
 		if(contact_form.open) {
-			cancel.addEventListener('click', contact_form.close, false);
+			cancel.addEventListener('click', function close() {
+				const input = document.getElementsByClassName('contact-form__input');
+				for(let i=0;i<input.length;i++) {
+					input[i].value = '';
+				}
+				contact_form.close();
+			}, false);
 		}
 		else if(!contact_form.open) {
-			cancel.removeEventListener('click', contact_form.close, false);
+			cancel.removeEventListener('click', close, false);
 		}
 	},
 

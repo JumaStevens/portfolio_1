@@ -12,12 +12,12 @@
 			ul.nav__list
 				mixin item(name)
 					li.nav__item
-						a.nav__link
+						a(class='nav__link' href='#'+name)
 							span.nav__copy.title.title--md=name
-				+item('Home')
-				+item('Bio')
-				+item('Portfolio')
-				+item('Contact')
+				+item('home')
+				+item('bio')
+				+item('portfolio')
+				+item('contact')
 
 		//- contact button
 		.menu-button-container

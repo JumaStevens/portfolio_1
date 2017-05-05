@@ -4,6 +4,7 @@ var screen = {
 	bio: ['top','bottom'],
 	portfolio: ['top', 'bottom'],
 	composite: ['top', 'bottom'],
+	bio_composite: ['top', 'bottom'],
 
 	// initialize
 	init: function() {
@@ -23,6 +24,7 @@ var screen = {
 		const bio = document.getElementsByClassName('bio')[0];
 		const portfolio = document.getElementsByClassName('portfolio')[0];
 		const composite = document.getElementsByClassName('portfolio-composite-container');
+		const bio_composite = document.getElementsByClassName('bio-composite-container')[0];
 		
 		// bio
 		screen.bio[0] = bio.offsetTop;
@@ -37,6 +39,9 @@ var screen = {
 			screen.composite[i][0] = composite[i].offsetTop;
 			screen.composite[i][1] = composite[i].offsetTop + composite[i].offsetHeight;
 		}
+		// bio composite container
+		screen.bio_composite[0] = bio_composite.offsetTop;
+		screen.bio_composite[1] = bio_composite.offsetTop + bio_composite.offsetHeight;
 	},
 
 	// screen resize (debounced)

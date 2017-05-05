@@ -9,7 +9,7 @@ app.use(require('./routes/index.js'));
 // about route
 app.use(require('./routes/about'));
 // contact form route
-app.use(require('./routes/contact_form'));
+app.use(require('./routes/contact-form'));
 // translation route
 app.use(require('./routes/translate'));
 // work example route

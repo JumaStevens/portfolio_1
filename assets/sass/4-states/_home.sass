@@ -17,25 +17,32 @@
 			+mq-tablet
 				transform: translate(-50%, $border-size*2) rotate(-90deg)
 
-	&-article.scroll
-		transition: transform 10ms
 	&-article
 		&__header-line
 			padding: 1px 10px
 			transition: padding 500ms $bezier 250ms
 			&.hide
 				padding: 0
+				transition: padding 250ms $bezier
+				+mq-tablet
+					transition: padding 400ms $bezier
 
 		&__header-copy
 			transition: opacity 500ms $bezier 300ms
 			&.hide
 				opacity: 0
+				transition: opacity 250ms $bezier
+				+mq-tablet
+					transition: opacity 400ms $bezier
 
 		&__content-copy
 			transition: transform 1000ms $bezier, opacity 500ms $bezier 500ms
 			&.hide
 				opacity: 0
 				transform: translateY(200px)
+				transition: transform 250ms $bezier, opacity 250ms $bezier
+				+mq-tablet
+					transition: transform 500ms $bezier, opacity 400ms $bezier
 
 .title__period--drop
 	//transition: transform 1000ms $bezier
