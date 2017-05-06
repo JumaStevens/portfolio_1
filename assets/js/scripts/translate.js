@@ -188,7 +188,9 @@ var translate = {
 				if(lang[i].innerHTML === 'fr.') {
 					lang[i].addEventListener('click', function lang_switch() {
 						// set start time
+						translate.time = false;
 						translate.time = performance.now();
+						console.log('fr listener');
 						// call
 						translate.handler();
 						// remove
@@ -207,7 +209,9 @@ var translate = {
 				if(lang[i].innerHTML === 'en.') {
 					lang[i].addEventListener('click', function lang_switch() {
 						// set start time
+						translate.time = false;
 						translate.time = performance.now();
+						console.log('en listener');
 						// call
 						translate.handler();
 						// remove
