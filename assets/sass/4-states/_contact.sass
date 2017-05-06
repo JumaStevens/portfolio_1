@@ -37,26 +37,26 @@
 				transition: transform 500ms $bezier 500ms
 			&.hide
 				+mq-tablet
-					transform: translateY(150px)
+					transform: translate(-50%, calc(-50% + 150px))
 					transition-delay: 0ms
 
 		&__paperplane-svg
 			+mq-tablet
-				transform: translateY(150px)
+				transform: translate(-50%, calc(-50% + 150px))
 				transition: transform 500ms $bezier
 			&.sending
 				+mq-tablet
-					transform: translateY(0)
+					transform: translate(-50%, -50%)
 					transition: transform 500ms $bezier 500ms
 					animation: flying 5000ms infinite 1000ms
 
 		&__paperplane-svg:nth-child(2)
 			+mq-tablet
-				transform: translate(-50%, 150px)
+				transform: translate(-100%, calc(-50% + 150px))
 				transition: transform 500ms $bezier
 			&.sending
 				+mq-tablet
-					transform: translate(-50%, 0px)
+					transform: translate(-100%, -50%)
 					transition: transform 500ms $bezier 500ms
 					animation: flying-shadow 5000ms infinite 1000ms
 
@@ -116,23 +116,23 @@
 
 @keyframes flying
 	0%, 50%, 100%
-		transform: translateY(0) skewY(0)
+		transform: translate(-50%, -50%) skewY(0)
 		transition: none
 	25%
-		transform: translateY(-10px) skewY(-5deg)
+		transform: translate(-50%, calc(-50% - 10px)) skewY(-5deg)
 		transition: none
 	75%
-		transform: translateY(10px) skewY(5deg)
+		transform: translate(-50%, calc(-50% + 10px)) skewY(5deg)
 		transition: none
 @keyframes flying-shadow
 	0%, 50%, 100%
-		transform: translate(-50%, 0) skewY(0)
+		transform: translate(-100%, -50%) skewY(0)
 		transition: none
 	25%
-		transform: translate(-50%, 25px) skewY(-5deg)
+		transform: translate(-100%, calc(-50% + 25px)) skewY(-5deg)
 		transition: none
 	75%
-		transform: translate(-50%, 45px) skewY(5deg)
+		transform: translate(-100%, calc(-50% + 45px)) skewY(5deg)
 		transition: none
 
 @keyframes sending_periods

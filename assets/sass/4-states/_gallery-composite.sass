@@ -15,7 +15,6 @@
 			visibility: visible
 			animation-duration: 10s
 			animation-delay: 2s
-			animation-play-state: running
 
 		&:nth-child(2)
 			+mq-tablet
@@ -30,13 +29,11 @@
 
 		&:nth-child(4)
 			+mq-tablet
-				//transform: translateY(calc(100% + 150px))
 				transform: translate(-50%, calc(50% + 150px))
 				animation-name: gallery-child-4
 
 		&:nth-child(5)
 			+mq-tablet
-				//transform: translateY(calc((100% + 150px)*2))
 				transform: translate(-50%, calc(50% + 150px))
 				animation-name: gallery-child-5
 
@@ -61,7 +58,6 @@
 
 @keyframes gallery-child-3
 	10%, 100%
-		//transform: translateY(calc((-100% - 150px)*2))
 		transform: translate(-50%, calc(-150% - 150px))
 
 @keyframes gallery-child-4
@@ -75,15 +71,3 @@
 		transform: translate(-50%, calc(50% + 150px))
 	40%, 100%
 		transform: translate(-50%, -50%)
-
-
-
-
-
-
-
-
-
-
-
-
