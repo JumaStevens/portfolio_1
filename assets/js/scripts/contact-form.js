@@ -45,7 +45,7 @@ var contact_form = {
 		if(res === 'success') {
 			status.classList.add('hide');
 			setTimeout(function(){
-				status.innerHTML = 'Sent.';
+				status.innerHTML = 'Sent!';
 				status.classList.remove('hide');
 			}, 500);
 			setTimeout(function(){
@@ -228,7 +228,7 @@ var contact_form = {
 		status.classList.add('hide');
 		setTimeout(function() { // allow time for closing
 			form.classList.remove('sending');
-		}, 500);
+		}, 1000);
 	},
 
 	// contact-button listener
