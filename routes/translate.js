@@ -5,7 +5,7 @@ const request = require('request');
 
 // handle translation requests
 router.post('/translate', function(req, res) {
-	const api_key = 'trnsl.1.1.20170502T212734Z.f3beefb94ac7fdba.6233890982444fd545d3265f061dad7431274b70';
+	const api_key = process.env.YANDEX_API_KEY;
 	const lang = 'en-fr';
 	let text = req.body.text;
 	let data = '?' + 'key='+api_key + '&lang='+lang + '&text='+text;
@@ -22,4 +22,3 @@ router.post('/translate', function(req, res) {
 });
 
 module.exports = router;
-// api key: trnsl.1.1.20170502T212734Z.f3beefb94ac7fdba.6233890982444fd545d3265f061dad7431274b70

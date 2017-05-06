@@ -89,6 +89,7 @@ var scroll = {
 
 	// handle portfolio events
 	portfolio: function(y) {
+		const article_container = document.getElementsByClassName('portfolio-article-container');
 		const article = document.getElementsByClassName('portfolio-article');
 		const composite = document.getElementsByClassName('portfolio-composite');
 		// 
@@ -103,12 +104,14 @@ var scroll = {
 			if(y_middle >= range_top && y_middle <= range_bottom) {
 				// remove hide
 				composite[i].classList.remove('hide');
+				article_container[i].classList.remove('hide');
 				for(let j=0;j<article[i].children.length;j++) {
 					article[i].children[j].classList.remove('hide');
 				}
 			}
 			else {
 				composite[i].classList.add('hide');
+				article_container[i].classList.add('hide');
 				for(let j=0;j<article[i].children.length;j++) {
 					article[i].children[j].classList.add('hide');
 				}

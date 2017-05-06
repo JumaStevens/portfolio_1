@@ -11,7 +11,7 @@ section.bio#bio
 		//- composite
 		.bio-composite-container
 			.bio-composite.hide
-				img.bio-composite__image(src='../../assets/images/headshot_min.png', alt='')
+				img.bio-composite__image(src='../images/headshot_min.png', alt='')
 
 		//- about
 		article.article.bio-article
@@ -34,28 +34,38 @@ section.bio#bio
 								include svg/javascript.pug
 					ul.skills__list
 						li.skills__item
+							span(title='Pug(Jade)')
+								include svg/pug.pug
+						li.skills__item
+							span(title='Sass')
+								include svg/sass.pug
+						li.skills__item
 							span(title='Node.js')
 								include svg/nodejs.pug
+					ul.skills__list
 						li.skills__item
 							span(title='Photoshop')
 								include svg/photoshop.pug
 
-			//- methodologies & techniques
-			.methods.bio-methods
-				h3.methods__title.title.title--sm Techniques
-				ul.methods__list
-					li.methods__item 
-						span.methods__item--color &rtrif; 
-						| &#32;BEM
-					li.methods__item
-						span.methods__item--color &rtrif;
-						| &#32;AJAX
-					li.methods__item
-						span.methods__item--color &rtrif;
+			//- techniques
+			.tech.bio-tech
+				h3.tech__title.title.title--sm Techniques
+				ul.tech__list
+					li.tech__item
+						span.tech__item--color &rtrif;
 						| &#32;Responsive Design
-					li.methods__item
-						span.methods__item--color &rtrif;
+					li.tech__item
+						span.tech__item--color &rtrif;
 						| &#32;Mobile-First
-					li.methods__item
-						span.methods__item--color &rtrif;
-						| &#32;Version Control (git/github)
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;Version Control
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;AJAX
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;BEM
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;SMACSS

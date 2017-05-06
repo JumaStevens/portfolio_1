@@ -41,7 +41,7 @@ var composite = {
 
 		// create vessel img(s)
 		for(let a=0;a<vessel.length;a++) {
-			const vessel_path = '../../assets/images/vessel_composite/';
+			const vessel_path = '../images/vessel_composite/';
 			let vessel_img = document.createElement('img');
 			vessel_img.setAttribute('class', 'vessel-composite__image');
 			vessel_img.setAttribute('width', vessel_width[a]);
@@ -53,7 +53,7 @@ var composite = {
 
 		// create advent img(s)
 		for(let b=0;b<advent.length;b++) {
-			const advent_path = '../../assets/images/advent_composite/';
+			const advent_path = '../images/advent_composite/';
 			let advent_img = document.createElement('img');
 			advent_img.setAttribute('class', 'advent-composite__image');
 			advent_img.setAttribute('width', advent_width[b]);
@@ -65,7 +65,7 @@ var composite = {
 
 		// create gallery img(s)
 		for(let i=0;i<gallery.length;i++) {	
-			const gallery_path = '../../assets/images/gallery_composite/';
+			const gallery_path = '../images/gallery_composite/';
 			let gallery_img = document.createElement('img');
 			gallery_img.setAttribute('class', 'gallery-composite__image');
 			gallery_img.setAttribute('width', gallery_width[i]);

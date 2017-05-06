@@ -9,6 +9,14 @@
 				box-shadow: 0 0 0 rgba(34, 34, 34, 0.4)
 				transform: scale(0.95)
 
+	&-article-container
+		+mq-tablet
+			z-index: 22
+
+		&.hide
+			+mq-tablet
+				z-index: 21
+
 .article
 
 	&__title
