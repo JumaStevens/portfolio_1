@@ -36,11 +36,13 @@
 		&::before
 			+mq-tablet
 				position: absolute
+				top: 50%
+				left: 0
 				width: 38px
 				height: 3px
 				content: ''
 				background: $black-color
-				transform: translate(-90px, 1px)
+				transform: translate(-90px, calc(-50% + 1px))
 
 		&__copy
 			font-family: $tertiary-font
