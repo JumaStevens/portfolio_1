@@ -133,6 +133,7 @@ var translate = {
 		let req = translate.req_json;
 		let res = translate.res_json;
 		let time = translate.time; // time that has passed since onclick
+		let now = Date.now();
 
 		console.log(time);
 		loader.handler();
@@ -147,7 +148,7 @@ var translate = {
 					for(let i=0;i<res.length;i++) {
 						res[i].node.innerHTML = res[i].text;
 					}
-				}, 1000 - time);
+				}, 1000 - (now - time));
 			}
 			else if(translate.active === 'fr') {
 				translate.active = 'en';
@@ -158,7 +159,7 @@ var translate = {
 					for(let i=0;i<req.length;i++) {
 						res[i].node.innerHTML = req[i].text;
 					}
-				}, 1000 - time);
+				}, 1000 - (now - time));
 			}
 		}
 		else if(!res.length) {
@@ -188,9 +189,8 @@ var translate = {
 				if(lang[i].innerHTML === 'fr.') {
 					lang[i].addEventListener('click', function lang_switch() {
 						// set start time
-						translate.time = false;
-						translate.time = performance.now();
-						console.log('fr listener');
+						translate.time = Date.now();
+						console.log('fr listener' + translate.time);
 						// call
 						translate.handler();
 						// remove
@@ -209,9 +209,8 @@ var translate = {
 				if(lang[i].innerHTML === 'en.') {
 					lang[i].addEventListener('click', function lang_switch() {
 						// set start time
-						performance.clearMeasures();
-						translate.time = performance.now();
-						console.log('en listener');
+						translate.time = Date.now();
+						console.log('en listener' + translate.time);
 						// call
 						translate.handler();
 						// remove
