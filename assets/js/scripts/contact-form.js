@@ -205,9 +205,11 @@ var contact_form = {
 	close: function() {
 		const contact = document.getElementsByClassName('contact')[0];
 		const form = document.getElementsByClassName('contact-form')[0];
+		const side_container = document.getElementsByClassName('contact-side-container')[0];
 		const side = document.getElementsByClassName('contact-side')[0];
 		const circle = document.getElementsByClassName('contact-side__circle')[0];
 		const email_svg = document.getElementsByClassName('contact-side__email-svg')[0];
+		const paperplane = document.getElementsByClassName('contact-side__paperplane-svg');
 		const email = document.getElementsByClassName('contact-side__email')[0];
 		const status = document.getElementsByClassName('contact-side__status')[0];
 		
@@ -215,10 +217,14 @@ var contact_form = {
 		contact_form.button_listener();
 		contact_form.blur_listener();
 		contact.classList.remove('open');
-		form.classList.add('hide');
-		side.classList.add('hide');
+		form.classList.classList.add('hide');
+		form.classList.classList.remove('sending');
+		side_container.classList.remove('sending');
+		side.classList.classList.add('hide');
 		circle.classList.remove('sending');
 		email_svg.classList.remove('hide');
+		paperplane[0].classlist.remove('sending');
+		paperplane[1].classlist.remove('sending');
 		email.classList.remove('hide');
 		status.classList.add('hide');
 	},
