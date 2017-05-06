@@ -217,10 +217,10 @@ var contact_form = {
 		contact_form.button_listener();
 		contact_form.blur_listener();
 		contact.classList.remove('open');
-		form.classList.classList.add('hide');
-		form.classList.classList.remove('sending');
+		form.classList.add('hide');
+		form.classList.remove('sending');
 		side_container.classList.remove('sending');
-		side.classList.classList.add('hide');
+		side.classList.add('hide');
 		circle.classList.remove('sending');
 		email_svg.classList.remove('hide');
 		paperplane[0].classlist.remove('sending');
