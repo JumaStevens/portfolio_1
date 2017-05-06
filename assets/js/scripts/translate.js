@@ -31,7 +31,7 @@ var translate = {
 
 	// handle ajax error
 	error: function() {
-		const copy = document.getElementsByClassName('loader_copy')[0];
+		const copy = document.getElementsByClassName('loader-copy')[0];
 
 		for(let i=0;i<copy.children.length;i++) {
 			copy.children[i].style.display = 'none';

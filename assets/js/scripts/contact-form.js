@@ -217,8 +217,7 @@ var contact_form = {
 		contact_form.button_listener();
 		contact_form.blur_listener();
 		contact.classList.remove('open');
-		form.classList.add('hide');
-		form.classList.remove('sending');
+		form.classList.add('hide');	
 		side_container.classList.remove('sending');
 		side.classList.add('hide');
 		circle.classList.remove('sending');
@@ -227,6 +226,9 @@ var contact_form = {
 		paperplane[1].classlist.remove('sending');
 		email.classList.remove('hide');
 		status.classList.add('hide');
+		setTimeout(function() { // allow time for closing
+			form.classList.remove('sending');
+		}, 500);
 	},
 
 	// contact-button listener
