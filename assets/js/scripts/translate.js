@@ -36,13 +36,13 @@ var translate = {
 		for(let i=0;i<copy.children.length;i++) {
 			copy.children[i].style.display = 'none';
 		}
-		copy.innerHTML = 'error';
+		copy.innerText = 'error';
 
 		setTimeout(function() {
 			loader.handler(true);
 			translate.event_listener();
 			setTimeout(function() {
-				copy.innerHTML = '';
+				copy.innerText = '';
 				for(let i=0;i<copy.children.length;i++) {
 					copy.children[i].style.display = 'initial';
 				}
@@ -63,25 +63,19 @@ var translate = {
 
 		xhr.onload = function() {
 			res = JSON.parse(xhr.responseText);
-			console.log(res);
-			console.log(res.length);
-			if(res.length > 10) {
-				translate.decompile(res);
-			}
-			else {
-				translate.error();
-			}
+			translate.decompile(res);
+			console.log(xhr.status);
+			console.log(res.text);
+			console.log(res.text.length);
 		};
 
 		xhr.onerror = function() {
 			translate.error();
-			console.log(xhr.error);
 		};
 
 		xhr.ontimeout = function() {
 			xhr.abort();
 			translate.error();
-			console.log('timeout');
 		};
 	},
 
