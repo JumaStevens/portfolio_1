@@ -59,18 +59,22 @@
 			color: rgb(250, 250, 250)
 
 @keyframes gallery-child-3
+	0%
+		transform: translate(-50%, -50%)
 	10%, 100%
 		//transform: translateY(calc((-100% - 150px)*2))
 		transform: translate(-50%, calc((-150% - 150px)*2))
 
 @keyframes gallery-child-4
+	0%
+		transform: translate(-50%, calc(50% + 150px))
 	10%, 30%
 		transform: translate(-50%, -50%)
 	40%, 100%
 		transform: translate(-50%, calc(-150% - 150px))
 
 @keyframes gallery-child-5
-	30%
+	0%, 30%
 		transform: translate(-50%, calc((50% + 150px)*2))
 	40%, 100%
 		transform: translate(-50%, -50%)
