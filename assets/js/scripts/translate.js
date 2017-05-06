@@ -134,6 +134,9 @@ var translate = {
 		let res = translate.res_json;
 		let time = translate.time; // time that has passed since onclick
 
+		console.log(time);
+		loader.handler();
+
 		if(res.length) {
 			if(translate.active === 'en') {
 				translate.active = 'fr';
@@ -188,7 +191,6 @@ var translate = {
 						translate.time = performance.now();
 						// call
 						translate.handler();
-						loader.handler();
 						// remove
 						for(let j=0;j<lang.length;j++) {
 							if(lang[j].innerHTML === 'fr.') {
@@ -208,7 +210,6 @@ var translate = {
 						translate.time = performance.now();
 						// call
 						translate.handler();
-						loader.handler();
 						// remove
 						for(let j=0;j<lang.length;j++) {
 							if(lang[j].innerHTML === 'en.') {
