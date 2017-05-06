@@ -84,7 +84,7 @@ var contact_form = {
 		};
 
 		let xhr = new XMLHttpRequest();
-		xhr.open('POST', 'contact_form');
+		xhr.open('POST', 'contact-form');
 		xhr.setRequestHeader('Content-Type', 'application/json');
 		xhr.timeout = 15000;
 		xhr.send(JSON.stringify(data));
