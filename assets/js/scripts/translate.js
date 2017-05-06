@@ -1,6 +1,6 @@
 var translate = {
 	// elapse time since onclick event
-	time: false,
+	start: false,
 	// active language
 	active: 'en',
 	total: false,
@@ -132,10 +132,10 @@ var translate = {
 	handler: function() {
 		let req = translate.req_json;
 		let res = translate.res_json;
-		let time = translate.time; // time that has passed since onclick
+		let start = translate.start; // time elapsed since onclick
 		let now = Date.now();
 
-		console.log(time);
+		// expose loader
 		loader.handler();
 
 		if(res.length) {
@@ -148,7 +148,7 @@ var translate = {
 					for(let i=0;i<res.length;i++) {
 						res[i].node.innerHTML = res[i].text;
 					}
-				}, 1000 - (now - time));
+				}, 1000 - (now - start));
 			}
 			else if(translate.active === 'fr') {
 				translate.active = 'en';
@@ -159,7 +159,7 @@ var translate = {
 					for(let i=0;i<req.length;i++) {
 						res[i].node.innerHTML = req[i].text;
 					}
-				}, 1000 - (now - time));
+				}, 1000 - (now - start));
 			}
 		}
 		else if(!res.length) {
@@ -189,8 +189,7 @@ var translate = {
 				if(lang[i].innerHTML === 'fr.') {
 					lang[i].addEventListener('click', function lang_switch() {
 						// set start time
-						translate.time = Date.now();
-						console.log('fr listener' + translate.time);
+						translate.start = Date.now();
 						// call
 						translate.handler();
 						// remove
@@ -209,8 +208,7 @@ var translate = {
 				if(lang[i].innerHTML === 'en.') {
 					lang[i].addEventListener('click', function lang_switch() {
 						// set start time
-						translate.time = Date.now();
-						console.log('en listener' + translate.time);
+						translate.start = Date.now();
 						// call
 						translate.handler();
 						// remove
