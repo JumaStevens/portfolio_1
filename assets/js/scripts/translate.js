@@ -63,10 +63,12 @@ var translate = {
 
 		xhr.onload = function() {
 			res = JSON.parse(xhr.responseText);
-			translate.decompile(res);
-			console.log(xhr.status);
-			console.log(res.text);
-			console.log(res.text.length);
+			if(res.text.length > 100) {
+				translate.decompile(res);
+			}
+			else {
+				translate.error();
+			}
 		};
 
 		xhr.onerror = function() {
