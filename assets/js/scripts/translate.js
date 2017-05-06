@@ -209,7 +209,7 @@ var translate = {
 				if(lang[i].innerHTML === 'en.') {
 					lang[i].addEventListener('click', function lang_switch() {
 						// set start time
-						translate.time = false;
+						performance.clearMeasures();
 						translate.time = performance.now();
 						console.log('en listener');
 						// call
