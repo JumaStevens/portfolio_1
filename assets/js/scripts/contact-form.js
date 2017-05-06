@@ -222,8 +222,8 @@ var contact_form = {
 		side.classList.add('hide');
 		circle.classList.remove('sending');
 		email_svg.classList.remove('hide');
-		paperplane[0].classlist.remove('sending');
-		paperplane[1].classlist.remove('sending');
+		paperplane[0].classList.remove('sending');
+		paperplane[1].classList.remove('sending');
 		email.classList.remove('hide');
 		status.classList.add('hide');
 		setTimeout(function() { // allow time for closing

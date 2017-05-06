@@ -63,6 +63,8 @@ var translate = {
 
 		xhr.onload = function() {
 			res = JSON.parse(xhr.responseText);
+			console.log(res);
+			console.log(res.length);
 			if(res.length > 10) {
 				translate.decompile(res);
 			}
@@ -73,11 +75,13 @@ var translate = {
 
 		xhr.onerror = function() {
 			translate.error();
+			console.log(xhr.error);
 		};
 
 		xhr.ontimeout = function() {
 			xhr.abort();
 			translate.error();
+			console.log('timeout');
 		};
 	},
 
