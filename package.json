@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/JumaStevens/portfolio#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.14.1",
     "nodemailer": "^3.1.7",
-    "body-parser": "^1.17.1",
+    "request": "^2.81.0",
     "validator": "^7.0.0"
   },
   "engines": {
