@@ -11,7 +11,7 @@ function isChrome() {
 		document.getElementsByClassName('article__copy'),
 		document.getElementsByClassName('article__link'),
 		document.getElementsByClassName('tech__item'),
-		document.getElementsByClassName('menu-botton__copy'),
+		document.getElementsByClassName('menu-button__copy'),
 		document.getElementsByClassName('footer-button__copy'),
 		document.getElementsByClassName('footer-copyright'),
 		document.getElementsByClassName('contact-side__email'),
