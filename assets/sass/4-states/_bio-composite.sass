@@ -1,6 +1,5 @@
 .bio-composite
 	position: relative
-	//+mq-tablet
 	overflow: hidden
 
 	&__image
@@ -8,9 +7,8 @@
 		top: 0
 		left: 0
 		z-index: 35
-		//+mq-tablet
 		transition: transform 500ms $bezier 100ms
-			//filter: drop-shadow(-18px 18px 10px rgba(34, 34, 34, 0.3))
+		//filter: drop-shadow(-18px 18px 10px rgba(34, 34, 34, 0.3))
 
 	&::before,
 	&::after
@@ -25,13 +23,10 @@
 		transition: transform 250ms $bezier
 
 	&::after
-		top: unset
 		bottom: 0
 		z-index: 36
-		//transition-delay: 250ms
 
 	&.hide &__image
-		//+mq-tablet
 		transform: translateY(101%)
 
 	&.hide

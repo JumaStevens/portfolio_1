@@ -36,7 +36,7 @@ gulp.task('sass', function() {
 	gulp.src(sassSources)
 	.pipe(sass({outputStyle: 'extended'}))
 	.on('error', gutil.log)
-	.pipe(autoprefixer({browsers: ['last 2 versions'], cascade: false}))
+	.pipe(autoprefixer({browsers: ['last 4 versions'], cascade: false}))
 	.pipe(cleanCSS({compatibility: 'ie8'}))
 	.pipe(rename('app.min.css'))
 	.pipe(gulp.dest('assets/css'))
