@@ -1,0 +1,16 @@
+.footer
+	
+	&-button
+		&__arrow
+			+mq-tablet
+				transition: transform 500ms $bezier
+		&:hover .footer-button__arrow
+			+mq-tablet
+				transform: translate(-50px, -50%) rotate(180deg)
+		&::before
+			+mq-tablet
+				transition: transform 500ms $bezier, width 500ms $bezier
+		&:hover.footer-button::before
+			+mq-tablet
+				width: 25px
+				transform: translate(-50px, calc(-50% + 1px))

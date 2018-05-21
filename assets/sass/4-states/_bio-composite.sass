@@ -1,0 +1,36 @@
+.bio-composite
+	position: relative
+	overflow: hidden
+
+	&__image
+		position: relative
+		top: 0
+		left: 0
+		z-index: 35
+		transition: transform 500ms $bezier 100ms
+		//filter: drop-shadow(-18px 18px 10px rgba(34, 34, 34, 0.3))
+
+	&::before,
+	&::after
+		position: absolute
+		bottom: 50%
+		left: 0
+		z-index: 34
+		width: 100%
+		height: 10%
+		content: ''
+		background: $primary-color
+		transition: transform 250ms $bezier
+
+	&::after
+		bottom: 0
+		z-index: 36
+
+	&.hide &__image
+		transform: translateY(101%)
+
+	&.hide
+		&::before
+			transform: translateX(-101%)
+		&::after
+			transform: translateX(101%)

@@ -1,0 +1,47 @@
+.bio
+	padding-top: 100px
+	background: $secondary-color
+
+	&-title-container
+		display: flex
+		justify-content: center
+		+mq-tablet
+			width: 50%
+	
+	&-title
+		padding: 0 40px
+
+	&-content-container
+		display: flex
+		flex-direction: column
+		+mq-tablet
+			flex-direction: row
+
+	&-composite-container
+		margin-bottom: 50px
+		display: flex
+		justify-content: center
+		align-items: flex-start
+		+mq-tablet
+			min-width: 50%
+			margin-bottom: 0
+
+	&-composite
+		max-width: 600px
+		margin: 0 20px
+		+mq-tablet
+			margin: 0 40px
+
+		&__image
+			width: 100%
+			height: auto
+
+	&-article
+		+mq-tablet
+			max-width: 520px
+			padding: 0 40px 0 0
+
+	&-skills,
+	&-tech
+		margin-top: 100px
+		align-self: flex-start

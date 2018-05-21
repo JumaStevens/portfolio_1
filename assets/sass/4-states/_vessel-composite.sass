@@ -1,0 +1,191 @@
+.vessel-composite
+	background: rgb(255, 255, 255)
+
+	&__image
+		visibility: hidden
+		position: absolute
+		top: 0
+		left: 0
+		width: auto
+		height: 100%
+		+mq-tablet
+			visibility: visible
+
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4),
+		&:nth-child(5),
+		&:nth-child(6),
+		&:nth-child(7)
+			+mq-tablet
+				right: 0
+				left: unset
+
+		&:nth-child(7)
+			+mq-tablet
+				top: unset
+				bottom: 0
+				width: 48.3%
+				height: auto
+
+		&:nth-child(8),
+		&:nth-child(9),
+		&:nth-child(10)
+			+mq-tablet
+				left: 4.08%
+
+		&:nth-child(12)
+			+mq-tablet
+				top: calc(50% - 50px)
+				left: calc(50% + 3px)
+				width: 20px
+				height: auto
+				transform: translate(0, -25%)
+
+		&:nth-child(13)
+			+mq-tablet
+				top: unset
+				bottom: calc(50% - 50px)
+				left: calc(50% + 3px)
+				width: 20px
+				height: auto
+				transform: translate(0, 25%) rotate(180deg)
+
+		&:nth-child(14)
+			+mq-tablet
+				top: 50%
+				left: calc(50% + 3px)
+				width: 10px
+				height: auto
+				transform: translate(50%, -50%)
+
+	// animations
+	&__image
+		+mq-tablet
+			animation-duration: 10s
+			animation-delay: 2s
+
+		&:nth-child(2)
+			+mq-tablet
+				opacity: 1
+				animation-name: vessel-child-2
+
+		&:nth-child(3)
+			+mq-tablet
+				opacity: 0
+				animation-name: vessel-child-3
+
+		&:nth-child(4)
+			+mq-tablet
+				opacity: 0
+				animation-name: vessel-child-4
+
+		&:nth-child(5)
+			+mq-tablet
+				opacity: 0
+				animation-name: vessel-child-5
+
+		&:nth-child(6)
+			+mq-tablet
+				opacity: 0
+				animation-name: vessel-child-6
+
+		&:nth-child(7)
+			+mq-tablet
+				opacity: 0
+				animation-name: vessel-child-7
+
+		&:nth-child(8)
+			+mq-tablet
+				opacity: 1
+				animation-name: vessel-child-8
+
+		&:nth-child(9)
+			+mq-tablet
+				opacity: 0
+				animation-name: vessel-child-9
+
+		&:nth-child(10)
+			+mq-tablet
+				opacity: 0
+				animation-name: vessel-child-10
+
+	&.hide &__image
+		+mq-tablet
+			animation-play-state: paused
+			
+
+@keyframes vessel-child-2
+	5%, 100%
+		opacity: 0
+		transform: translateY(25%)
+
+@keyframes vessel-child-3
+	0%
+		transform: translateY(25%)
+	5%, 15%
+		opacity: 1
+		transform: translateY(0)
+	20%, 100%
+		opacity: 0
+		transform: translateY(25%)
+
+@keyframes vessel-child-4	
+	0%, 15%
+		opacity: 0
+		transform: translateY(25%)
+	20%, 30%
+		opacity: 1
+		transform: translateY(0)
+	35%, 100%
+		opacity: 0
+		transform: translateY(25%)
+
+@keyframes vessel-child-5
+	0%, 30%
+		opacity: 0
+		transform: translateY(25%)
+	35%, 45%
+		opacity: 1
+		transform: translateY(0)
+	50%, 100%
+		opacity: 0
+		transform: translateY(25%)
+
+@keyframes vessel-child-6
+	0%, 45%
+		opacity: 0
+		transform: translateY(25%)
+	50%, 60%
+		opacity: 1
+		transform: translateY(0)
+	65%, 100%
+		opacity: 0.4
+
+@keyframes vessel-child-7
+	0%, 60%
+		opacity: 1
+		transform: translateY(100%)
+	65%, 100%
+		opacity: 1
+		transform: translateY(0)
+
+@keyframes vessel-child-8
+	0%, 15%
+		opacity: 1
+	20%, 100%
+		opacity: 0
+
+@keyframes vessel-child-9
+	0%, 15%
+		opacity: 0
+	20%, 45%
+		opacity: 1
+	50%, 100%
+		opacity: 0
+
+@keyframes vessel-child-10
+	0%, 45%
+		opacity: 0
+	50%, 100%
+		opacity: 1

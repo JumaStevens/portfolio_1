@@ -1,0 +1,68 @@
+.header
+	position: fixed
+	z-index: 950
+	top: 0
+	left: 0
+
+	&-logo
+		position: fixed
+		top: 30px
+		left: 28px
+		transition: transform 500ms $bezier
+		+mq-tablet
+			transform: translate(-28px + $border-size, -30px)
+
+	&-menu-toggle--top
+		position: fixed
+		top: -45px
+		right: 28px
+		visibility: initial
+		transform: translateY(45px + 28px)
+		transition: transform 500ms $bezier, visibility
+		+mq-tablet
+			visibility: hidden
+			transform: translateY(0)
+			transition: transform 500ms $bezier, visibility 0ms 500ms
+
+	&-menu-toggle--left
+		position: fixed
+		top: 50%
+		left: -55px
+		visibility: hidden
+		transform: translate(0, -50%)
+		transition: transform 500ms $bezier, visibility 0ms 500ms 
+		+mq-tablet
+			visibility: initial
+			transform: translate(55px + $border-size/2, -50%)
+			transition: transform 500ms $bezier, visibility
+
+	&-lang-list
+		position: fixed
+		top: -$border-size
+		right: $border-size
+		visibility: hidden
+		transition: transform 500ms $bezier, visibility 0ms 500ms
+		+mq-tablet
+			visibility: initial
+			transform: translateY($border-size)
+			transition: transform 500ms $bezier, visibility
+
+		& .lang-list__link
+			+mq-tablet
+				transition: color 500ms
+			
+	&-social-list
+		position: fixed
+		top: 50%
+		right: -40px
+		visibility: hidden
+		transform: translate(0, -50%)
+		transition: transform 500ms $bezier, visibility 0ms 500ms
+		+mq-tablet
+			visibility: initial
+			transform: translate(-40px, -50%)
+			transition: transform 500ms $bezier, visibility
+
+	&-scrolldown,
+	&-scrolltop
+		display: none

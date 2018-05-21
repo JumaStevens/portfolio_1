@@ -1,0 +1,56 @@
+.portfolio
+
+	&-composite
+		+mq-tablet
+			box-shadow: -18px 18px 10px rgba(34, 34, 34, 0.4)
+			transition: box-shadow 1000ms $bezier, transform 1000ms $bezier
+		&.hide
+			+mq-tablet
+				box-shadow: 0 0 0 rgba(34, 34, 34, 0.4)
+				transform: scale(0.95)
+
+	&-article-container
+		+mq-tablet
+			z-index: 22
+
+		&.hide
+			+mq-tablet
+				z-index: 21
+
+.article
+
+	&__title
+		+mq-tablet
+			transition: transform 1000ms $bezier, opacity 500ms $bezier 500ms
+		&.hide
+			+mq-tablet
+				opacity: 0
+				transform: translateY(-100%)
+				transition: transform 500ms $bezier, opacity 400ms $bezier
+	
+	&__subtitle
+		+mq-tablet
+			transition: transform 1000ms $bezier, opacity 500ms $bezier 500ms
+		&.hide
+			+mq-tablet
+				opacity: 0
+				transform: translateY(-100%)
+				transition: transform 500ms $bezier, opacity 250ms $bezier
+	
+	&__copy
+		+mq-tablet
+			transition: transform 1000ms $bezier, opacity 500ms $bezier 500ms
+		&.hide
+			+mq-tablet
+				opacity: 0
+				transform: translateY(100%)
+				transition: transform 500ms $bezier, opacity 250ms $bezier 250ms
+
+	&__link
+		+mq-tablet
+			transition: transform 1000ms $bezier, opacity 500ms $bezier 500ms
+		&.hide
+			+mq-tablet
+				opacity: 0
+				transform: translateX(100%)
+				transition: transform 500ms $bezier, opacity 250ms $bezier

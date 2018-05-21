@@ -1,0 +1,74 @@
+section.bio#bio
+
+	//- title
+	.bio-title-container
+		h2.title.title--md.bio-title Bio
+			span.title__period .
+
+	//- content container
+	.bio-content-container
+
+		//- composite
+		.bio-composite-container
+			.bio-composite.hide
+				img.bio-composite__image(src='../images/headshot_min.png', alt='')
+
+		//- about
+		article.article.bio-article
+			h3.article__title.title.title--sm About
+			p.article__copy I build carefully-crafted web experiences. My process begins by identifying the primary call to action of a project. I then use a number of tools that devolve gracefully into efficient HTML, CSS, and JavaScript. I tend to favor a minimalistic style both visually and in code. As a web developer in an ever-evolving field, I work hard to stay in touch with emerging technologies, and design trends. If you have any projects or opportunities, please get in touch!
+
+			//- skills
+			.skills.bio-skills
+				h3.skills__title.title.title--sm Skills
+				.skills__list-container
+					ul.skills__list
+						li.skills__item
+							span(title='HTML5')
+								include svg/html5.pug
+						li.skills__item
+							span(title='CSS3')
+								include svg/css3.pug
+						li.skills__item
+							span(title='Javascript')
+								include svg/javascript.pug
+					ul.skills__list
+						li.skills__item
+							span(title='Pug(Jade)')
+								include svg/pug.pug
+						li.skills__item
+							span(title='Sass')
+								include svg/sass.pug
+						li.skills__item
+							span(title='Node.js')
+								include svg/nodejs.pug
+					ul.skills__list
+						li.skills__item
+							span(title='Gulp.js')
+								include svg/gulpjs.pug
+						li.skills__item
+							span(title='Photoshop')
+								include svg/photoshop.pug
+
+			//- techniques
+			.tech.bio-tech
+				h3.tech__title.title.title--sm Techniques
+				ul.tech__list
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;Responsive Design
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;Mobile-First
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;Version Control
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;AJAX
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;BEM
+					li.tech__item
+						span.tech__item--color &rtrif;
+						| &#32;SMACSS

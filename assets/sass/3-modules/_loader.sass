@@ -1,0 +1,38 @@
+.loader
+	width: 100vw
+	height: 100vh
+	background: $primary-color
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+
+	&-juggle
+		position: relative
+		display: flex
+		justify-content: center
+		align-items: center
+
+		&__ball
+			position: absolute
+			z-index: 1005
+			width: 20px
+			height: 20px
+			border-radius: 50%
+			background: $white-color
+
+	&-copy
+		font-family: $primary-font
+		font-size: 24px
+		font-weight: 900
+		text-transform: uppercase
+		color: $black-color
+
+		&__letter
+			position: relative
+			z-index: 1004
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-child(6),
+			&:nth-child(7)
+				z-index: 1006

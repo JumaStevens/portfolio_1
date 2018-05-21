@@ -1,0 +1,38 @@
+.article
+	max-width: 600px
+	padding: 0 20px
+	margin: 0 auto
+	display: flex
+	flex-direction: column
+	align-items: center
+	+mq-tablet
+		padding: 0 40px
+		margin: 0
+		overflow: hidden
+
+	&__subtitle
+		font-family: $tertiary-font
+		font-size: 0.7rem
+		text-transform: capitalize
+		color: $lightgrey-color
+		margin: 2px 0 4px 0
+
+	&__copy
+		display: inline-block
+		margin-top: 10px
+		font-family: $secondary-font
+		font-size: 1rem
+		font-weight: 900
+		line-height: 1.6
+		color: $darkgrey-color
+
+	&__link
+		align-self: flex-end
+		padding-bottom: 2px
+		margin: 20px 20px 0 0
+		font-family: $tertiary-font
+		font-size: 0.8rem
+		font-weight: 900
+		font-style: italic
+		text-decoration: underline
+		color: $darkgrey-color

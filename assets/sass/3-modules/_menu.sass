@@ -1,0 +1,110 @@
+.menu
+	width: calc(100% - #{$border-size *2})
+	height: 100%
+	padding: 20px
+	background: $white-color
+	+mq-tablet
+		width: calc(100% - 15vw)
+		padding: 60px
+
+	// inner container
+	&-inner-container
+		width: inherit
+		height: inherit
+		display: flex
+		flex-direction: column
+		justify-content: center
+
+	// language
+	&-lang-list
+		position: absolute
+		top: 0
+		+mq-tablet
+			display: none
+		& .lang-list__item
+			overflow: hidden
+		& .lang-list__link
+			display: block
+
+	// button
+	&-button-container
+		display: none
+		+mq-tablet
+			overflow: hidden
+			display: initial
+	
+	&-button
+		+mq-tablet
+			position: relative
+			display: flex
+			align-items: center
+
+		&__arrow
+			+mq-tablet
+				position: absolute
+				top: 50%
+				left: 0
+				transform: translate(-80px, -50%) rotate(180deg)
+				& > .arrow-svg
+					width: 30px
+					fill: $black-color
+
+		&::before
+			+mq-tablet
+				position: absolute
+				top: 50%
+				left: 0
+				width: 38px
+				height: 3px
+				content: ''
+				background: $black-color
+				transform: translate(-90px, calc(-50% + 1px))
+
+		&__copy
+			+mq-tablet
+				font-family: $tertiary-font
+				font-size: 0.8rem
+				font-weight: 900
+				font-style: italic
+				line-height: 1.5
+				color: $darkgrey-color
+
+// navigation
+.nav
+	&__list
+		display: inline-flex
+		flex-direction: column
+
+	&__item
+		width: calc(100% + 1rem)
+		margin: 5px 0
+		overflow: hidden
+		+mq-tablet
+			width: calc(100% + 3rem)
+			margin: 10px 0
+
+	&__item:nth-child(4)
+		+mq-tablet
+			display: none
+
+	&__link
+		display: block
+
+	&__copy
+		position: relative
+		font-size: 2rem
+		+mq-tablet
+			font-size: 4rem
+
+	&__copy::before
+		position: absolute
+		top: 50%
+		left: -100%
+		z-index: -1
+		width: 100%
+		height: 25%
+		display: block
+		content: ''
+		background: $primary-color
+		transform: translateY(-50%)
+		transition: transform 250ms $bezier

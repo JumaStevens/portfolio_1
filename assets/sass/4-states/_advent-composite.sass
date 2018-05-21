@@ -1,0 +1,23 @@
+.advent-composite
+	
+	&__image
+		visibility: hidden
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: auto
+		+mq-tablet
+			visibility: visible
+
+		&:nth-child(2)
+			+mq-tablet
+				animation: advent-scroll 10s 2s
+
+	&.hide &__image
+		+mq-tablet
+			animation-play-state: paused
+
+@keyframes advent-scroll
+	80%, 100%
+		transform: translateY(calc(-100% + 395px))

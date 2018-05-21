@@ -1,0 +1,45 @@
+.menu-toggle
+
+	// hover line
+	&:hover .menu-toggle__line-0
+		+mq-tablet
+			width: 20px
+	&:hover .menu-toggle__line-1
+		+mq-tablet
+			width: 26px
+	&:hover .menu-toggle__line-2
+		+mq-tablet
+			width: 16px
+
+	// hover copy
+	&:hover .menu-toggle__copy-0
+		+mq-tablet
+			transform: translateY(-5px)
+	&:hover .menu-toggle__copy-1
+		+mq-tablet
+			transform: translateY(5px)
+	&:hover .menu-toggle__copy-2
+		+mq-tablet
+			transform: translateY(-4px)
+	&:hover .menu-toggle__copy-3
+		+mq-tablet
+			transform: translateY(2px)
+
+	// open line		
+	&.open .menu-toggle__line-0
+		width: 20px
+		transform: translateY(4px) rotate(-45deg)
+	&.open .menu-toggle__line-1
+		transform: translateY(0) rotate(0) scale(0)
+		opacity: 0
+	&.open .menu-toggle__line-2
+		transform: translateY(-4px) rotate(45deg)
+	
+	// open copy
+	&.open .menu-toggle__copy
+		opacity: 0
+
+// open toggle
+.open.header-menu-toggle--left
+	+mq-tablet
+		transform: translate(135px, -50%)

@@ -1,0 +1,86 @@
+.footer
+	padding-top: 100px
+	background: $white-color
+	display: flex
+	flex-direction: column
+	align-items: center
+	+mq-tablet
+		padding-bottom: 100px
+		margin-bottom: $border-size
+		flex-direction: row
+		flex-wrap: wrap
+
+	// button
+	&-button-container
+		+mq-tablet
+			width: 50%
+			display: flex
+			justify-content: center
+			align-items: center
+
+	&-button
+		position: relative
+		display: flex
+		align-items: center
+
+		&__arrow
+			display: none
+			+mq-tablet
+				display: initial
+				position: absolute
+				top: 50%
+				left: 0
+				transform: translate(-80px, -50%) rotate(180deg)
+				& > .arrow-svg
+					width: 30px
+					fill: $black-color
+
+		&::before
+			+mq-tablet
+				position: absolute
+				top: 50%
+				left: 0
+				width: 38px
+				height: 3px
+				content: ''
+				background: $black-color
+				transform: translate(-90px, calc(-50% + 1px))
+
+		&__copy
+			font-family: $tertiary-font
+			font-size: 0.8rem
+			font-weight: 900
+			font-style: italic
+			line-height: 1.5
+			color: $darkgrey-color
+
+	// social media
+	&-social-list
+		margin-top: 50px
+		+mq-tablet
+			display: none
+
+	// email
+	&-email
+		display: none
+		+mq-tablet
+			width: 50%
+			font-family: $tertiary-font
+			font-size: 0.8rem
+			font-weight: 900
+			text-align: center
+			color: $darkgrey-color
+	
+	// copyright
+	&-copyright
+		width: 100%
+		padding: 50px 0 20px 0
+		font-family: $tertiary-font
+		font-size: 0.5rem
+		font-weight: 900
+		text-transform: uppercase
+		text-align: center
+		color: $darkgrey-color
+		+mq-tablet
+			width: 50%
+			padding: 0

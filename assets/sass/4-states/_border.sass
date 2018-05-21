@@ -1,0 +1,28 @@
+.border
+	&__top.hide,
+	&__bottom.hide,
+	&__left.hide,
+	&__right.hide
+		+mq-tablet
+			transform: none
+
+	&__left.hover
+		+mq-tablet
+			transform: translateX(100%) scale(3)
+
+	&__top.open
+		transform: translateY(50%)
+		+mq-tablet
+			transform: translateY(100%) scale(2)
+	&__bottom.open
+		transform: translateY(-50%)
+		+mq-tablet
+			transform: translateY(-100%) scale(2)
+	&__left.open
+		transform: translateX(50%)
+		+mq-tablet
+			transform: translateX(100%) scale(2)
+	&__right.open
+		transform: translateX(-50%)
+		+mq-tablet
+			transform: translateX(-100%) scale(2)

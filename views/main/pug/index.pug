@@ -1,0 +1,49 @@
+doctype
+html(lang="en")
+	
+	//- head
+	include partials/head.pug
+
+	//- body
+	body
+		// app container
+		.container
+
+			// loader
+			include partials/loader.pug
+
+			// border
+			include partials/border.pug
+
+			// header
+			include partials/header.pug
+
+			// menu
+			include partials/menu.pug
+
+			// menu color
+			.menu-color
+
+			// application
+			.app
+				.page-container
+					main.page
+
+						// home
+						include partials/home.pug
+
+						// bio
+						include partials/bio.pug
+
+						// portfolio
+						include partials/portfolio.pug
+
+						// footer
+						include partials/footer.pug
+
+						// contact
+						include partials/contact.pug
+
+		// script
+		//-script(type='text/javascript', src='../../assets/js/script.min.js')
+		script(type='text/javascript', src='../js/script.min.js')

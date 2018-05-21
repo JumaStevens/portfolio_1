@@ -1,0 +1,44 @@
+header.header
+	
+	//- logo
+	.header-logo.logo
+		a(href='#home') Juma Stevens&#8482;
+
+	//- menu toggle left
+	a.menu-toggle.header-menu-toggle--left
+		span.menu-toggle__lines
+			span.menu-toggle__line-0
+			span.menu-toggle__line-1
+			span.menu-toggle__line-2
+		span.menu-toggle__copy
+			span.menu-toggle__copy-0 M
+			span.menu-toggle__copy-1 e
+			span.menu-toggle__copy-2 n
+			span.menu-toggle__copy-3 u
+	
+	//- menu toggle top
+	a.menu-toggle.header-menu-toggle--top
+		span.menu-toggle__lines
+			span.menu-toggle__line-0
+			span.menu-toggle__line-1
+			span.menu-toggle__line-2
+
+	//- languages
+	include modules/lang-list
+	+lang-list('header')
+
+	//- social media
+	include modules/social-list
+	+social-list('header', 'column')
+
+	//- scrolldown
+	span.scrolldown.header-scrolldown
+		span.scrolldown__arrow
+			include svg/arrow
+		span.scrolldown__copy Scroll
+
+	//- scrolltop
+	span.scrolltop.header-scrolltop(href='#')
+		span.scrolltop__arrow
+			include svg/arrow
+		span.scrolltop__copy Top
